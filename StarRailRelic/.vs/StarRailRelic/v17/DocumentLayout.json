@@ -52,10 +52,9 @@
               "RelativeDocumentMoniker": "Localization\\Items\\en-US_Mods.StarRailRelic.Items.hjson",
               "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\Items\\en-US_Mods.StarRailRelic.Items.hjson",
               "RelativeToolTip": "Localization\\Items\\en-US_Mods.StarRailRelic.Items.hjson",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAFEAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAFUAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-24T10:02:11.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T10:02:11.91Z"
             },
             {
               "$type": "Document",
@@ -65,10 +64,9 @@
               "RelativeDocumentMoniker": "Localization\\Items\\zh-Hans_Mods.StarRailRelic.Items.hjson",
               "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\Items\\zh-Hans_Mods.StarRailRelic.Items.hjson",
               "RelativeToolTip": "Localization\\Items\\zh-Hans_Mods.StarRailRelic.Items.hjson",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAE4AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAE0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-24T10:02:11.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T10:02:11.322Z"
             },
             {
               "$type": "Document",
@@ -78,7 +76,7 @@
               "RelativeDocumentMoniker": "Content\\Items\\Relic\\Out\\Two\\Duke\\DukeSet.cs",
               "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\Out\\Two\\Duke\\DukeSet.cs",
               "RelativeToolTip": "Content\\Items\\Relic\\Out\\Two\\Duke\\DukeSet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T11:30:25.197Z",
               "EditorCaption": ""
@@ -91,10 +89,9 @@
               "RelativeDocumentMoniker": "Content\\Items\\Relic\\Out\\One\\Musketeer\\MusketeerSet.cs",
               "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\Out\\One\\Musketeer\\MusketeerSet.cs",
               "RelativeToolTip": "Content\\Items\\Relic\\Out\\One\\Musketeer\\MusketeerSet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T11:04:13.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T11:04:13.177Z"
             },
             {
               "$type": "Document",
@@ -104,10 +101,9 @@
               "RelativeDocumentMoniker": "Common\\Players\\RelicSetSpecialEffectPlayer.cs",
               "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\RelicSetSpecialEffectPlayer.cs",
               "RelativeToolTip": "Common\\Players\\RelicSetSpecialEffectPlayer.cs",
-              "ViewState": "AgIAAPcAAAAAAAAAAAAowAsBAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAkBAAAAAAAAAAAAACEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T11:27:22.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T11:27:22.285Z"
             }
           ]
         }

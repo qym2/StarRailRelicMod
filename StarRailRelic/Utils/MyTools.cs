@@ -242,6 +242,11 @@ namespace StarRailRelic.Utils
         }
         #endregion
 
+        public static void AddModifiersAdditive(this ref NPC.HitModifiers modifiers, Player player, float additive)
+        {
+            modifiers.FinalDamage *= 1 + (additive / player.GetTotalDamage<MagicDamageClass>().Additive);
+        }
+
         public static Item NewItemSycn(IEntitySource entitySource, Vector2 position, int type, int stack = 1)
         {
             int item = Item.NewItem(entitySource, position, type, stack);

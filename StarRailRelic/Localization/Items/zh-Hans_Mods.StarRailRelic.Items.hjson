@@ -43,7 +43,7 @@ LightningSetTwo: 魔法伤害提高5%
 LightningSetFour:
 	'''
 	魔力消耗提高100%
-	使用魔力药水后，下一次魔法伤害提高180%
+	使用魔力药水后，下一次魔法伤害提高250%
 	'''
 MessengerSetTwo: 移动速度提高8%
 MessengerSetFour: 使用生命药水后，团队中所有玩家移动速度和加速度乘以1.15倍，持续10秒
@@ -76,7 +76,13 @@ DeadWatersSetFour:
 	对陷入不少于2/3个减益效果的目标造成的暴击伤害提高6%/9%
 	'''
 DotSetTwo: 伤害提高4%
-DotSetFour: 对受到持续伤害效果的目标造成伤害时无视6点防御力
+DotSetFour: 对受到持续伤害效果的目标造成伤害时,盔甲穿透提高6点
+DukeSetTwo: 魔法伤害提高5%
+DukeSetFour:
+	'''
+	造成魔法伤害时，根据自身在75个图格以内发射的魔法弹幕的数量
+	每个使魔法伤害提高3%，最多叠加8次
+	'''
 StarRailPassTip:
 	'''
 	当前环境：{0}

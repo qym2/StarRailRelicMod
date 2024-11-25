@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Terraria;
 
 namespace StarRailRelic.Common.Players
 {
@@ -54,6 +55,8 @@ namespace StarRailRelic.Common.Players
         public bool IsDeadWatersFourSet { get; set; }
 
         public bool IsDotFourSet { get; set; }
+
+        public bool IsDukeFourSet { get; set; }
 
         public override void ResetEffects()
         {
@@ -236,7 +239,7 @@ namespace StarRailRelic.Common.Players
             {
                 if (lightningNoDamageDone && modifiers.DamageType == DamageClass.Magic)
                 {
-                    modifiers.SourceDamage *= 2.8f;
+                    modifiers.AddModifiersAdditive(Player, 250 / 100f);
                     lightningNoDamageDone = false;
                 }
             }
@@ -245,7 +248,7 @@ namespace StarRailRelic.Common.Players
             {
                 if(target.DebuffType().Length != 0)
                 {
-                    modifiers.SourceDamage *= 1.06f;
+                    modifiers.AddModifiersAdditive(Player, 6 / 100f);
                 }
             }
 
@@ -265,8 +268,27 @@ namespace StarRailRelic.Common.Players
             {
                 if (target.lifeRegen < 0)
                 {
-                    modifiers.Defense.Flat -= 6;
+                    modifiers.ArmorPenetration += 6;
                 }
+            }
+
+            if (IsDukeFourSet && (modifiers.DamageType == DamageClass.Magic || modifiers.DamageType == DamageClass.MagicSummonHybrid))
+            {
+                modifiers.DamageVariationScale *= 0;
+                int ownProjectileCount = 0;
+                foreach (Projectile projectile in Main.projectile)
+                {
+                    float distance = Vector2.Distance(Player.position, projectile.position);
+
+                    float distanceThreshold = 1200;
+
+                    if (distance <= distanceThreshold && projectile.active && projectile.owner == Player.whoAmI && (projectile.DamageType == DamageClass.Magic || projectile.DamageType == DamageClass.MagicSummonHybrid) && ownProjectileCount < 8)
+                    {
+                        ownProjectileCount++;
+                    }
+                }
+
+                modifiers.AddModifiersAdditive(Player, ownProjectileCount * 3 / 100f);
             }
         }
 

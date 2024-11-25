@@ -33,21 +33,21 @@ ImaginarySetTwo: Increases Ranged DMG by 5%
 ImaginarySetFour:
 	'''
 	When dealing DMG to targets beyond 37 tiles, increases CRIT Rate by 8% 
-	When dealing damage to targets whose speed is slower than or equal to your own, increase CRIT DMG by 15% 
+	When dealing DMG to targets whose speed is slower than or equal to your own, increase CRIT DMG by 15% 
 	'''
 KnightSetTwo: Increases DEF by 10%
 KnightSetFour:
 	'''
-	Absorbs 25% of damage done to players on your team when above 25% life
+	Absorbs 25% of DMG done to players on your team when above 25% life
 	If there are no other players in the team, increases Endurance by 6%
 	'''
 LifeSetTwo: Increases HP by 5%
-LifeSetFour: Increases CRIT Rate by 8% for 10 seconds after taking damage equal to or greater than 20% of life
+LifeSetFour: Increases CRIT Rate by 8% for 10 seconds after taking DMG equal to or greater than 20% of life
 LightningSetTwo: Increases Magic DMG by 5%
 LightningSetFour:
 	'''
 	Increases Mana Cost by 100%
-	Increases next Magic DMG by 180% after using a Mana Potion
+	Increases next Magic DMG by 250% after using a Mana Potion
 	'''
 MessengerSetTwo: Increases movement speed by 8%
 MessengerSetFour: After using a Life Potion, all players in your team multiply their movement speed and acceleration by 1.15 for 10 seconds.
@@ -60,10 +60,10 @@ MusketeerSetFour:
 PhysicsSetTwo: Increases Summon DMG by 5%
 PhysicsSetFour:
 	'''
-	When the last damage was dealt by a Minion and this time the damage is dealt by a Whip
+	When the last DMG was dealt by a Minion and this time the DMG is dealt by a Whip
 	Increases DMG by 5% for 5 seconds, stacks up to five levels
 	Refreshes duration when triggered repeatedly
-	If two consecutive damage are caused by a Whip, the stacks will be cleared.
+	If two consecutive DMG are caused by a Whip, the stacks will be cleared.
 	'''
 WindSetTwo: Increases Ranged DMG by 5%
 WindSetFour: After consuming 40 ammos, the movement speed and acceleration are multiplied by 1.25 for 10 seconds.
@@ -80,7 +80,13 @@ DeadWatersSetFour:
 	Increases CRIT DMG dealt to targets with no less than 2/3 debuffs by 6%/9%
 	'''
 DotSetTwo: Increases DMG by 4%
-DotSetFour: Ignore 6 DEF when dealing damage to a target with damage over time debuffs
+DotSetFour: When dealing DMG to a target with DMG over time debuffs, increases Armor Penetration by 6
+DukeSetTwo: Increases Magic DMG by 5%
+DukeSetFour:
+	'''
+	When dealing Magic DMG, based on the number of Magic DMG projectiles you fire yourself within 75 tiles
+	Each increases Magic DMG by 3%, stacking up to 8 times
+	'''
 StarRailPassTip:
 	'''
 	Current Environment: {0}

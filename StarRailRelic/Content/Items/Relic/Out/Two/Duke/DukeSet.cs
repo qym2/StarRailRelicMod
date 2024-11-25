@@ -3,6 +3,16 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Duke
     public abstract class DukeSet : ModRelic
     {
         public override RelicSet RelicSet => RelicSet.Duke;
+
+        public override void UpdateRelicSetTwo(Player player)
+        {
+            player.GetDamage<MagicDamageClass>() += 5f / 100f;
+        }
+
+        public override void ModifyFourSetSpecialEffect(RelicSetSpecialEffectPlayer modPlayer)
+        {
+            modPlayer.IsDukeFourSet = true;
+        }
     }
 
     public class DukeHead : DukeSet
