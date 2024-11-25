@@ -1,8 +1,19 @@
+
 namespace StarRailRelic.Content.Items.Relic.Out.Two.Dot
 {
     public abstract class DotSet : ModRelic
     {
         public override RelicSet RelicSet => RelicSet.Dot;
+
+        public override void UpdateRelicSetTwo(Player player)
+        {
+            player.GetDamage<GenericDamageClass>() += 4f / 100f;
+        }
+
+        public override void ModifyFourSetSpecialEffect(RelicSetSpecialEffectPlayer modPlayer)
+        {
+            modPlayer.IsDotFourSet = true;
+        }
     }
 
     public class DotHead : DotSet

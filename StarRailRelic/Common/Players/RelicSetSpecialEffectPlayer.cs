@@ -50,6 +50,11 @@ namespace StarRailRelic.Common.Players
         public bool IsThiefTwoSet { get; set; }
         public bool IsThiefFourSet { get; set; }
 
+        public bool IsDeadWatersTwoSet { get; set; }
+        public bool IsDeadWatersFourSet { get; set; }
+
+        public bool IsDotFourSet { get; set; }
+
         public override void ResetEffects()
         {
             PropertyInfo[] properties = GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -233,6 +238,34 @@ namespace StarRailRelic.Common.Players
                 {
                     modifiers.SourceDamage *= 2.8f;
                     lightningNoDamageDone = false;
+                }
+            }
+
+            if (IsDeadWatersTwoSet)
+            {
+                if(target.DebuffType().Length != 0)
+                {
+                    modifiers.SourceDamage *= 1.06f;
+                }
+            }
+
+            if (IsDeadWatersFourSet)
+            {
+                if (target.DebuffType().Length >= 3)
+                {
+                    modifiers.CritDamage += 9 / 100f;
+                }
+                else if (target.DebuffType().Length >= 2)
+                {
+                    modifiers.CritDamage += 6 / 100f;
+                }
+            }
+
+            if (IsDotFourSet)
+            {
+                if (target.lifeRegen < 0)
+                {
+                    modifiers.Defense.Flat -= 6;
                 }
             }
         }

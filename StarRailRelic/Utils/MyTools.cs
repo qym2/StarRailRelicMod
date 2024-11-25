@@ -4,6 +4,7 @@ namespace StarRailRelic.Utils
 {
     public static class MyTools
     {
+        #region 属性
         /// <summary>
         /// 根据天色的亮度所对应的时间
         /// </summary>
@@ -43,6 +44,7 @@ namespace StarRailRelic.Utils
                 }
             }
         }
+        #endregion
 
         #region Item拓展方法
         /// <summary>
@@ -220,6 +222,23 @@ namespace StarRailRelic.Utils
         public static IEntitySource GetSource_OwnerNPC(this NPC npc, string? context = null)
         {
             return new EntitySource_OwnerNPC(npc, context);
+        }
+        #endregion
+
+        #region NPC拓展方法
+        public static int[] DebuffType(this NPC npc)
+        {
+            List<int> debuffType = [];
+
+            for (int i = 0; i < NPC.maxBuffs; i++)
+            {
+                if (Main.debuff[npc.buffType[i]])
+                {
+                    debuffType.Add(npc.buffType[i]);
+                }
+            }
+
+            return [.. debuffType];
         }
         #endregion
 

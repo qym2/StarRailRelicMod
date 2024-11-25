@@ -69,6 +69,14 @@ ThiefSetFour:
 	有8%的概率闪避攻击
 	如果闪避失败，有50%的概率回复10点生命
 	'''
+DeadWatersSetTwo: 对受到减益效果的目标造成的伤害提高6%
+DeadWatersSetFour:
+	'''
+	暴击率提高2%
+	对陷入不少于2/3个减益效果的目标造成的暴击伤害提高6%/9%
+	'''
+DotSetTwo: 伤害提高4%
+DotSetFour: 对受到持续伤害效果的目标造成伤害时无视6点防御力
 StarRailPassTip:
 	'''
 	当前环境：{0}

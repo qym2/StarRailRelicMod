@@ -73,6 +73,14 @@ ThiefSetFour:
 	8% chance to dodge attacks
 	If the dodge fails, 50% chance to recover 10 HP
 	'''
+DeadWatersSetTwo: Increases DMG dealt to debuffed targets by 6%
+DeadWatersSetFour:
+	'''
+	Increases CRIT Rate by 2%
+	Increases CRIT DMG dealt to targets with no less than 2/3 debuffs by 6%/9%
+	'''
+DotSetTwo: Increases DMG by 4%
+DotSetFour: Ignore 6 DEF when dealing damage to a target with damage over time debuffs
 StarRailPassTip:
 	'''
 	Current Environment: {0}
