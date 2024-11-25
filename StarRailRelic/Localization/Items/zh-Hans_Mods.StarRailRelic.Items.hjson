@@ -1,0 +1,732 @@
+NoSet: （未生效）
+SetTwo: 二件套：
+SetFour: 四件套：
+QuantumSetTwo: 近战伤害提高5%
+QuantumSetFour:
+	'''
+	盔甲穿透提高4点
+	当造成近战伤害时，盔甲穿透额外提高4点
+	'''
+SalsottoSetTwo:
+	'''
+	暴击率提高4%
+	当暴击率大于等于50%时，近战和魔法伤害伤害提高8%
+	'''
+SalsottoSetFour: ""
+GuardSetTwo: 免伤提高3%
+GuardSetFour: 当前生命值百分比小于等于50%时，立即回复生命上限4%的生命值，该效果有8秒冷却
+FireSetTwo: 魔法伤害提高5%
+FireSetFour:
+	'''
+	魔力消耗降低12%
+	使用魔力药水后，魔法伤害提高10%，持续3秒
+	'''
+HealingSetTwo: 治疗量提高20%
+HealingSetFour: 生命再生提高4点
+IceSetTwo: 召唤伤害提高5%
+IceSetFour: 造成召唤伤害后，近战速度提高10%，持续3秒
+ImaginarySetTwo: 远程伤害提高5%
+ImaginarySetFour:
+	'''
+	对37个图格以外的目标造成伤害时暴击率提高8%
+	对速度小于或等于自身的目标造成伤害时暴击伤害提高15%
+	'''
+KnightSetTwo: 防御力提高10%
+KnightSetFour:
+	'''
+	当生命值高于25%时，吸收团队中其他玩家所受伤害的25%
+	如果团队中没有其他玩家，免伤提高6%
+	'''
+LifeSetTwo: 生命值提高5%
+LifeSetFour: 受到大于或等于20%生命值的伤害后，暴击率提高8%，持续10秒
+LightningSetTwo: 魔法伤害提高5%
+LightningSetFour:
+	'''
+	魔力消耗提高100%
+	使用魔力药水后，下一次魔法伤害提高180%
+	'''
+MessengerSetTwo: 移动速度提高8%
+MessengerSetFour: 使用生命药水后，团队中所有玩家移动速度和加速度乘以1.15倍，持续10秒
+MusketeerSetTwo: 伤害提高4%
+MusketeerSetFour:
+	'''
+	移动速度提高8%
+	近战伤害提高4%
+	'''
+PhysicsSetTwo: 召唤伤害提高5%
+PhysicsSetFour:
+	'''
+	当上次的伤害为召唤物造成且这次的伤害为鞭子造成时
+	伤害提高5%，持续5秒，最多叠加五层
+	重复触发时刷新持续时间
+	若连续两次的伤害都是鞭子造成，则清空层数
+	'''
+WindSetTwo: 远程伤害提高5%
+WindSetFour: 消耗40个子弹后，移动速度和加速度乘以1.25倍，持续10秒
+ThiefSetTwo: 有3%的概率闪避攻击
+ThiefSetFour:
+	'''
+	有8%的概率闪避攻击
+	如果闪避失败，有50%的概率回复10点生命
+	'''
+StarRailPassTip:
+	'''
+	当前环境：{0}
+	可获得遗器：{1}
+	'''
+
+QuantumBody: {
+	DisplayName: 天才的元域深潜
+	Tooltip: ""
+}
+
+QuantumFeet: {
+	DisplayName: 天才的引力漫步
+	Tooltip: ""
+}
+
+QuantumHands: {
+	DisplayName: 天才的频变捕手
+	Tooltip: ""
+}
+
+QuantumHead: {
+	DisplayName: 天才的超距遥感
+	Tooltip: ""
+}
+
+SalsottoSphere: {
+	DisplayName: 萨尔索图的晨昏界线
+	Tooltip: ""
+}
+
+SalsottoRope: {
+	DisplayName: 萨尔索图的移动城市
+	Tooltip: ""
+}
+
+GuardBody: {
+	DisplayName: 铁卫的旧制军服
+	Tooltip: ""
+}
+
+GuardFeet: {
+	DisplayName: 铁卫的白银护胫
+	Tooltip: ""
+}
+
+GuardHands: {
+	DisplayName: 铁卫的银鳞手甲
+	Tooltip: ""
+}
+
+GuardHead: {
+	DisplayName: 铁卫的铸铁面盔
+	Tooltip: ""
+}
+
+RelicStrengtheningTableItem: {
+	DisplayName: 遗器强化台
+	Tooltip: “集成了多种素材的力量。”
+}
+
+LostCrystal: {
+	DisplayName: 遗失晶块
+	Tooltip: 遗器的强化材料
+}
+
+BanditryRope: {
+	DisplayName: 塔利亚的裸皮电线
+	Tooltip: ""
+}
+
+BanditrySphere: {
+	DisplayName: 塔利亚的钉壳小镇
+	Tooltip: ""
+}
+
+BelobogRope: {
+	DisplayName: 贝洛伯格的铁卫防线
+	Tooltip: ""
+}
+
+BelobogSphere: {
+	DisplayName: 贝洛伯格的存护堡垒
+	Tooltip: ""
+}
+
+DifferentiatorRope: {
+	DisplayName: 螺丝星的环星孔带
+	Tooltip: ""
+}
+
+DifferentiatorSphere: {
+	DisplayName: 螺丝星的机械烈阳
+	Tooltip: ""
+}
+
+EnterpriseRope: {
+	DisplayName: 公司的贸易航道
+	Tooltip: ""
+}
+
+EnterpriseSphere: {
+	DisplayName: 公司的巨构总部
+	Tooltip: ""
+}
+
+GlamothRope: {
+	DisplayName: 格拉默的寂静坟碑
+	Tooltip: ""
+}
+
+GlamothSphere: {
+	DisplayName: 格拉默的铁骑兵团
+	Tooltip: ""
+}
+
+KeelRope: {
+	DisplayName: 伊须磨洲的坼裂缆索
+	Tooltip: ""
+}
+
+KeelSphere: {
+	DisplayName: 伊须磨洲的残船鲸落
+	Tooltip: ""
+}
+
+PenaconyRope: {
+	DisplayName: 匹诺康尼的逐梦轨道
+	Tooltip: ""
+}
+
+PenaconySphere: {
+	DisplayName: 匹诺康尼的堂皇酒店
+	Tooltip: ""
+}
+
+RutilantRope: {
+	DisplayName: 泰科铵的弧光赛道
+	Tooltip: ""
+}
+
+RutilantSphere: {
+	DisplayName: 泰科铵的镭射球场
+	Tooltip: ""
+}
+
+SpaceRope: {
+	DisplayName: 「黑塔」的漫历轨迹
+	Tooltip: ""
+}
+
+SpaceSphere: {
+	DisplayName: 「黑塔」的空间站点
+	Tooltip: ""
+}
+
+VonwacqRope: {
+	DisplayName: 翁瓦克的环岛海岸
+	Tooltip: ""
+}
+
+VonwacqSphere: {
+	DisplayName: 翁瓦克的诞生之岛
+	Tooltip: ""
+}
+
+XianzhouRope: {
+	DisplayName: 罗浮仙舟的建木枝蔓
+	Tooltip: ""
+}
+
+XianzhouSphere: {
+	DisplayName: 罗浮仙舟的天外楼船
+	Tooltip: ""
+}
+
+BananaRope: {
+	DisplayName: 蕉乐园的模因线缆
+	Tooltip: ""
+}
+
+BananaSphere: {
+	DisplayName: 蕉乐园的蕉芯广场
+	Tooltip: ""
+}
+
+KalpagniRope: {
+	DisplayName: 铸炼宫的焰轮天绸
+	Tooltip: ""
+}
+
+KalpagniSphere: {
+	DisplayName: 铸炼宫的莲华灯芯
+	Tooltip: ""
+}
+
+IzumoRope: {
+	DisplayName: 出云的始终一刀
+	Tooltip: ""
+}
+
+IzumoSphere: {
+	DisplayName: 出云的涡津众神
+	Tooltip: ""
+}
+
+SigoniaRope: {
+	DisplayName: 茨冈尼亚的轮回纽结
+	Tooltip: ""
+}
+
+SigoniaSphere: {
+	DisplayName: 茨冈尼亚的母神卧榻
+	Tooltip: ""
+}
+
+SunkenRope: {
+	DisplayName: 露莎卡的双生航道
+	Tooltip: ""
+}
+
+SunkenSphere: {
+	DisplayName: 露莎卡的水朽苍都
+	Tooltip: ""
+}
+
+WolvesRope: {
+	DisplayName: 都蓝的器兽缰辔
+	Tooltip: ""
+}
+
+WolvesSphere: {
+	DisplayName: 都蓝的穹窿金帐
+	Tooltip: ""
+}
+
+FireBody: {
+	DisplayName: 火匠的阻燃围裙
+	Tooltip: ""
+}
+
+FireFeet: {
+	DisplayName: 火匠的合金义肢
+	Tooltip: ""
+}
+
+FireHands: {
+	DisplayName: 火匠的御火戒指
+	Tooltip: ""
+}
+
+FireHead: {
+	DisplayName: 火匠的黑曜目镜
+	Tooltip: ""
+}
+
+HealingBody: {
+	DisplayName: 过客的残绣风衣
+	Tooltip: ""
+}
+
+HealingFeet: {
+	DisplayName: 过客的蹀血游履
+	Tooltip: ""
+}
+
+HealingHands: {
+	DisplayName: 过客的游龙臂鞲
+	Tooltip: ""
+}
+
+HealingHead: {
+	DisplayName: 过客的逢春木簪
+	Tooltip: ""
+}
+
+IceBody: {
+	DisplayName: 雪猎的冰龙披风
+	Tooltip: ""
+}
+
+IceFeet: {
+	DisplayName: 雪猎的鹿皮软靴
+	Tooltip: ""
+}
+
+IceHands: {
+	DisplayName: 雪猎的巨蜥手套
+	Tooltip: ""
+}
+
+IceHead: {
+	DisplayName: 雪猎的荒神兜帽
+	Tooltip: ""
+}
+
+ImaginaryBody: {
+	DisplayName: 废土客的修士长袍
+	Tooltip: ""
+}
+
+ImaginaryFeet: {
+	DisplayName: 废土客的动力腿甲
+	Tooltip: ""
+}
+
+ImaginaryHands: {
+	DisplayName: 废土客的荒漠终端
+	Tooltip: ""
+}
+
+ImaginaryHead: {
+	DisplayName: 废土客的呼吸面罩
+	Tooltip: ""
+}
+
+KnightBody: {
+	DisplayName: 圣骑的肃穆胸甲
+	Tooltip: ""
+}
+
+KnightFeet: {
+	DisplayName: 圣骑的秩序铁靴
+	Tooltip: ""
+}
+
+KnightHands: {
+	DisplayName: 圣骑的沉默誓环
+	Tooltip: ""
+}
+
+KnightHead: {
+	DisplayName: 圣骑的宽恕盔面
+	Tooltip: ""
+}
+
+LifeBody: {
+	DisplayName: 莳者的承露羽衣
+	Tooltip: ""
+}
+
+LifeFeet: {
+	DisplayName: 莳者的天人丝履
+	Tooltip: ""
+}
+
+LifeHands: {
+	DisplayName: 莳者的机巧木手
+	Tooltip: ""
+}
+
+LifeHead: {
+	DisplayName: 莳者的复明义眼
+	Tooltip: ""
+}
+
+LightningBody: {
+	DisplayName: 乐队的钉刺皮衣
+	Tooltip: ""
+}
+
+LightningFeet: {
+	DisplayName: 乐队的铆钉短靴
+	Tooltip: ""
+}
+
+LightningHands: {
+	DisplayName: 乐队的巡演手绳
+	Tooltip: ""
+}
+
+LightningHead: {
+	DisplayName: 乐队的偏光墨镜
+	Tooltip: ""
+}
+
+MessengerBody: {
+	DisplayName: 信使的密信挎包
+	Tooltip: ""
+}
+
+MessengerFeet: {
+	DisplayName: 信使的酷跑板鞋
+	Tooltip: ""
+}
+
+MessengerHands: {
+	DisplayName: 信使的百变义手
+	Tooltip: ""
+}
+
+MessengerHead: {
+	DisplayName: 信使的全息目镜
+	Tooltip: ""
+}
+
+MusketeerBody: {
+	DisplayName: 快枪手的猎风披肩
+	Tooltip: ""
+}
+
+MusketeerFeet: {
+	DisplayName: 快枪手的铆钉马靴
+	Tooltip: ""
+}
+
+MusketeerHands: {
+	DisplayName: 快枪手的粗革手套
+	Tooltip: ""
+}
+
+MusketeerHead: {
+	DisplayName: 快枪手的野穗毡帽
+	Tooltip: ""
+}
+
+PhysicsBody: {
+	DisplayName: 拳王的贴身护胸
+	Tooltip: ""
+}
+
+PhysicsFeet: {
+	DisplayName: 拳王的弧步战靴
+	Tooltip: ""
+}
+
+PhysicsHands: {
+	DisplayName: 拳王的重炮拳套
+	Tooltip: ""
+}
+
+PhysicsHead: {
+	DisplayName: 拳王的冠军护头
+	Tooltip: ""
+}
+
+ThiefBody: {
+	DisplayName: 怪盗的纤钢爪钩
+	Tooltip: ""
+}
+
+ThiefFeet: {
+	DisplayName: 怪盗的流星快靴
+	Tooltip: ""
+}
+
+ThiefHands: {
+	DisplayName: 怪盗的绘纹手套
+	Tooltip: ""
+}
+
+ThiefHead: {
+	DisplayName: 怪盗的千人假面
+	Tooltip: ""
+}
+
+WindBody: {
+	DisplayName: 翔鹰的翼装束带
+	Tooltip: ""
+}
+
+WindFeet: {
+	DisplayName: 翔鹰的绒羽绑带
+	Tooltip: ""
+}
+
+WindHands: {
+	DisplayName: 翔鹰的鹰击指环
+	Tooltip: ""
+}
+
+WindHead: {
+	DisplayName: 翔鹰的长喙头盔
+	Tooltip: ""
+}
+
+DeadWatersBody: {
+	DisplayName: 先驱的密合铅衣
+	Tooltip: ""
+}
+
+DeadWatersFeet: {
+	DisplayName: 先驱的泊星桩锚
+	Tooltip: ""
+}
+
+DeadWatersHands: {
+	DisplayName: 先驱的虚极罗盘
+	Tooltip: ""
+}
+
+DeadWatersHead: {
+	DisplayName: 先驱的绝热围壳
+	Tooltip: ""
+}
+
+DotBody: {
+	DisplayName: 系囚的幽闭缚束
+	Tooltip: ""
+}
+
+DotFeet: {
+	DisplayName: 系囚的绝足锁桎
+	Tooltip: ""
+}
+
+DotHands: {
+	DisplayName: 系囚的铅石梏铐
+	Tooltip: ""
+}
+
+DotHead: {
+	DisplayName: 系囚的合啮拘笼
+	Tooltip: ""
+}
+
+DukeBody: {
+	DisplayName: 大公的蒙恩长袍
+	Tooltip: ""
+}
+
+DukeFeet: {
+	DisplayName: 大公的绅雅礼靴
+	Tooltip: ""
+}
+
+DukeHands: {
+	DisplayName: 大公的绒火指套
+	Tooltip: ""
+}
+
+DukeHead: {
+	DisplayName: 大公的冥焰冠冕
+	Tooltip: ""
+}
+
+FeixiaoBody: {
+	DisplayName: 勇烈的飞翎瓷甲
+	Tooltip: ""
+}
+
+FeixiaoFeet: {
+	DisplayName: 勇烈的逐猎腿甲
+	Tooltip: ""
+}
+
+FeixiaoHands: {
+	DisplayName: 勇烈的钩爪腕甲
+	Tooltip: ""
+}
+
+FeixiaoHead: {
+	DisplayName: 勇烈的玄枵面甲
+	Tooltip: ""
+}
+
+IronBody: {
+	DisplayName: 铁骑的银影装甲
+	Tooltip: ""
+}
+
+IronFeet: {
+	DisplayName: 铁骑的行空护胫
+	Tooltip: ""
+}
+
+IronHands: {
+	DisplayName: 铁骑的摧坚铁腕
+	Tooltip: ""
+}
+
+IronHead: {
+	DisplayName: 铁骑的索敌战盔
+	Tooltip: ""
+}
+
+SacerdosBody: {
+	DisplayName: 司铎的圣职礼服
+	Tooltip: ""
+}
+
+SacerdosFeet: {
+	DisplayName: 司铎的苦旅短靴
+	Tooltip: ""
+}
+
+SacerdosHands: {
+	DisplayName: 司铎的授邀手套
+	Tooltip: ""
+}
+
+SacerdosHead: {
+	DisplayName: 司铎的律音耳坠
+	Tooltip: ""
+}
+
+ScholarBody: {
+	DisplayName: 学者的粗纺外套
+	Tooltip: ""
+}
+
+ScholarFeet: {
+	DisplayName: 学者的绒皮雪靴
+	Tooltip: ""
+}
+
+ScholarHands: {
+	DisplayName: 学者的辅助指节
+	Tooltip: ""
+}
+
+ScholarHead: {
+	DisplayName: 学者的银边视镜
+	Tooltip: ""
+}
+
+WatchBody: {
+	DisplayName: 钟表匠的空幻礼服
+	Tooltip: ""
+}
+
+WatchFeet: {
+	DisplayName: 钟表匠的隐梦革履
+	Tooltip: ""
+}
+
+WatchHands: {
+	DisplayName: 钟表匠的交运腕表
+	Tooltip: ""
+}
+
+WatchHead: {
+	DisplayName: 钟表匠的极目透镜
+	Tooltip: ""
+}
+
+Fuel: {
+	DisplayName: 燃料
+	Tooltip: 回复60点开拓力
+}
+
+StarRailPass: {
+	DisplayName: 星轨通票
+	Tooltip:
+		'''
+		用于开启隧洞遗器挑战
+		在不同的环境中使用以获得不同的遗器
+		需要40点开拓力才能使用
+		'''
+}
+
+StarRailSpecialPass: {
+	DisplayName: 星轨专票
+	Tooltip:
+		'''
+		用于开启位面饰品挑战
+		在不同的环境中使用以获得不同的遗器
+		需要40点开拓力才能使用
+		击败肉山后才能使用
+		'''
+}

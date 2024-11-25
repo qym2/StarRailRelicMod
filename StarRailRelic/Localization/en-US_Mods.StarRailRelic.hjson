@@ -1,0 +1,48 @@
+Keybinds.RelicButton.DisplayName: Quickly Equip Relics
+Tiles.RelicStrengtheningTable.MapEntry: Relic Strengthening Table
+ItemTextrue: "[i:StarRailRelic/{0}]"
+SubworldExit4: All enemies have been defeated and the challenge is about to exit
+SubworldExit3: 3 seconds left...
+SubworldExit2: 2 seconds left...
+SubworldExit1: 1 seconds left...
+
+Environment: {
+	ZoneBeach: Beach
+	ZoneCorrupt: Corrupt
+	ZoneCrimson: Crimson
+	ZoneDesert: Desert
+	ZoneDirtLayerHeight: Dirt Layer Height
+	ZoneDungeon: Dungeon
+	ZoneForest: Forest
+	ZoneGemCave: Gem Cave
+	ZoneGlowshroom: Glowshroom
+	ZoneGranite: Granite
+	ZoneGraveyard: Graveyard
+	ZoneHallow: Hallow
+	ZoneHive: Hive
+	ZoneJungle: Jungle
+	ZoneLihzhardTemple: Lihzhard Temple
+	ZoneMarble: Marble
+	ZoneMeteor: Meteor
+	ZoneNormalCaverns: Normal Caverns
+	ZoneNormalSpace: Normal Space
+	ZoneNormalUnderground: Normal Underground
+	ZoneOldOneArmy: Old One Army
+	ZoneOverworldHeight: Overworld Height
+	ZonePeaceCandle: Peace Candle
+	ZonePurity: Purity
+	ZoneRain: Rain
+	ZoneRockLayerHeight: Rock Layer Height
+	ZoneSandstorm: Sandstorm
+	ZoneShadowCandle: Shadow Candle
+	ZoneShimmer: Shimmer
+	ZoneSkyHeight: Sky Height
+	ZoneSnow: Snow
+	ZoneTowerNebula: Tower Nebula
+	ZoneTowerSolar: Tower Solar
+	ZoneTowerStardust: Tower Stardust
+	ZoneTowerVortex: Tower Vortex
+	ZoneUndergroundDesert: Underground Desert
+	ZoneUnderworldHeight: Underworld Height
+	ZoneWaterCandle: Water Candle
+}

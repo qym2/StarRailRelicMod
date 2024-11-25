@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<!-- Import tModLoader mod properties -->
+	<Import Project="..\tModLoader.targets" />
+
+	<!-- General -->
+	<PropertyGroup>
+		
+	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="Localization\en-US_Mods.StarRailRelic.hjson" />
+	  <None Remove="Localization\zh-Hans_Mods.StarRailRelic.hjson" />
+	  <None Remove="Localization\zh-Hans_Mods.StarRailRelic.UI.hjson" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Krafs.Publicizer" Version="2.2.1">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Lib.Harmony" Version="2.3.3" />
+	</ItemGroup>
+	<ItemGroup>
+		<Publicize Include="tModLoader" IncludeVirtualMembers="false" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="InnoVault">
+	    <HintPath>InnoVault.dll</HintPath>
+	  </Reference>
+	  <Reference Include="StructureHelper">
+	    <HintPath>StructureHelper.dll</HintPath>
+	  </Reference>
+	  <Reference Include="SubworldLibrary">
+	    <HintPath>SubworldLibrary.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+	<!-- References -->
+
+</Project>

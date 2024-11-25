@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarRailRelic", "StarRailRelic.csproj", "{1186B03D-1D54-45C9-91CB-4D8C9339CB31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1186B03D-1D54-45C9-91CB-4D8C9339CB31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1186B03D-1D54-45C9-91CB-4D8C9339CB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1186B03D-1D54-45C9-91CB-4D8C9339CB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1186B03D-1D54-45C9-91CB-4D8C9339CB31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80B667AD-F0B4-4EA7-BE1F-C67B6F85A8E9}
+	EndGlobalSection
+EndGlobal

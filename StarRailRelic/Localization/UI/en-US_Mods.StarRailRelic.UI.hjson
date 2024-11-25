@@ -1,0 +1,42 @@
+RelicButton:
+	'''
+	Equip Relics (Click again to close)
+	Keys can be bound to controls to quickly equip
+	'''
+HeadRelicText: Head
+HandsRelicText: Hands
+BodyRelicText: Body
+FeetRelicText: Feet
+PlanarSphereRelicText: Planar Sphere
+LinkRopeRelicText: Link Rope
+RelicStrengtheningText: Place the relic here to strengthen it
+PlaceRelicText: Please place the Relic first!
+RelicCannotStrengtheningText: You don't have enough {$Mods.StarRailRelic.Items.LostCrystal.DisplayName}s to upgrade your Relic!
+RelicLevelMaxText: The Relic has been upgraded to its max level!
+UpgradeCompletedText: Upgrade completed!
+NextLevelItemCountText: Next level requires: {0} {$Mods.StarRailRelic.Items.LostCrystal.DisplayName}s
+RelicInforText: Current Relic: {0} Level: {1}
+TrailblazePowerTipText:
+	'''
+	Trailblaze Power, used for the Relic Challenge
+	Restores one point every 15 secondsDouble 
+	'''
+
+Relic: {
+	LifeFlat: HP  {0}
+	DamageFlat: DMG Boost  {0}
+	LifeAdditive: HP  {0}%
+	DamageAdditive: DMG Boost  {0}%
+	Endurance: Endurance  {0}%
+	CritChance: CRIT Rate  {0}%
+	LifeRegen: Life Regen  {0}
+	MeleeAttackSpeed: Melee Attack Speed  {0}%
+	MeleeArmorPenetration: Melee Armor Penetration  {0}
+	RangedArmorPenetration: Ranged Armor Penetration  {0}
+	MagicArmorPenetration: Magic Armor Penetration  {0}
+	SummonArmorPenetration: Summon Armor Penetration  {0}
+	ManaCostReduction: Mana Cost Reduction  {0}%
+	MaxMinions: Max Minions  {0}
+	Defense: DEF  {0}
+	ArmorPenetration: Armor Penetration  {0}
+}

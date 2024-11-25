@@ -1,0 +1,736 @@
+NoSet: (not effective)
+SetTwo: 2-Pc:
+SetFour: 4-Pc:
+QuantumSetTwo: Increases Melee DMG by 5%
+QuantumSetFour:
+	'''
+	Increases Armor Penetration by 4
+	When dealing Melee DMG, increases Armor Penetration by an additional 4
+	'''
+SalsottoSetTwo:
+	'''
+	Increases CRIT Rate by 4%
+	When the CRIT Rate reaches 50% or higher, increases Melee and Magic DMG by 8%
+	'''
+SalsottoSetFour: ""
+GuardSetTwo: Increases Endurance by 3%
+GuardSetFour:
+	'''
+	When the current life is equal to or less than 50%, restores life equal to 4% of their max life immediately.
+	This effect has an 8-second cooldown.
+	'''
+FireSetTwo: Increases Magic DMG by 5%
+FireSetFour:
+	'''
+	Decreases Mana Cost by 12%
+	Increases Magic DMG by 10% for 3 seconds after using a Mana Potion
+	'''
+HealingSetTwo: Increases Healing by 20%
+HealingSetFour: Increases Life Regen by 4
+IceSetTwo: Increases Summon DMG by 5%
+IceSetFour: Increases Melee Attack Speed by 10% for 3 seconds after dealing Summon DMG
+ImaginarySetTwo: Increases Ranged DMG by 5%
+ImaginarySetFour:
+	'''
+	When dealing DMG to targets beyond 37 tiles, increases CRIT Rate by 8% 
+	When dealing damage to targets whose speed is slower than or equal to your own, increase CRIT DMG by 15% 
+	'''
+KnightSetTwo: Increases DEF by 10%
+KnightSetFour:
+	'''
+	Absorbs 25% of damage done to players on your team when above 25% life
+	If there are no other players in the team, increases Endurance by 6%
+	'''
+LifeSetTwo: Increases HP by 5%
+LifeSetFour: Increases CRIT Rate by 8% for 10 seconds after taking damage equal to or greater than 20% of life
+LightningSetTwo: Increases Magic DMG by 5%
+LightningSetFour:
+	'''
+	Increases Mana Cost by 100%
+	Increases next Magic DMG by 180% after using a Mana Potion
+	'''
+MessengerSetTwo: Increases movement speed by 8%
+MessengerSetFour: After using a Life Potion, all players in your team multiply their movement speed and acceleration by 1.15 for 10 seconds.
+MusketeerSetTwo: Increases DMG by 4%
+MusketeerSetFour:
+	'''
+	Increases movement speed by 8%
+	Increases Melee DMG by 4%
+	'''
+PhysicsSetTwo: Increases Summon DMG by 5%
+PhysicsSetFour:
+	'''
+	When the last damage was dealt by a Minion and this time the damage is dealt by a Whip
+	Increases DMG by 5% for 5 seconds, stacks up to five levels
+	Refreshes duration when triggered repeatedly
+	If two consecutive damage are caused by a Whip, the stacks will be cleared.
+	'''
+WindSetTwo: Increases Ranged DMG by 5%
+WindSetFour: After consuming 40 ammos, the movement speed and acceleration are multiplied by 1.25 for 10 seconds.
+ThiefSetTwo: 3% chance to dodge attacks
+ThiefSetFour:
+	'''
+	8% chance to dodge attacks
+	If the dodge fails, 50% chance to recover 10 HP
+	'''
+StarRailPassTip:
+	'''
+	Current Environment: {0}
+	Available Relics: {1}
+	'''
+
+QuantumBody: {
+	DisplayName: Genius's Gravity Walker
+	Tooltip: ""
+}
+
+QuantumFeet: {
+	DisplayName: Genius's Metafield Suit
+	Tooltip: ""
+}
+
+QuantumHands: {
+	DisplayName: Genius's Frequency Catcher
+	Tooltip: ""
+}
+
+QuantumHead: {
+	DisplayName: Genius's Ultraremote Sensing Visor
+	Tooltip: ""
+}
+
+SalsottoSphere: {
+	DisplayName: Salsotto's Moving City
+	Tooltip: ""
+}
+
+SalsottoRope: {
+	DisplayName: Salsotto's Terminator Line
+	Tooltip: ""
+}
+
+GuardBody: {
+	DisplayName: Guard's Uniform of Old
+	Tooltip: ""
+}
+
+GuardFeet: {
+	DisplayName: Guard's Silver Greaves
+	Tooltip: ""
+}
+
+GuardHands: {
+	DisplayName: Guard's Shining Gauntlets
+	Tooltip: ""
+}
+
+GuardHead: {
+	DisplayName: Guard's Cast Iron Helmet
+	Tooltip: ""
+}
+
+RelicStrengtheningTableItem: {
+	DisplayName: Relic Strengthening Table
+	Tooltip: '''"Integrates the power of multiple materials."'''
+}
+
+LostCrystal: {
+	DisplayName: Lost Crystal
+	Tooltip: Enhancement materials for Relics
+}
+
+BanditryRope: {
+	DisplayName: Talia's Exposed Electric Wire
+	Tooltip: ""
+}
+
+BanditrySphere: {
+	DisplayName: Talia's Nailscrap Town
+	Tooltip: ""
+}
+
+BelobogRope: {
+	DisplayName: Belobog's Iron Defense
+	Tooltip: ""
+}
+
+BelobogSphere: {
+	DisplayName: Belobog's Fortress of Preservation
+	Tooltip: ""
+}
+
+DifferentiatorRope: {
+	DisplayName: Planet Screwllum's Ring System
+	Tooltip: ""
+}
+
+DifferentiatorSphere: {
+	DisplayName: Planet Screwllum's Mechanical Sun
+	Tooltip: ""
+}
+
+EnterpriseRope: {
+	DisplayName: The IPC's Trade Route
+	Tooltip: ""
+}
+
+EnterpriseSphere: {
+	DisplayName: The IPC's Mega HQ
+	Tooltip: ""
+}
+
+GlamothRope: {
+	DisplayName: Glamoth's Silent Tombstone
+	Tooltip: ""
+}
+
+GlamothSphere: {
+	DisplayName: Glamoth's Iron Cavalry Regiment
+	Tooltip: ""
+}
+
+KeelRope: {
+	DisplayName: Insumousu's Frayed Hawser
+	Tooltip: ""
+}
+
+KeelSphere: {
+	DisplayName: Insumousu's Whalefall Ship
+	Tooltip: ""
+}
+
+PenaconyRope: {
+	DisplayName: Penacony's Dream-Seeking Tracks
+	Tooltip: ""
+}
+
+PenaconySphere: {
+	DisplayName: Penacony's Grand Hotel
+	Tooltip: ""
+}
+
+RutilantRope: {
+	DisplayName: Taikiyan's Arclight Race Track
+	Tooltip: ""
+}
+
+RutilantSphere: {
+	DisplayName: Taikiyan Laser Stadium
+	Tooltip: ""
+}
+
+SpaceRope: {
+	DisplayName: Herta's Wandering Trek
+	Tooltip: ""
+}
+
+SpaceSphere: {
+	DisplayName: Herta's Space Station
+	Tooltip: ""
+}
+
+VonwacqRope: {
+	DisplayName: Vonwacq's Islandic Coast
+	Tooltip: ""
+}
+
+VonwacqSphere: {
+	DisplayName: Vonwacq's Island of Birth
+	Tooltip: ""
+}
+
+XianzhouRope: {
+	DisplayName: The Xianzhou Luofu's Ambrosial Arbor Vines
+	Tooltip: ""
+}
+
+XianzhouSphere: {
+	DisplayName: The Xianzhou Luofu's Celestial Ark
+	Tooltip: ""
+}
+
+BananaRope: {
+	DisplayName: BananAmusement Park's Memetic Cables
+	Tooltip: ""
+}
+
+BananaSphere: {
+	DisplayName: BananAmusement Park's BananAxis Plaza
+	Tooltip: ""
+}
+
+KalpagniRope: {
+	DisplayName: Forge's Heavenly Flamewheel Silk
+	Tooltip: ""
+}
+
+KalpagniSphere: {
+	DisplayName: Forge's Lotus Lantern Wick
+	Tooltip: ""
+}
+
+IzumoRope: {
+	DisplayName: Izumo's Blades of Origin and End
+	Tooltip: ""
+}
+
+IzumoSphere: {
+	DisplayName: Izumo's Magatsu no Morokami
+	Tooltip: ""
+}
+
+SigoniaRope: {
+	DisplayName: Sigonia's Knot of Cyclicality
+	Tooltip: ""
+}
+
+SigoniaSphere: {
+	DisplayName: Sigonia's Gaiathra Berth
+	Tooltip: ""
+}
+
+SunkenRope: {
+	DisplayName: Lushaka's Twinlanes
+	Tooltip: ""
+}
+
+SunkenSphere: {
+	DisplayName: Lushaka's Waterscape
+	Tooltip: ""
+}
+
+WolvesRope: {
+	DisplayName: Duran's Mechabeast Bridle
+	Tooltip: ""
+}
+
+WolvesSphere: {
+	DisplayName: Duran's Tent of Golden Sky
+	Tooltip: ""
+}
+
+FireBody: {
+	DisplayName: Firesmith's Fireproof Apron
+	Tooltip: ""
+}
+
+FireFeet: {
+	DisplayName: Firesmith's Alloy Leg
+	Tooltip: ""
+}
+
+FireHands: {
+	DisplayName: Firesmith's Ring of Flame-Mastery
+	Tooltip: ""
+}
+
+FireHead: {
+	DisplayName: Firesmith's Obsidian Goggles
+	Tooltip: ""
+}
+
+HealingBody: {
+	DisplayName: Passerby's Ragged Embroided Coat
+	Tooltip: ""
+}
+
+HealingFeet: {
+	DisplayName: Passerby's Stygian Hiking Boots
+	Tooltip: ""
+}
+
+HealingHands: {
+	DisplayName: Passerby's Roaming Dragon Bracer
+	Tooltip: ""
+}
+
+HealingHead: {
+	DisplayName: Passerby's Rejuvenated Wooden Hairstick
+	Tooltip: ""
+}
+
+IceBody: {
+	DisplayName: Hunter's Ice Dragon Cloak
+	Tooltip: ""
+}
+
+IceFeet: {
+	DisplayName: Hunter's Soft Elkskin Boots
+	Tooltip: ""
+}
+
+IceHands: {
+	DisplayName: Hunter's Lizard Gloves
+	Tooltip: ""
+}
+
+IceHead: {
+	DisplayName: Hunter's Artaius Hood
+	Tooltip: ""
+}
+
+ImaginaryBody: {
+	DisplayName: Wastelander's Friar Robe
+	Tooltip: ""
+}
+
+ImaginaryFeet: {
+	DisplayName: Wastelander's Powered Greaves
+	Tooltip: ""
+}
+
+ImaginaryHands: {
+	DisplayName: Wastelander's Desert Terminal
+	Tooltip: ""
+}
+
+ImaginaryHead: {
+	DisplayName: Wastelander's Breathing Mask
+	Tooltip: ""
+}
+
+KnightBody: {
+	DisplayName: Knight's Solemn Breastplate
+	Tooltip: ""
+}
+
+KnightFeet: {
+	DisplayName: Knight's Iron Boots of Order
+	Tooltip: ""
+}
+
+KnightHands: {
+	DisplayName: Knight's Silent Oath Ring
+	Tooltip: ""
+}
+
+KnightHead: {
+	DisplayName: Knight's Forgiving Casque
+	Tooltip: ""
+}
+
+LifeBody: {
+	DisplayName: Disciple's Dewy Feather Garb
+	Tooltip: ""
+}
+
+LifeFeet: {
+	DisplayName: Disciple's Celestial Silk Sandals
+	Tooltip: ""
+}
+
+LifeHands: {
+	DisplayName: Disciple's Ingenium Hand
+	Tooltip: ""
+}
+
+LifeHead: {
+	DisplayName: Disciple's Prosthetic Eye
+	Tooltip: ""
+}
+
+LightningBody: {
+	DisplayName: Band's Leather Jacket With Studs
+	Tooltip: ""
+}
+
+LightningFeet: {
+	DisplayName: Band's Ankle Boots With Rivets
+	Tooltip: ""
+}
+
+LightningHands: {
+	DisplayName: Band's Touring Bracelet
+	Tooltip: ""
+}
+
+LightningHead: {
+	DisplayName: Band's Polarized Sunglasses
+	Tooltip: ""
+}
+
+MessengerBody: {
+	DisplayName: Messenger's Secret Satchel
+	Tooltip: ""
+}
+
+MessengerFeet: {
+	DisplayName: Messenger's Par-kool Sneakers
+	Tooltip: ""
+}
+
+MessengerHands: {
+	DisplayName: Messenger's Transformative Arm
+	Tooltip: ""
+}
+
+MessengerHead: {
+	DisplayName: Messenger's Holovisor
+	Tooltip: ""
+}
+
+MusketeerBody: {
+	DisplayName: Musketeer's Wind-Hunting Shawl
+	Tooltip: ""
+}
+
+MusketeerFeet: {
+	DisplayName: Musketeer's Rivets Riding Boots
+	Tooltip: ""
+}
+
+MusketeerHands: {
+	DisplayName: Musketeer's Coarse Leather Gloves
+	Tooltip: ""
+}
+
+MusketeerHead: {
+	DisplayName: Musketeer's Wild Wheat Felt Hat
+	Tooltip: ""
+}
+
+PhysicsBody: {
+	DisplayName: Champion's Chest Guard
+	Tooltip: ""
+}
+
+PhysicsFeet: {
+	DisplayName: Champion's Fleetfoot Boots
+	Tooltip: ""
+}
+
+PhysicsHands: {
+	DisplayName: Champion's Heavy Gloves
+	Tooltip: ""
+}
+
+PhysicsHead: {
+	DisplayName: Champion's Headgear
+	Tooltip: ""
+}
+
+ThiefBody: {
+	DisplayName: Thief's Steel Grappling Hook
+	Tooltip: ""
+}
+
+ThiefFeet: {
+	DisplayName: Thief's Meteor Boots
+	Tooltip: ""
+}
+
+ThiefHands: {
+	DisplayName: Thief's Gloves With Prints
+	Tooltip: ""
+}
+
+ThiefHead: {
+	DisplayName: Thief's Mvriad-Faced Mask
+	Tooltip: ""
+}
+
+WindBody: {
+	DisplayName: Eagle's Winged Suit Harness
+	Tooltip: ""
+}
+
+WindFeet: {
+	DisplayName: Eagle's Quilted Puttees
+	Tooltip: ""
+}
+
+WindHands: {
+	DisplayName: Eagle's Soaring Ring
+	Tooltip: ""
+}
+
+WindHead: {
+	DisplayName: Eagle's Beaked Helmet
+	Tooltip: ""
+}
+
+DeadWatersBody: {
+	DisplayName: Pioneer's Sealed Lead Apron
+	Tooltip: ""
+}
+
+DeadWatersFeet: {
+	DisplayName: Pioneer's Starfaring Anchor
+	Tooltip: ""
+}
+
+DeadWatersHands: {
+	DisplayName: Pioneer's Lacuna Compass
+	Tooltip: ""
+}
+
+DeadWatersHead: {
+	DisplayName: Pioneer's Heatproof Shell
+	Tooltip: ""
+}
+
+DotBody: {
+	DisplayName: Prisoner's Repressive Straitjacket
+	Tooltip: ""
+}
+
+DotFeet: {
+	DisplayName: Prisoner's Restrictive Fetters
+	Tooltip: ""
+}
+
+DotHands: {
+	DisplayName: Prisoner's Leadstone Shackles
+	Tooltip: ""
+}
+
+DotHead: {
+	DisplayName: Prisoner's Sealed Muzzle
+	Tooltip: ""
+}
+
+DukeBody: {
+	DisplayName: Grand Duke's Robe of Grace
+	Tooltip: ""
+}
+
+DukeFeet: {
+	DisplayName: Grand Duke's Ceremonial Boots
+	Tooltip: ""
+}
+
+DukeHands: {
+	DisplayName: Grand Duke's Gloves of Fieryfur
+	Tooltip: ""
+}
+
+DukeHead: {
+	DisplayName: Grand Duke's Crown of Netherflame
+	Tooltip: ""
+}
+
+FeixiaoBody: {
+	DisplayName: Valorous Plate of Soaring Flight
+	Tooltip: ""
+}
+
+FeixiaoFeet: {
+	DisplayName: Valorous Greaves of Pursuing Hunt
+	Tooltip: ""
+}
+
+FeixiaoHands: {
+	DisplayName: Valorous Bracelet of Grappling Hooks
+	Tooltip: ""
+}
+
+FeixiaoHead: {
+	DisplayName: Valorous Mask of Northern Skies
+	Tooltip: ""
+}
+
+IronBody: {
+	DisplayName: Iron Cavalry's Silvery Armor
+	Tooltip: ""
+}
+
+IronFeet: {
+	DisplayName: Iron Cavalry's Skywalk Greaves
+	Tooltip: ""
+}
+
+IronHands: {
+	DisplayName: Iron Cavalry's Crushing Wristguard
+	Tooltip: ""
+}
+
+IronHead: {
+	DisplayName: Iron Cavalry's Homing Helm
+	Tooltip: ""
+}
+
+SacerdosBody: {
+	DisplayName: Sacerdos' Ceremonial Garb
+	Tooltip: ""
+}
+
+SacerdosFeet: {
+	DisplayName: Sacerdos' Arduous Boots
+	Tooltip: ""
+}
+
+SacerdosHands: {
+	DisplayName: Sacerdos' Welcoming Gloves
+	Tooltip: ""
+}
+
+SacerdosHead: {
+	DisplayName: Sacerdos' Melodic Earrings
+	Tooltip: ""
+}
+
+ScholarBody: {
+	DisplayName: Scholar's Tweed Jacket
+	Tooltip: ""
+}
+
+ScholarFeet: {
+	DisplayName: Scholar's Felt Snowboots
+	Tooltip: ""
+}
+
+ScholarHands: {
+	DisplayName: Scholar's Auxiliary Knuckle
+	Tooltip: ""
+}
+
+ScholarHead: {
+	DisplayName: Scholar's Silver-Rimmed Monocle
+	Tooltip: ""
+}
+
+WatchBody: {
+	DisplayName: Watchmaker's Illusory Formal Suit
+	Tooltip: ""
+}
+
+WatchFeet: {
+	DisplayName: Watchmaker's Dream-Concealing Dress Shoes
+	Tooltip: ""
+}
+
+WatchHands: {
+	DisplayName: Watchmaker's Fortuitous Wristwatch
+	Tooltip: ""
+}
+
+WatchHead: {
+	DisplayName: Watchmaker's Telescoping Lens
+	Tooltip: ""
+}
+
+Fuel: {
+	DisplayName: Fuel
+	Tooltip: Provides 60 Trailblaze Power
+}
+
+StarRailPass: {
+	DisplayName: Star Rail Pass
+	Tooltip:
+		'''
+		Used to start Cavern Relics challenge
+		Use in different environments to get different Relics
+		Requires 40 Trailblaze Power to use
+		'''
+}
+
+StarRailSpecialPass: {
+	DisplayName: Star Rail Special Pass
+	Tooltip:
+		'''
+		Used to start Planar Ornaments challenge
+		Use in different environments to get different Relics
+		Requires 40 Trailblaze Power to use
+		Only available in hard mode
+		'''
+}

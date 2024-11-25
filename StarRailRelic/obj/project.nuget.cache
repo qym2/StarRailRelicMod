@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "ED6Bo+WIoYE=",
+  "success": true,
+  "projectFilePath": "D:\\文档\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\StarRailRelic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\浅亦沐\\.nuget\\packages\\krafs.publicizer\\2.2.1\\krafs.publicizer.2.2.1.nupkg.sha512",
+    "C:\\Users\\浅亦沐\\.nuget\\packages\\lib.harmony\\2.3.3\\lib.harmony.2.3.3.nupkg.sha512",
+    "C:\\Users\\浅亦沐\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\浅亦沐\\.nuget\\packages\\system.text.json\\8.0.1\\system.text.json.8.0.1.nupkg.sha512",
+    "C:\\Users\\浅亦沐\\.nuget\\packages\\tmodloader.codeassist\\0.1.5\\tmodloader.codeassist.0.1.5.nupkg.sha512"
+  ],
+  "logs": []
+}

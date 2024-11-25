@@ -1,0 +1,29 @@
+﻿using StarRailRelic.Content.Items.Miscellaneous;
+
+namespace StarRailRelic.Content.Items.Tiles
+{
+    public class RelicStrengtheningTableItem : ModItem
+    {
+        public override void SetDefaults()
+        {
+            Item.DefaultToPlaceableTile(TileType<RelicStrengtheningTable>());
+
+            Item.width = this.GetTextureValue().Width;
+            Item.height = this.GetTextureValue().Height;
+
+            Item.value = Item.sellPrice(0, 1, 65, 0);
+            Item.rare = RarityType<PurpleRarity>();
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient<LostCrystal>(128)
+                .AddRecipeGroup("SilverBar", 10)
+                .AddIngredient(ItemID.Diamond, 1)
+                .AddIngredient(ItemID.Sapphire, 3)
+                .AddTile(TileID.Anvils)
+                .Register();
+        }
+    }
+}

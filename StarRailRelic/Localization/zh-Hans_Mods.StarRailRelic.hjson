@@ -1,0 +1,48 @@
+Keybinds.RelicButton.DisplayName: 快捷装备遗器
+Tiles.RelicStrengtheningTable.MapEntry: 遗器强化台
+ItemTextrue: "[i:StarRailRelic/{0}]"
+SubworldExit4: 已击败所有敌人，即将退出挑战
+SubworldExit3: 还有3秒...
+SubworldExit2: 2秒...
+SubworldExit1: 1秒...
+
+Environment: {
+	ZoneBeach: 海洋
+	ZoneCorrupt: 腐化
+	ZoneCrimson: 猩红
+	ZoneDesert: 沙漠
+	ZoneDirtLayerHeight: 泥土层
+	ZoneDungeon: 地牢
+	ZoneForest: 森林
+	ZoneGemCave: 宝石洞
+	ZoneGlowshroom: 发光蘑菇
+	ZoneGranite: 花岗岩
+	ZoneGraveyard: 墓地
+	ZoneHallow: 神圣
+	ZoneHive: 蜂巢
+	ZoneJungle: 丛林
+	ZoneLihzhardTemple: 丛林蜥蜴神庙
+	ZoneMarble: 大理石
+	ZoneMeteor: 陨石
+	ZoneNormalCaverns: 普通洞穴
+	ZoneNormalSpace: 普通太空
+	ZoneNormalUnderground: 普通地下
+	ZoneOldOneArmy: 旧日军团
+	ZoneOverworldHeight: 地上
+	ZonePeaceCandle: 和平蜡烛
+	ZonePurity: 纯净
+	ZoneRain: 雨天
+	ZoneRockLayerHeight: 岩石层
+	ZoneSandstorm: 沙尘暴
+	ZoneShadowCandle: 暗影蜡烛
+	ZoneShimmer: 微光
+	ZoneSkyHeight: 太空
+	ZoneSnow: 雪原
+	ZoneTowerNebula: 星云柱
+	ZoneTowerSolar: 日耀柱
+	ZoneTowerStardust: 星尘柱
+	ZoneTowerVortex: 星旋柱
+	ZoneUndergroundDesert: 地下沙漠
+	ZoneUnderworldHeight: 地狱
+	ZoneWaterCandle: 水蜡烛
+}

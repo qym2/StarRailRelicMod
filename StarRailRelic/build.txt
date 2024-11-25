@@ -1,0 +1,4 @@
+displayName = 星穹铁道遗器
+author = 浅亦沐/塔沐鸭
+version = 0.1
+modReferences = StructureHelper@2.5.3, SubworldLibrary@2.2.2.2, InnoVault@1.3

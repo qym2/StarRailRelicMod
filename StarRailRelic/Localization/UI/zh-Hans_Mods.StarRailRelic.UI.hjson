@@ -1,0 +1,42 @@
+RelicButton:
+	'''
+	装备遗器（再次点击关闭）
+	可在控件中绑定按键来快速装备
+	'''
+HeadRelicText: 头部
+HandsRelicText: 手部
+BodyRelicText: 躯干
+FeetRelicText: 脚部
+PlanarSphereRelicText: 位面球
+LinkRopeRelicText: 连结绳
+RelicStrengtheningText: 将遗器放到此处来强化
+PlaceRelicText: 请先放入遗器！
+RelicCannotStrengtheningText: 你没有足够的{$Mods.StarRailRelic.Items.LostCrystal.DisplayName}来升级你的遗器！
+RelicLevelMaxText: 遗器已满级！
+UpgradeCompletedText: 升级完成！
+NextLevelItemCountText: 下一级需要：{0}个{$Mods.StarRailRelic.Items.LostCrystal.DisplayName}
+RelicInforText: 当前遗器：{0} 等级：{1}
+TrailblazePowerTipText:
+	'''
+	开拓力，用于进行遗器挑战
+	每15秒回复一点
+	'''
+
+Relic: {
+	LifeFlat: 生命值  {0}
+	DamageFlat: 伤害提高  {0}
+	LifeAdditive: 生命值  {0}%
+	DamageAdditive: 伤害提高  {0}%
+	Endurance: 免伤  {0}%
+	CritChance: 暴击率  {0}%
+	LifeRegen: 生命再生  {0}
+	MeleeAttackSpeed: 近战速度  {0}%
+	MeleeArmorPenetration: 近战伤害穿透  {0}
+	RangedArmorPenetration: 远程伤害穿透  {0}
+	MagicArmorPenetration: 魔法伤害穿透  {0}
+	SummonArmorPenetration: 召唤伤害穿透  {0}
+	ManaCostReduction: 魔力减耗  {0}%
+	MaxMinions: 召唤物上限  {0}
+	Defense: 防御力  {0}
+	ArmorPenetration: 穿透  {0}
+}
