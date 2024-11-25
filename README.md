@@ -1,3 +1,4 @@
+![示例 GIF](StarRailRelic/Assets/Textures/TrailblazePower.png)
 # 星穹铁道遗器 Mod
 
 ## 简介
