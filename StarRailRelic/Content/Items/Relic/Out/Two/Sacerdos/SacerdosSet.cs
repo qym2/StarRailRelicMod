@@ -3,6 +3,16 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Sacerdos
     public abstract class SacerdosSet : ModRelic
     {
         public override RelicSet RelicSet => RelicSet.Sacerdos;
+
+        public override void UpdateRelicSetTwo(Player player)
+        {
+            player.moveSpeed += 0.08f;
+        }
+
+        public override void ModifyFourSetSpecialEffect(RelicSetSpecialEffectPlayer modPlayer)
+        {
+            modPlayer.IsSacerdosFourSet = true;
+        }
     }
 
     public class SacerdosHead : SacerdosSet

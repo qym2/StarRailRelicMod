@@ -1,4 +1,3 @@
-
 namespace StarRailRelic.Content.Items.Relic.Out.One.Ice
 {
     public abstract class IceSet : ModRelic

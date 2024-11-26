@@ -34,7 +34,7 @@ namespace StarRailRelic.Common.Players
 
         public bool IsMessengerFourSet { get; set; }
         private int messengerBoostTimer;
-        private const int messengerBoostDuration = 600;
+        private const int messengerBoostDuration = 1800;
 
         public bool IsPhysicsFourSet { get; set; }
         private int physicsBoostTimer;
@@ -57,6 +57,22 @@ namespace StarRailRelic.Common.Players
         public bool IsDotFourSet { get; set; }
 
         public bool IsDukeFourSet { get; set; }
+
+        public bool IsFeixiaoFourSet { get; set; }
+        private int feixiaoBoostTimer;
+        private const int feixiaoBoostDuration = 120;
+        private bool feixiaoSuperAmmo;
+
+        public bool IsIronFourSet { get; set; }
+
+        public bool IsSacerdosFourSet { get; set; }
+        private int sacerdosBoostTimer;
+        private const int sacerdosBoostDuration = 1800;
+
+        public bool IsWatchTwoSet { get; set; }
+        public bool IsWatchFourSet { get; set; }
+        private int watchBoostTimer;
+        private const int watchBoostDuration = 1200;
 
         public override void ResetEffects()
         {
@@ -101,6 +117,16 @@ namespace StarRailRelic.Common.Players
             if (IsMessengerFourSet)
             {
                 messengerBoostTimer = messengerBoostDuration;
+            }
+
+            if (IsSacerdosFourSet)
+            {
+                Player[] players = Player.GetTeammates();
+                foreach (Player p in players)
+                {
+                    p.GetModPlayer<RelicSetSpecialEffectPlayer>().sacerdosBoostTimer = sacerdosBoostDuration;
+                }
+                sacerdosBoostTimer = sacerdosBoostDuration;
             }
         }
 
@@ -205,6 +231,39 @@ namespace StarRailRelic.Common.Players
                     windBoostTimer--;
                 }
             }
+
+            if (IsFeixiaoFourSet)
+            {
+                if (!feixiaoSuperAmmo && Player.HeldItem.DamageType == DamageClass.Ranged)
+                {
+                    feixiaoBoostTimer++;
+
+                    if (feixiaoBoostTimer >= feixiaoBoostDuration)
+                    {
+                        feixiaoSuperAmmo = true;
+                        feixiaoBoostTimer = 0;
+                    }
+                }
+            }
+
+            if (sacerdosBoostTimer > 0)
+            {
+                sacerdosBoostTimer--;
+            }
+
+            if (IsWatchFourSet)
+            {
+                if(watchBoostTimer > 0)
+                {
+                    Player[] players = Player.GetTeammates();
+                    foreach (Player p in players)
+                    {
+                        p.GetDamage<GenericDamageClass>() += 12 / 100f;
+                    }
+                    Player.GetDamage<GenericDamageClass>() += 12 / 100f;
+                    watchBoostTimer--;
+                }
+            }
         }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
@@ -216,7 +275,7 @@ namespace StarRailRelic.Common.Players
 
             if (IsImaginaryFourSet)
             {
-                float distance = Vector2.Distance(Player.position, target.position);
+                float distance = Vector2.Distance(Player.Center, target.Center);
 
                 float distanceThreshold = 600;
 
@@ -256,11 +315,11 @@ namespace StarRailRelic.Common.Players
             {
                 if (target.DebuffType().Length >= 3)
                 {
-                    modifiers.CritDamage += 9 / 100f;
+                    modifiers.CritDamage += 12 / 100f;
                 }
                 else if (target.DebuffType().Length >= 2)
                 {
-                    modifiers.CritDamage += 6 / 100f;
+                    modifiers.CritDamage += 8 / 100f;
                 }
             }
 
@@ -268,7 +327,7 @@ namespace StarRailRelic.Common.Players
             {
                 if (target.lifeRegen < 0)
                 {
-                    modifiers.ArmorPenetration += 6;
+                    modifiers.ArmorPenetration += 8;
                 }
             }
 
@@ -278,7 +337,7 @@ namespace StarRailRelic.Common.Players
                 int ownProjectileCount = 0;
                 foreach (Projectile projectile in Main.projectile)
                 {
-                    float distance = Vector2.Distance(Player.position, projectile.position);
+                    float distance = Vector2.Distance(Player.Center, projectile.Center);
 
                     float distanceThreshold = 1200;
 
@@ -289,6 +348,45 @@ namespace StarRailRelic.Common.Players
                 }
 
                 modifiers.AddModifiersAdditive(Player, ownProjectileCount * 3 / 100f);
+            }
+
+            if (IsIronFourSet)
+            {
+                float distance = Vector2.Distance(Player.Center, target.Center);
+
+                float distanceThreshold1 = 300;
+                float distanceThreshold2 = 200;
+
+                if (distance <= distanceThreshold1)
+                {
+                    modifiers.ArmorPenetration += 5;
+                }
+                if (distance <= distanceThreshold2)
+                {
+                    modifiers.ArmorPenetration += 10;
+                }
+            }
+
+            if (sacerdosBoostTimer > 0)
+            {
+                bool isAnyTeammatesSacerdosFourSet = false;
+
+                Player[] players = Player.GetTeammates();
+                foreach (Player p in players)
+                {
+                    if (p.GetModPlayer<RelicSetSpecialEffectPlayer>().IsSacerdosFourSet)
+                    {
+                        isAnyTeammatesSacerdosFourSet = true;
+                        break;
+                    }
+                }
+
+                if(isAnyTeammatesSacerdosFourSet || IsSacerdosFourSet)
+                {
+                    modifiers.CritDamage += 12 / 100f;
+                }
+
+                sacerdosBoostTimer--;
             }
         }
 
@@ -326,6 +424,19 @@ namespace StarRailRelic.Common.Players
             }
         }
 
+        public override void ModifyShootStats(Item item, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+        {
+            if (feixiaoSuperAmmo && item.DamageType == DamageClass.Ranged)
+            {
+                damage = (int)(damage * (1 + (500 / 100f)));
+                velocity *= 1 + (500 / 100f);
+                knockback *= 1 + (500 / 100f);
+                feixiaoSuperAmmo = false;
+            }
+
+            feixiaoBoostTimer = 0;
+        }
+
         public override bool FreeDodge(Player.HurtInfo info)
         {
             if (IsThiefTwoSet && !IsThiefFourSet && Main.rand.Next(100) < 3)
@@ -345,6 +456,22 @@ namespace StarRailRelic.Common.Players
                 if(Main.rand.Next(100) < 50)
                 {
                     Player.RestoreLife(10);
+                }
+            }
+
+            if (IsWatchTwoSet && !IsWatchFourSet && Main.rand.Next(100) < 3)
+            {
+                Player.SetImmuneTimeForAllTypes(Player.longInvince ? 120 : 80);
+                return true;
+            }
+
+            if (IsWatchFourSet)
+            {
+                if (Main.rand.Next(100) < 8)
+                {
+                    Player.SetImmuneTimeForAllTypes(Player.longInvince ? 120 : 80);
+                    watchBoostTimer = watchBoostDuration;
+                    return true;
                 }
             }
 

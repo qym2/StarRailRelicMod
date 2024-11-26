@@ -46,11 +46,11 @@ LightningSetFour:
 	使用魔力药水后，下一次魔法伤害提高250%
 	'''
 MessengerSetTwo: 移动速度提高8%
-MessengerSetFour: 使用生命药水后，团队中所有玩家移动速度和加速度乘以1.15倍，持续10秒
+MessengerSetFour: 使用生命药水后，团队中所有玩家移动速度和加速度乘以1.15倍，持续30秒
 MusketeerSetTwo: 伤害提高4%
 MusketeerSetFour:
 	'''
-	移动速度提高8%
+	移动速度提高12%
 	近战伤害提高4%
 	'''
 PhysicsSetTwo: 召唤伤害提高5%
@@ -73,15 +73,38 @@ DeadWatersSetTwo: 对受到减益效果的目标造成的伤害提高6%
 DeadWatersSetFour:
 	'''
 	暴击率提高2%
-	对陷入不少于2/3个减益效果的目标造成的暴击伤害提高6%/9%
+	对陷入不少于1/2个减益效果的目标造成的暴击伤害提高8%/12%
 	'''
 DotSetTwo: 伤害提高4%
-DotSetFour: 对受到持续伤害效果的目标造成伤害时,盔甲穿透提高6点
+DotSetFour: 对受到持续伤害效果的目标造成伤害时,盔甲穿透提高8点
 DukeSetTwo: 魔法伤害提高5%
 DukeSetFour:
 	'''
 	造成魔法伤害时，根据自身在75个图格以内发射的魔法弹幕的数量
 	每个使魔法伤害提高3%，最多叠加8次
+	'''
+IronSetTwo: 免伤提高3%
+IronSetFour: 对18/12个图格以内的目标造成伤害时盔甲穿透提高5/15点
+FeixiaoSetTwo: 远程伤害提高5%
+FeixiaoSetFour:
+	'''
+	暴击率提高3%
+	当手持远程伤害武器且2秒内没有攻击时，下一次发射的远程弹幕的伤害，速度和击退提高500%
+	'''
+SacerdosSetTwo: 移动速度提高8%
+SacerdosSetFour: 使用生命药水后，团队中所有玩家的暴击伤害提高12%，持续30秒
+ScholarSetTwo: 暴击率提高4%
+ScholarSetFour:
+	'''
+	召唤伤害提高10%
+	处于非静止状态时召唤伤害额外提高10%
+	'''
+WatchSetTwo: 有3%的概率闪避攻击
+WatchSetFour:
+	'''
+	显示时间
+	有8%的概率闪避攻击
+	闪避成功后，团队中所有玩家的伤害提高12%，持续20秒
 	'''
 StarRailPassTip:
 	'''

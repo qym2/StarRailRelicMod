@@ -33,7 +33,7 @@ ImaginarySetTwo: Increases Ranged DMG by 5%
 ImaginarySetFour:
 	'''
 	When dealing DMG to targets beyond 37 tiles, increases CRIT Rate by 8% 
-	When dealing DMG to targets whose speed is slower than or equal to your own, increase CRIT DMG by 15% 
+	When dealing DMG to targets whose speed is slower than or equal to your own, increases CRIT DMG by 15% 
 	'''
 KnightSetTwo: Increases DEF by 10%
 KnightSetFour:
@@ -50,11 +50,11 @@ LightningSetFour:
 	Increases next Magic DMG by 250% after using a Mana Potion
 	'''
 MessengerSetTwo: Increases movement speed by 8%
-MessengerSetFour: After using a Life Potion, all players in your team multiply their movement speed and acceleration by 1.15 for 10 seconds.
+MessengerSetFour: After using a Life Potion, all players in your team multiply their movement speed and acceleration by 1.15 for 30 seconds.
 MusketeerSetTwo: Increases DMG by 4%
 MusketeerSetFour:
 	'''
-	Increases movement speed by 8%
+	Increases movement speed by 12%
 	Increases Melee DMG by 4%
 	'''
 PhysicsSetTwo: Increases Summon DMG by 5%
@@ -77,15 +77,39 @@ DeadWatersSetTwo: Increases DMG dealt to debuffed targets by 6%
 DeadWatersSetFour:
 	'''
 	Increases CRIT Rate by 2%
-	Increases CRIT DMG dealt to targets with no less than 2/3 debuffs by 6%/9%
+	Increases CRIT DMG dealt to targets with no less than 1/2 debuffs by 8%/12%
 	'''
 DotSetTwo: Increases DMG by 4%
-DotSetFour: When dealing DMG to a target with DMG over time debuffs, increases Armor Penetration by 6
+DotSetFour: When dealing DMG to a target with DMG over time debuffs, increases Armor Penetration by 8
 DukeSetTwo: Increases Magic DMG by 5%
 DukeSetFour:
 	'''
 	When dealing Magic DMG, based on the number of Magic DMG projectiles you fire yourself within 75 tiles
 	Each increases Magic DMG by 3%, stacking up to 8 times
+	'''
+IronSetTwo: Increases Endurance by 3%
+IronSetFour: When dealing DMG to targets within 18/12 tiles, increases Armor Penetration by 5/15
+FeixiaoSetTwo: Increases Ranged DMG by 5%
+FeixiaoSetFour:
+	'''
+	Increases CRIT Rate by 3%
+	When holding a Ranged DMG weapon and not attacking within 2 seconds
+	the DMG, Velocity and Knockback of the next Ranged DMG projectiles fired are increased by 500%.
+	'''
+SacerdosSetTwo: Increases movement speed by 8%
+SacerdosSetFour: After using a Life Potion, all players in your team increase CRIT DMG by 15% for 30 seconds.
+ScholarSetTwo: Increases CRIT Rate by 4%
+ScholarSetFour:
+	'''
+	Increases Summon DMG by 10%
+	When in a non-stationary state, increases Summon DMG by an additional 10% 
+	'''
+WatchSetTwo: 3% chance to dodge attacks
+WatchSetFour:
+	'''
+	Tells the time
+	8% chance to dodge attacks
+	If the dodge is successful, the DMG of all players in the team is increased by 12% for 20 seconds
 	'''
 StarRailPassTip:
 	'''

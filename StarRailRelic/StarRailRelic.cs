@@ -32,13 +32,21 @@ namespace StarRailRelic
         private void On_Player_HealEffect(On_Player.orig_HealEffect orig, Player self, int healAmount, bool broadcast)
         {
             orig.Invoke(self, healAmount, broadcast);
-            self.GetModPlayer<RelicSetSpecialEffectPlayer>().OnHealLife();
+
+            if (healAmount > 50)
+            {
+                self.GetModPlayer<RelicSetSpecialEffectPlayer>().OnHealLife();
+            }
         }
 
         private void On_Player_ManaEffect(On_Player.orig_ManaEffect orig, Player self, int manaAmount)
         {
             orig.Invoke(self, manaAmount);
-            self.GetModPlayer<RelicSetSpecialEffectPlayer>().OnHealMana();
+
+            if (manaAmount > 50)
+            {
+                self.GetModPlayer<RelicSetSpecialEffectPlayer>().OnHealMana();
+            }
         }
 
         private static void SwapRelic(Item[] inv, int context, int slot)

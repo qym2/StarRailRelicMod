@@ -1,8 +1,24 @@
+
 namespace StarRailRelic.Content.Items.Relic.Out.Two.Watch
 {
     public abstract class WatchSet : ModRelic
     {
         public override RelicSet RelicSet => RelicSet.Watch;
+
+        public override void ModifyTwoSetSpecialEffect(RelicSetSpecialEffectPlayer modPlayer)
+        {
+            modPlayer.IsWatchTwoSet = true;
+        }
+
+        public override void UpdateRelicSetFour(Player player)
+        {
+            player.accWatch = 3;
+        }
+
+        public override void ModifyFourSetSpecialEffect(RelicSetSpecialEffectPlayer modPlayer)
+        {
+            modPlayer.IsWatchFourSet = true;
+        }
     }
 
     public class WatchHead : WatchSet

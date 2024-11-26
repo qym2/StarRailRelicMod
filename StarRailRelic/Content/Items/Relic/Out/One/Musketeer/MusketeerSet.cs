@@ -11,7 +11,7 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Musketeer
 
         public override void UpdateRelicSetFour(Player player)
         {
-            player.moveSpeed += 0.08f;
+            player.moveSpeed += 0.12f;
             player.GetDamage<MeleeDamageClass>() += 4f / 100f;
         }
     }
