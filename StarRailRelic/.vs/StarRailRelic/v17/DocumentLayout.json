@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\players\\relicsetspecialeffectplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\players\\relicsetspecialeffectplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\content\\items\\relic\\out\\two\\watch\\watchset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:content\\items\\relic\\out\\two\\watch\\watchset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\content\\items\\relic\\out\\one\\thief\\thiefset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:content\\items\\relic\\out\\one\\thief\\thiefset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\localization\\items\\zh-hans_mods.starrailrelic.items.hjson||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:localization\\items\\zh-hans_mods.starrailrelic.items.hjson||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\localization\\items\\en-us_mods.starrailrelic.items.hjson||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:localization\\items\\en-us_mods.starrailrelic.items.hjson||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\players\\relicsetspecialeffectplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\players\\relicsetspecialeffectplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\content\\items\\relic\\in\\one\\xianzhou\\xianzhouset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:content\\items\\relic\\in\\one\\xianzhou\\xianzhouset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,65 +42,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "en-US_Mods.StarRailRelic.Items.hjson",
               "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\Items\\en-US_Mods.StarRailRelic.Items.hjson",
               "RelativeDocumentMoniker": "Localization\\Items\\en-US_Mods.StarRailRelic.Items.hjson",
               "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\Items\\en-US_Mods.StarRailRelic.Items.hjson",
               "RelativeToolTip": "Localization\\Items\\en-US_Mods.StarRailRelic.Items.hjson",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAG0AAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAKIAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-11-24T10:02:11.91Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "zh-Hans_Mods.StarRailRelic.Items.hjson",
               "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\Items\\zh-Hans_Mods.StarRailRelic.Items.hjson",
               "RelativeDocumentMoniker": "Localization\\Items\\zh-Hans_Mods.StarRailRelic.Items.hjson",
               "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\Items\\zh-Hans_Mods.StarRailRelic.Items.hjson",
               "RelativeToolTip": "Localization\\Items\\zh-Hans_Mods.StarRailRelic.Items.hjson",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGcAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAAAJYAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-11-24T10:02:11.322Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "XianzhouSet.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\In\\One\\Xianzhou\\XianzhouSet.cs",
+              "RelativeDocumentMoniker": "Content\\Items\\Relic\\In\\One\\Xianzhou\\XianzhouSet.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\In\\One\\Xianzhou\\XianzhouSet.cs",
+              "RelativeToolTip": "Content\\Items\\Relic\\In\\One\\Xianzhou\\XianzhouSet.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T14:11:25.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ThiefSet.cs",
-              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\Out\\One\\Thief\\ThiefSet.cs",
-              "RelativeDocumentMoniker": "Content\\Items\\Relic\\Out\\One\\Thief\\ThiefSet.cs",
-              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\Out\\One\\Thief\\ThiefSet.cs",
-              "RelativeToolTip": "Content\\Items\\Relic\\Out\\One\\Thief\\ThiefSet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwQAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T12:35:31.255Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WatchSet.cs",
-              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\Out\\Two\\Watch\\WatchSet.cs",
-              "RelativeDocumentMoniker": "Content\\Items\\Relic\\Out\\Two\\Watch\\WatchSet.cs",
-              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\Out\\Two\\Watch\\WatchSet.cs",
-              "RelativeToolTip": "Content\\Items\\Relic\\Out\\Two\\Watch\\WatchSet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T12:34:40.655Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "RelicSetSpecialEffectPlayer.cs",
               "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\RelicSetSpecialEffectPlayer.cs",
               "RelativeDocumentMoniker": "Common\\Players\\RelicSetSpecialEffectPlayer.cs",
               "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\RelicSetSpecialEffectPlayer.cs",
               "RelativeToolTip": "Common\\Players\\RelicSetSpecialEffectPlayer.cs",
-              "ViewState": "AgIAAPUAAAAAAAAAAAAAANYBAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAAAFMAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T11:27:22.285Z",
               "EditorCaption": ""

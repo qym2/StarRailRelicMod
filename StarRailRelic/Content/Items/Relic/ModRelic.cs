@@ -220,7 +220,7 @@
             tooltips.Add(line3);
 
             TooltipLine line4;
-            if (GetTextValue($"Mods.StarRailRelic.Items.{RelicSet}SetFour") == "")
+            if (!Exists($"Mods.StarRailRelic.Items.{RelicSet}SetFour"))
             {
                 return;
             }

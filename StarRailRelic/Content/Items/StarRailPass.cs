@@ -67,7 +67,8 @@
             if ((IsOutRelic ? ModRelic.ModOutRelicLists : ModRelic.ModInRelicLists) != null &&
                 (IsOutRelic ? envPlayer.ObtainableRelicsKeyOut : envPlayer.ObtainableRelicsKeyIn) != null)
             {
-                relics = string.Join("  ", (IsOutRelic ? ModRelic.ModOutRelicLists : ModRelic.ModInRelicLists)[(RelicSet)(IsOutRelic ? envPlayer.ObtainableRelicsKeyOut : envPlayer.ObtainableRelicsKeyIn)]
+                relics = string.Join("  ", (IsOutRelic ? ModRelic.ModOutRelicLists : ModRelic.ModInRelicLists)
+                    [(RelicSet)(IsOutRelic ? envPlayer.ObtainableRelicsKeyOut : envPlayer.ObtainableRelicsKeyIn)]
                     .Select(pair => $"{GetText($"Mods.StarRailRelic.ItemTextrue").WithFormatArgs(pair.Key)}"));
             }
 

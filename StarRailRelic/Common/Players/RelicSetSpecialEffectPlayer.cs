@@ -1,7 +1,4 @@
-﻿using HarmonyLib;
-using Terraria;
-
-namespace StarRailRelic.Common.Players
+﻿namespace StarRailRelic.Common.Players
 {
     public class RelicSetSpecialEffectPlayer : ModPlayer
     {
@@ -74,6 +71,20 @@ namespace StarRailRelic.Common.Players
         private int watchBoostTimer;
         private const int watchBoostDuration = 1200;
 
+        public bool IsBanditryTwoSet { get; set; }
+
+        public bool IsDifferentiatorTwoSet { get; set; }
+
+        public bool IsGlamothTwoSet { get; set; }
+
+        public bool IsKeelTwoSet { get; set; }
+
+        public bool IsVonwacqTwoSet { get; set; }
+        private int vonwacqBoostTimer;
+        private const int vonwacqBoostDuration = 180;
+
+        public bool IsXianzhouTwoSet { get; set; }
+
         public override void ResetEffects()
         {
             PropertyInfo[] properties = GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -135,6 +146,16 @@ namespace StarRailRelic.Common.Players
             if (IsHealingFourSet)
             {
                 Player.lifeRegen += 8;
+            }
+
+            if (IsXianzhouTwoSet)
+            {
+                Player.lifeRegen += 4;
+
+                if(Player.velocity.Length() == 0)
+                {
+                    Player.lifeRegen += 12;
+                }
             }
         }
 
@@ -264,6 +285,42 @@ namespace StarRailRelic.Common.Players
                     watchBoostTimer--;
                 }
             }
+
+            if (IsGlamothTwoSet)
+            {
+                float maxHealthSpeed = 0f;
+                float maxHealth = 0f;
+
+                foreach (NPC npc in Main.npc)
+                {
+                    if (npc.active && npc.boss)
+                    {
+                        if (npc.lifeMax > maxHealth)
+                        {
+                            maxHealth = npc.lifeMax;
+                            maxHealthSpeed = npc.velocity.Length();
+                        }
+                    }
+                }
+
+                if (maxHealthSpeed > 0 && Player.velocity.Length() / maxHealthSpeed <= 2)
+                {
+                    Player.GetDamage<GenericDamageClass>() += 10 / 100f * Player.velocity.Length() / maxHealthSpeed;
+                }
+                else
+                {
+                    Player.GetDamage<GenericDamageClass>() += 20 / 100f;
+                }
+            }
+            
+            if (IsVonwacqTwoSet)
+            {
+                if(vonwacqBoostTimer > 0)
+                {
+                    Player.moveSpeed += 2f;
+                    vonwacqBoostTimer--;
+                }
+            }
         }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
@@ -272,7 +329,7 @@ namespace StarRailRelic.Common.Players
             {
                 modifiers.ArmorPenetration += 4;
             }
-
+            
             if (IsImaginaryFourSet)
             {
                 float distance = Vector2.Distance(Player.Center, target.Center);
@@ -281,11 +338,7 @@ namespace StarRailRelic.Common.Players
 
                 if (distance <= distanceThreshold)
                 {
-                    float critChance = Player.GetCritChance<GenericDamageClass>() + 8;
-                    if(Main.rand.NextFloat() * 100 < critChance)
-                    {
-                        modifiers.SetCrit();
-                    }
+                    modifiers.AddModifiersCrit(Player, 8);
                 }
 
                 if(Player.velocity.Length() >= target.velocity.Length())
@@ -371,7 +424,7 @@ namespace StarRailRelic.Common.Players
             {
                 bool isAnyTeammatesSacerdosFourSet = false;
 
-                Player[] players = Player.GetTeammates();
+                Player[] players = Player.GetAllTeamPlayers();
                 foreach (Player p in players)
                 {
                     if (p.GetModPlayer<RelicSetSpecialEffectPlayer>().IsSacerdosFourSet)
@@ -381,12 +434,42 @@ namespace StarRailRelic.Common.Players
                     }
                 }
 
-                if(isAnyTeammatesSacerdosFourSet || IsSacerdosFourSet)
+                if(isAnyTeammatesSacerdosFourSet)
                 {
                     modifiers.CritDamage += 12 / 100f;
                 }
 
                 sacerdosBoostTimer--;
+            }
+
+            if (IsDifferentiatorTwoSet)
+            {
+                modifiers.CritDamage += 10 / 100f;
+
+                if (modifiers.CritDamage.Additive > 2.1)
+                {
+                    modifiers.AddModifiersCrit(Player, 8);
+                }
+            }
+
+            if (true)
+            {
+                bool isAnyTeammatesKeelTwoSetAndEndurance35 = false;
+
+                Player[] players = Player.GetAllTeamPlayers();
+                foreach (Player p in players)
+                {
+                    if (p.GetModPlayer<RelicSetSpecialEffectPlayer>().IsKeelTwoSet && p.endurance > 0.35f)
+                    {
+                        isAnyTeammatesKeelTwoSetAndEndurance35 = true;
+                        break;
+                    }
+                }
+
+                if (isAnyTeammatesKeelTwoSetAndEndurance35)
+                {
+                    modifiers.CritDamage += 8 / 100f;
+                }
             }
         }
 
@@ -439,6 +522,41 @@ namespace StarRailRelic.Common.Players
 
         public override bool FreeDodge(Player.HurtInfo info)
         {
+            if (IsBanditryTwoSet)
+            {
+                float maxHealthSpeed = 0f;
+                float maxHealth = 0f;
+
+                foreach (NPC npc in Main.npc)
+                {
+                    if(npc.active && npc.boss)
+                    {
+                        if(npc.lifeMax > maxHealth)
+                        {
+                            maxHealth = npc.lifeMax;
+                            maxHealthSpeed = npc.velocity.Length();
+                        }
+                    }
+                }
+
+                if(maxHealthSpeed > 0)
+                {
+                    if(Player.velocity.Length() > maxHealthSpeed)
+                    {
+                        if (Main.rand.Next(100) < 8)
+                        {
+                            Player.SetImmuneTimeForAllTypes(Player.longInvince ? 120 : 80);
+                            return true;
+                        }
+                    }
+                }
+                else if (Main.rand.Next(100) < 3)
+                {
+                    Player.SetImmuneTimeForAllTypes(Player.longInvince ? 120 : 80);
+                    return true;
+                }
+            }
+
             if (IsThiefTwoSet && !IsThiefFourSet && Main.rand.Next(100) < 3)
             {
                 Player.SetImmuneTimeForAllTypes(Player.longInvince ? 120 : 80);
@@ -453,7 +571,7 @@ namespace StarRailRelic.Common.Players
                     return true;
                 }
 
-                if(Main.rand.Next(100) < 50)
+                if (Main.rand.Next(100) < 50)
                 {
                     Player.RestoreLife(10);
                 }
@@ -495,6 +613,11 @@ namespace StarRailRelic.Common.Players
             if(IsLifeFourSet && info.Damage >= Player.statLifeMax2 * 0.20f)
             {
                 lifeBoostTimer = lifeBoostDuration;
+            }
+
+            if (IsVonwacqTwoSet)
+            {
+                vonwacqBoostTimer = vonwacqBoostDuration;
             }
         }
     }

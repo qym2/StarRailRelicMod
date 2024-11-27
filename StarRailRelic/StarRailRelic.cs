@@ -33,7 +33,7 @@ namespace StarRailRelic
         {
             orig.Invoke(self, healAmount, broadcast);
 
-            if (healAmount > 50)
+            if (healAmount >= 50)
             {
                 self.GetModPlayer<RelicSetSpecialEffectPlayer>().OnHealLife();
             }
@@ -43,7 +43,7 @@ namespace StarRailRelic
         {
             orig.Invoke(self, manaAmount);
 
-            if (manaAmount > 50)
+            if (manaAmount >= 50)
             {
                 self.GetModPlayer<RelicSetSpecialEffectPlayer>().OnHealMana();
             }

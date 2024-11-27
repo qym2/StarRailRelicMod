@@ -1,4 +1,6 @@
 ﻿using StarRailRelic.Content.Items.Relic.Out.One.Fire;
+using StarRailRelic.Content.Items.Relic.Out.Two.Watch;
+using Terraria.ModLoader;
 
 namespace StarRailRelic.Common.Systems
 {
@@ -19,10 +21,17 @@ namespace StarRailRelic.Common.Systems
 
         public override void AddRecipes()
         {
-            LoadAllRecipes();
+            LoadAllRelicRecipes();
+
+            Recipe.Create(ItemID.GPS)
+              .AddIngredient<WatchHands>()
+              .AddIngredient(ItemID.DepthMeter)
+              .AddIngredient(ItemID.Compass)
+              .DisableDecraft()
+              .Register();
         }
 
-        public static void LoadAllRecipes()
+        public static void LoadAllRelicRecipes()
         {
             // 获取当前程序集
             Assembly assembly = Assembly.GetExecutingAssembly();

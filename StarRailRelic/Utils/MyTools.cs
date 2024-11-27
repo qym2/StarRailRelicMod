@@ -176,6 +176,16 @@ namespace StarRailRelic.Utils
         {
             return Main.player.Where(p => p.active && p.team == player.team && p != player).ToArray();
         }
+
+        /// <summary>
+        /// 获取和当前玩家在同一队伍中的所有玩家，包括自己
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public static Player[] GetAllTeamPlayers(this Player player)
+        {
+            return Main.player.Where(p => p.active && p.team == player.team).ToArray();
+        }
         #endregion
 
         #region 生成源扩展
@@ -245,6 +255,80 @@ namespace StarRailRelic.Utils
         public static void AddModifiersAdditive(this ref NPC.HitModifiers modifiers, Player player, float additive)
         {
             modifiers.FinalDamage *= 1 + (additive / player.GetTotalDamage<MagicDamageClass>().Additive);
+        }
+
+        public static void AddModifiersCrit(this ref NPC.HitModifiers modifiers, Player player, float crit)
+        {
+            if (modifiers.DamageType == DamageClass.Default)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.Default) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.Generic)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.Generic) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.Magic)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.Magic) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.MagicSummonHybrid)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.MagicSummonHybrid) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.Melee)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.Melee) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.MeleeNoSpeed)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.MeleeNoSpeed) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.Ranged)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.Ranged) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.Summon)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.Summon) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.SummonMeleeSpeed)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.SummonMeleeSpeed) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
+            else if (modifiers.DamageType == DamageClass.Throwing)
+            {
+                if (Main.rand.NextFloat() * 100 < player.GetTotalCritChance(DamageClass.Throwing) + crit)
+                {
+                    modifiers.SetCrit();
+                }
+            }
         }
 
         public static Item NewItemSycn(IEntitySource entitySource, Vector2 position, int type, int stack = 1)

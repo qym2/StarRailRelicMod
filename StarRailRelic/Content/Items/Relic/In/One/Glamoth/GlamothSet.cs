@@ -3,6 +3,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Glamoth
     public abstract class GlamothSet : ModRelic
     {
         public override RelicSet RelicSet => RelicSet.Glamoth;
+
+        public override void ModifyTwoSetSpecialEffect(RelicSetSpecialEffectPlayer modPlayer)
+        {
+            modPlayer.IsGlamothTwoSet = true;
+        }
     }
 
     public class GlamothSphere : GlamothSet

@@ -3,6 +3,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Banditry
     public abstract class BanditrySet : ModRelic
     {
         public override RelicSet RelicSet => RelicSet.Banditry;
+
+        public override void ModifyTwoSetSpecialEffect(RelicSetSpecialEffectPlayer modPlayer)
+        {
+            modPlayer.IsBanditryTwoSet = true;
+        }
     }
 
     public class BanditrySphere : BanditrySet
