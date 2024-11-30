@@ -8,4 +8,4 @@ Trailblaze: TerraRail! is a Mod that adds expanded content to the game.
 This content is inspired by Honkai: Star Rail and introduces a variety of relics to enhance the diversity and enjoyment of the game. 
 Players can explore and challenge different environments and enemies, collecting and strengthening relics to improve their characters' abilities and combat effectiveness.
 
-For more information, please go to: https://github.com/qym2/StarRailRelicModWiki
+For more information, please visit: https://github.com/qym2/StarRailRelicModWiki

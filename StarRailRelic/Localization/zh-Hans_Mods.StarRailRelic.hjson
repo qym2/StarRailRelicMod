@@ -11,7 +11,7 @@ Environment: {
 	ZoneCorrupt: 腐化
 	ZoneCrimson: 猩红
 	ZoneDesert: 沙漠
-	ZoneDirtLayerHeight: 泥土层
+	ZoneDirtLayerHeight: 地下层
 	ZoneDungeon: 地牢
 	ZoneForest: 森林
 	ZoneGemCave: 宝石洞
@@ -32,7 +32,7 @@ Environment: {
 	ZonePeaceCandle: 和平蜡烛
 	ZonePurity: 纯净
 	ZoneRain: 雨天
-	ZoneRockLayerHeight: 岩石层
+	ZoneRockLayerHeight: 洞穴层
 	ZoneSandstorm: 沙尘暴
 	ZoneShadowCandle: 暗影蜡烛
 	ZoneShimmer: 微光

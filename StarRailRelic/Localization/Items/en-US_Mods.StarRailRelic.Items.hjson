@@ -88,7 +88,7 @@ FeixiaoSetFour:
 	'''
 	Increases CRIT Rate by 3%
 	When holding a Ranged DMG weapon and not attacking within 2 seconds
-	the DMG, Velocity and Knockback of the next Ranged DMG projectiles fired are increased by 500%.
+	The DMG, Velocity and Knockback of the next Ranged DMG projectiles fired are increased by 500%.
 	'''
 SacerdosSetTwo: Increases movement speed by 8%
 SacerdosSetFour: After using a Life Potion, all players in the team increase CRIT DMG by 15% for 30 seconds.
