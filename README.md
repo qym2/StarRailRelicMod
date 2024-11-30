@@ -2,7 +2,7 @@
 # 开拓，星遗泰拉 ！
 
 ## 简介
-开拓，星遗泰拉 ！是一个为游戏添加拓展内容的Mod，内容以[崩坏：星穹铁道](https://sr.mihoyo.com/)为原型，添加了一系列遗器，旨在增强游戏的多样性和乐趣。玩家可以通过探索、挑战不同的环境和敌人，收集和强化遗器，以提升角色的能力和战斗效果。  
+[开拓，星遗泰拉 ！](https://steamcommunity.com/sharedfiles/filedetails/?id=3374564713)是一个为游戏添加拓展内容的Mod，内容以[崩坏：星穹铁道](https://sr.mihoyo.com/)为原型，添加了一系列遗器，旨在增强游戏的多样性和乐趣。玩家可以通过探索、挑战不同的环境和敌人，收集和强化遗器，以提升角色的能力和战斗效果。  
 （小声bb：在去年我还发布过一个[星穹铁道mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3212263371)（[mod展示视频1](https://www.bilibili.com/video/BV17q421w7za),[mod展示视频2](https://www.bilibili.com/video/BV1s5gueDEKq)），但是由于像素画太难画以及时间不是很充裕，于是便没有更新了，但是后面时间充裕了应该会把旧mod的内容搬进来并且进行优化）。
 
 ## 遗器介绍
