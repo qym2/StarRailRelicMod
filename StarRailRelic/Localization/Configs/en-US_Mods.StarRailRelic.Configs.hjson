@@ -1,0 +1,12 @@
+﻿MainConfigs: {
+	DisplayName: Main Configs
+
+	SimplifiedMode: {
+		Label: "[centeritem:StarRailRelic/LostCrystal] Simplified Mode"
+		Tooltip:
+			'''
+			In Simplified Mode, the acquisition of relics and their upgrade materials will be doubled
+			For players with limited time, this allows for a more relaxed experience of the game journey
+			'''
+	}
+}

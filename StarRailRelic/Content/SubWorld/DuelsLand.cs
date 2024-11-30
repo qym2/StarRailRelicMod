@@ -76,126 +76,126 @@
             }
         }
 
-        public static bool JustPressed(Keys key)
-        {
-            return Main.keyState.IsKeyDown(key) && !Main.oldKeyState.IsKeyDown(key);
-        }
+        //public static bool JustPressed(Keys key)
+        //{
+        //    return Main.keyState.IsKeyDown(key) && !Main.oldKeyState.IsKeyDown(key);
+        //}
 
-        public override void PostUpdateWorld()
-        {
-            if (JustPressed(Keys.O))
-            {
-                for (int x = 0; x < Main.maxTilesX; x++)
-                {
-                    for (int y = 0; y < Main.maxTilesY; y++)
-                    {
-                        Tile tile = Main.tile[x, y];
+        //public override void PostUpdateWorld()
+        //{
+        //    if (JustPressed(Keys.O))
+        //    {
+        //        for (int x = 0; x < Main.maxTilesX; x++)
+        //        {
+        //            for (int y = 0; y < Main.maxTilesY; y++)
+        //            {
+        //                Tile tile = Main.tile[x, y];
 
-                        // 将黑檀石块变为土块
-                        if (tile.TileType == TileID.Ash)
-                        {
-                            tile.ResetToType(TileID.Hellstone);
-                        }
-                        // 将乌木栅栏变为木栅栏
-                        else if (tile.WallType == WallID.Marble)
-                        {
-                            tile.WallType = WallID.HellstoneBrick;
-                        }
-                        // 将损伤块变为木材
-                        else if (tile.TileType == TileID.MarbleBlock)
-                        {
-                            tile.ResetToType(TileID.HellstoneBrick);
-                        }
-                    }
-                }
-            }
-        }
+        //                // 将黑檀石块变为土块
+        //                if (tile.TileType == TileID.Ash)
+        //                {
+        //                    tile.ResetToType(TileID.Hellstone);
+        //                }
+        //                // 将乌木栅栏变为木栅栏
+        //                else if (tile.WallType == WallID.Marble)
+        //                {
+        //                    tile.WallType = WallID.HellstoneBrick;
+        //                }
+        //                // 将损伤块变为木材
+        //                else if (tile.TileType == TileID.MarbleBlock)
+        //                {
+        //                    tile.ResetToType(TileID.HellstoneBrick);
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
     }
 
     public class SubworldGlobalTile : GlobalTile
     {
-        public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
-        {
-            SubworldPlayer modPlayer = Main.LocalPlayer.GetModPlayer<SubworldPlayer>();
+        //public override bool CanKillTile(int i, int j, int type, ref bool blockDamaged)
+        //{
+        //    SubworldPlayer modPlayer = Main.LocalPlayer.GetModPlayer<SubworldPlayer>();
 
-            if (modPlayer.InSubworld)
-            {
-                Vector2 playerPosition = Main.LocalPlayer.position;
-                Vector2 tilePosition = new(i * 16, j * 16);
+        //    if (modPlayer.InSubworld)
+        //    {
+        //        Vector2 playerPosition = Main.LocalPlayer.position;
+        //        Vector2 tilePosition = new(i * 16, j * 16);
 
-                float distance = Vector2.Distance(playerPosition, tilePosition);
+        //        float distance = Vector2.Distance(playerPosition, tilePosition);
 
-                float distanceThreshold = 10000f;
+        //        float distanceThreshold = 10000f;
 
-                if (distance < distanceThreshold)
-                {
-                    return false;
-                }
-            }
-            return base.CanKillTile(i, j, type, ref blockDamaged);
-        }
+        //        if (distance < distanceThreshold)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return base.CanKillTile(i, j, type, ref blockDamaged);
+        //}
 
-        public override bool CanExplode(int i, int j, int type)
-        {
-            SubworldPlayer modPlayer = Main.LocalPlayer.GetModPlayer<SubworldPlayer>();
+        //public override bool CanExplode(int i, int j, int type)
+        //{
+        //    SubworldPlayer modPlayer = Main.LocalPlayer.GetModPlayer<SubworldPlayer>();
 
-            if (modPlayer.InSubworld)
-            {
-                Vector2 playerPosition = Main.LocalPlayer.position;
-                Vector2 tilePosition = new(i * 16, j * 16);
+        //    if (modPlayer.InSubworld)
+        //    {
+        //        Vector2 playerPosition = Main.LocalPlayer.position;
+        //        Vector2 tilePosition = new(i * 16, j * 16);
 
-                float distance = Vector2.Distance(playerPosition, tilePosition);
+        //        float distance = Vector2.Distance(playerPosition, tilePosition);
 
-                float distanceThreshold = 10000f;
+        //        float distanceThreshold = 10000f;
 
-                if (distance < distanceThreshold)
-                {
-                    return false;
-                }
-            }
-            return base.CanExplode(i, j, type);
-        }
+        //        if (distance < distanceThreshold)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return base.CanExplode(i, j, type);
+        //}
 
-        public override bool CanPlace(int i, int j, int type)
-        {
-            SubworldPlayer modPlayer = Main.LocalPlayer.GetModPlayer<SubworldPlayer>();
+        //public override bool CanPlace(int i, int j, int type)
+        //{
+        //    SubworldPlayer modPlayer = Main.LocalPlayer.GetModPlayer<SubworldPlayer>();
 
-            if (modPlayer.InSubworld)
-            {
-                Vector2 playerPosition = Main.LocalPlayer.position;
-                Vector2 tilePosition = new(i * 16, j * 16);
+        //    if (modPlayer.InSubworld)
+        //    {
+        //        Vector2 playerPosition = Main.LocalPlayer.position;
+        //        Vector2 tilePosition = new(i * 16, j * 16);
 
-                float distance = Vector2.Distance(playerPosition, tilePosition);
+        //        float distance = Vector2.Distance(playerPosition, tilePosition);
 
-                float distanceThreshold = 10000f;
+        //        float distanceThreshold = 10000f;
 
-                if (distance < distanceThreshold)
-                {
-                    return false;
-                }
-            }
-            return base.CanPlace(i, j, type);
-        }
+        //        if (distance < distanceThreshold)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return base.CanPlace(i, j, type);
+        //}
 
-        public override bool CanReplace(int i, int j, int type, int tileTypeBeingPlaced)
-        {
-            SubworldPlayer modPlayer = Main.LocalPlayer.GetModPlayer<SubworldPlayer>();
+        //public override bool CanReplace(int i, int j, int type, int tileTypeBeingPlaced)
+        //{
+        //    SubworldPlayer modPlayer = Main.LocalPlayer.GetModPlayer<SubworldPlayer>();
 
-            if (modPlayer.InSubworld)
-            {
-                Vector2 playerPosition = Main.LocalPlayer.position;
-                Vector2 tilePosition = new(i * 16, j * 16);
+        //    if (modPlayer.InSubworld)
+        //    {
+        //        Vector2 playerPosition = Main.LocalPlayer.position;
+        //        Vector2 tilePosition = new(i * 16, j * 16);
 
-                float distance = Vector2.Distance(playerPosition, tilePosition);
+        //        float distance = Vector2.Distance(playerPosition, tilePosition);
 
-                float distanceThreshold = 10000f;
+        //        float distanceThreshold = 10000f;
 
-                if (distance < distanceThreshold)
-                {
-                    return false;
-                }
-            }
-            return base.CanReplace(i, j, type, tileTypeBeingPlaced);
-        }
+        //        if (distance < distanceThreshold)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return base.CanReplace(i, j, type, tileTypeBeingPlaced);
+        //}
     }
 }

@@ -30,13 +30,13 @@ Relic: {
 	Endurance: 免伤  {0}%
 	CritChance: 暴击率  {0}%
 	LifeRegen: 生命再生  {0}
-	MeleeAttackSpeed: 近战速度  {0}%
+	MeleeAttackSpeed: 近战攻击速度  {0}%
 	MeleeArmorPenetration: 近战伤害穿透  {0}
 	RangedArmorPenetration: 远程伤害穿透  {0}
 	MagicArmorPenetration: 魔法伤害穿透  {0}
 	SummonArmorPenetration: 召唤伤害穿透  {0}
 	ManaCostReduction: 魔力减耗  {0}%
-	MaxMinions: 召唤物上限  {0}
+	MaxMinions: 仆从数量上限  {0}
 	Defense: 防御力  {0}
 	ArmorPenetration: 穿透  {0}
 }

@@ -1,4 +1,6 @@
-﻿namespace StarRailRelic.Common.Players
+﻿using Terraria.WorldBuilding;
+
+namespace StarRailRelic.Common.Players
 {
     public class RelicSetSpecialEffectPlayer : ModPlayer
     {
@@ -84,6 +86,14 @@
         private const int vonwacqBoostDuration = 180;
 
         public bool IsXianzhouTwoSet { get; set; }
+
+        public bool IsBananaTwoSet { get; set; }
+
+        public bool IsSigoniaTwoSet { get; set; }
+        public int sigoniaBoostTimer;
+        public const int sigoniaBoostDuration = 300;
+        public int sigoniaBoostStacks;
+        public const float sigoniaBoostMaxStacks = 10;
 
         public override void ResetEffects()
         {
@@ -321,6 +331,18 @@
                     vonwacqBoostTimer--;
                 }
             }
+
+            if (IsSigoniaTwoSet)
+            {
+                if (sigoniaBoostTimer > 0)
+                {
+                    sigoniaBoostTimer--;
+                }
+                else
+                {
+                    sigoniaBoostStacks = 0;
+                }
+            }
         }
 
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
@@ -471,6 +493,33 @@
                     modifiers.CritDamage += 8 / 100f;
                 }
             }
+
+            if (IsBananaTwoSet)
+            {
+                modifiers.CritDamage += 6 / 100f;
+
+                int minionCount = 0;
+                foreach (Projectile projectile in Main.projectile)
+                {
+                    if(projectile.active && projectile.minion && projectile.owner == Player.whoAmI)
+                    {
+                        minionCount++;
+                    }
+                }
+
+                if (minionCount >= 3)
+                {
+                    modifiers.CritDamage += 12 / 100f;
+                }
+            }
+
+            if (IsSigoniaTwoSet)
+            {
+                if (sigoniaBoostTimer > 0)
+                {
+                    modifiers.CritDamage += 2 * sigoniaBoostStacks / 100f;
+                }
+            }
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -480,23 +529,26 @@
                 iceBoostTimer = iceBoostDuration;
             }
 
-            if(physicsLastDamageType != null)
+            if (IsPhysicsFourSet)
             {
-                if(hit.DamageType == DamageClass.SummonMeleeSpeed && physicsLastDamageType == DamageClass.Summon)
+                if (physicsLastDamageType != null)
                 {
-                    if (physicsBoostStacks < physicsBoostMaxStacks)
+                    if (hit.DamageType == DamageClass.SummonMeleeSpeed && physicsLastDamageType == DamageClass.Summon)
                     {
-                        physicsBoostStacks++;
+                        if (physicsBoostStacks < physicsBoostMaxStacks)
+                        {
+                            physicsBoostStacks++;
+                        }
+                        physicsBoostTimer = physicsBoostDuration;
                     }
-                    physicsBoostTimer = physicsBoostDuration;
+                    if (hit.DamageType == DamageClass.SummonMeleeSpeed && physicsLastDamageType == DamageClass.SummonMeleeSpeed)
+                    {
+                        physicsBoostStacks = 0;
+                        physicsBoostTimer = 0;
+                    }
                 }
-                if(hit.DamageType == DamageClass.SummonMeleeSpeed && physicsLastDamageType == DamageClass.SummonMeleeSpeed)
-                {
-                    physicsBoostStacks = 0;
-                    physicsBoostTimer = 0;
-                }
+                physicsLastDamageType = hit.DamageType;
             }
-            physicsLastDamageType = hit.DamageType;
         }
 
         public override void OnConsumeAmmo(Item weapon, Item ammo)

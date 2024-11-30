@@ -1,0 +1,12 @@
+MainConfigs: {
+	DisplayName: 主要配置
+
+	SimplifiedMode: {
+		Label: "[centeritem:StarRailRelic/LostCrystal] 简易模式"
+		Tooltip:
+			'''
+			简易模式下遗器及其升级材料的获取都会翻倍
+			对于时间有限的玩家来说，可以更加轻松地体验游戏进程
+			'''
+	}
+}

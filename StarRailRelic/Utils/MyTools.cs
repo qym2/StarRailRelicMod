@@ -250,6 +250,19 @@ namespace StarRailRelic.Utils
 
             return [.. debuffType];
         }
+        
+        /// <summary>
+         /// 检测目标npc是否是Boss
+         /// </summary>
+         /// <param name="npc">目标npc</param>
+         /// <returns>是否是Boss</returns>
+        public static bool IsBoss(this NPC npc)
+        {
+            return npc.boss ||
+                   npc.type is NPCID.EaterofWorldsHead
+                            or NPCID.EaterofWorldsBody
+                            or NPCID.EaterofWorldsTail;
+        }
         #endregion
 
         public static void AddModifiersAdditive(this ref NPC.HitModifiers modifiers, Player player, float additive)

@@ -167,6 +167,40 @@ XianzhouSetTwo:
 	Increases Life Regen by 2
 	Increases life Regen by an additional 6 when stationary
 	'''
+BananaSetTwo:
+	'''
+	Increases CRIT DMG by 6%
+	Increase CRIT DMG by an additional 12% when there are 3 or more of your minions on the field
+	'''
+WolvesSetTwo:
+	'''
+	When two or more players in the team are held Summon DMG weapons
+	All players in the team increase max minions by 1
+	'''
+SunkenSetTwo:
+	'''
+	Increases Ranged Attack Speed by 12%
+	When two or more players in the team are held Ranged DMG weapons
+	All players in the team increases Ranged Attack Speed by an additional 6%
+	'''
+IzumoSetTwo:
+	'''
+	Increases Melee DMG by 12%
+	When two or more players in the team are held Melee DMG weapons
+	All players in the team increases Melee DMG by an additional 6%
+	'''
+KalpagniSetTwo:
+	'''
+	Increases Magic DMG by 6%
+	Decreases Mana Cost by 10% with Mana Sickness
+	Decreases Mana Cost by an additional 20% when the duration of Mana Sickness is greater than 5 seconds
+	'''
+SigoniaSetTwo:
+	'''
+	Increases CRIT Rate by 2%
+	Increases CRIT DMG by 2% for 5 seconds every time you kill the target, stacks up to 10 levels
+	Refreshes duration when triggered repeatedly
+	'''
 StarRailPassTip:
 	'''
 	Current Environment: {0}

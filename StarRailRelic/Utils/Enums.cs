@@ -69,7 +69,7 @@
         /// </summary>
         LifeRegen,
         /// <summary>
-        /// 近战速度提高
+        /// 近战攻击速度提高
         /// </summary>
         MeleeAttackSpeed,
         /// <summary>
@@ -128,7 +128,7 @@
         /// </summary>
         LifeRegen,
         /// <summary>
-        /// 近战速度提高
+        /// 近战攻击速度提高
         /// </summary>
         MeleeAttackSpeed,
         /// <summary>

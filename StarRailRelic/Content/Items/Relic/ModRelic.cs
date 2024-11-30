@@ -48,7 +48,7 @@
             1,// 免伤提高
             1.4f,// 暴击率提高
             0.4f,// 生命再生速率提高
-            1.4f,// 近战速度提高
+            1.4f,// 近战攻击速度提高
             0.8f,// 近战伤害盔甲穿透提高
             0.8f,// 远程伤害盔甲穿透提高
             0.8f,// 魔法伤害盔甲穿透提高
@@ -76,7 +76,7 @@
             1.6f,// 伤害百分比提高
             1.9f,// 暴击率提高
             1.1f,// 生命再生速率提高
-            1.9f,// 近战速度提高
+            1.9f,// 近战攻击速度提高
             1.1f,// 盔甲穿透提高
             2.7f,// 魔力消耗降低
             1.6f// 防御力提高
@@ -401,7 +401,7 @@
         /// <description>如果遗器类型为 <see cref="RelicType.Body"/>，则主词条池包含：</description>
         /// <description><see cref="RelicMainEntryType.CritChance"/>：暴击率提高。</description>
         /// <description><see cref="RelicMainEntryType.LifeRegen"/>：生命再生速率提高。</description>
-        /// <description><see cref="RelicMainEntryType.MeleeAttackSpeed"/>：近战速度提高。</description>
+        /// <description><see cref="RelicMainEntryType.MeleeAttackSpeed"/>：近战攻击速度提高。</description>
         /// <description><see cref="RelicMainEntryType.LifeAdditive"/>：生命值百分比提高。</description>
         /// <description><see cref="RelicMainEntryType.DamageAdditive"/>：伤害百分比提高。</description>
         /// </item>

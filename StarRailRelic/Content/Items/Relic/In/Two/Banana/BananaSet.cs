@@ -3,6 +3,11 @@ namespace StarRailRelic.Content.Items.Relic.In.Two.Banana
     public abstract class BananaSet : ModRelic
     {
         public override RelicSet RelicSet => RelicSet.Banana;
+
+        public override void ModifyTwoSetSpecialEffect(RelicSetSpecialEffectPlayer modPlayer)
+        {
+            modPlayer.IsBananaTwoSet = true;
+        }
     }
 
     public class BananaSphere : BananaSet

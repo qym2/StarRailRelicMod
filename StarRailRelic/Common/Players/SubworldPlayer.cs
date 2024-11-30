@@ -460,6 +460,15 @@
             },
         };
 
+        public override void UpdateEquips()
+        {
+            if (InSubworld)
+            {
+                Player.noBuilding = true;
+                Player.AddBuff(BuffID.NoBuilding, 3);
+            }
+        }
+
         public override void PostUpdate()
         {
             UpdateSubworld();
@@ -479,7 +488,10 @@
                     int[] relicTypes = Player.GetModPlayer<EnvironmentPlayer>().isOutRelic
                         ? ([.. ModRelic.ModOutRelicLists[(RelicSet)Player.GetModPlayer<EnvironmentPlayer>().ObtainableRelicsKeyOut].Values])
                         : ([.. ModRelic.ModInRelicLists[(RelicSet)Player.GetModPlayer<EnvironmentPlayer>().ObtainableRelicsKeyIn].Values]);
-                    for (int i = 0; i < 2; i++)
+                    
+                    int relicNum = MainConfigs.Instance.SimplifiedMode ? 4 : 2;
+                    
+                    for (int i = 0; i < relicNum; i++)
                     {
                         int type = relicTypes[Main.rand.Next(relicTypes.Length)];
                         NewItemSycn(new EntitySource_Gift(Player), oldPosition, type);
