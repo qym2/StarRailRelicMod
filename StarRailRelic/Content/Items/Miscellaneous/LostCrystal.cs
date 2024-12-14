@@ -10,8 +10,8 @@
 
             Item.rare = RarityType<PurpleRarity>();
 
-            Item.width = this.GetTextureValue().Width;
-            Item.height = this.GetTextureValue().Height;
+            Item.width = 33;
+            Item.height = 30;
         }
     }
 }

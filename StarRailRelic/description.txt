@@ -2,10 +2,10 @@
 内容以崩坏：星穹铁道为原型，添加了一系列的遗器，旨在增强游戏的多样性和乐趣。
 玩家可以通过探索、挑战不同的环境和敌人，收集和强化遗器，以提升角色的能力和战斗效果。
 
-更多信息请前往：https://github.com/qym2/StarRailRelicModWiki
+更多信息请前往：https://github.com/qym2/StarRailRelicMod
 
 Trailblaze: TerraRail! is a Mod that adds expanded content to the game. 
 This content is inspired by Honkai: Star Rail and introduces a variety of relics to enhance the diversity and enjoyment of the game. 
 Players can explore and challenge different environments and enemies, collecting and strengthening relics to improve their characters' abilities and combat effectiveness.
 
-For more information, please visit: https://github.com/qym2/StarRailRelicModWiki
+For more information, please visit: https://github.com/qym2/StarRailRelicMod

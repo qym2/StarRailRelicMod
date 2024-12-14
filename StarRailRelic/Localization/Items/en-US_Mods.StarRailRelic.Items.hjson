@@ -862,3 +862,19 @@ StarRailSpecialPass: {
 		Only available in hard mode
 		'''
 }
+
+StarRailCursor: {
+	DisplayName: Star Rail Cursor
+	Tooltip: Causes your mouse cursor to look like you are familiar with from another game
+}
+
+BaseballBat: {
+	DisplayName: Galactic Bat
+	Tooltip:
+		'''
+		Has the ability to reflect most projectiles
+		But the energy used for reflection is limited
+		After multiple reflections, a rest is required to recover energy
+		All bats share energy and rest time
+		'''
+}

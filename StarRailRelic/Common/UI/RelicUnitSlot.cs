@@ -83,7 +83,8 @@
                     relic.SetToNoSet();
                     relic.UpdateValue();
                     player.inventory[emptySlotIndex] = relicItem.Clone();
-                    relicItem.SetDefaults(0);
+                    relicItem.SetDefaults();
+                    UpdatePlayerRelic(slotType, relicItem);
 
                     SoundEngine.PlaySound(SoundID.Grab);
                 }
@@ -103,11 +104,13 @@
                     Item lastRelicItem = relicItem.Clone();
 
                     relicItem = mouseItem.Clone();
+                    UpdatePlayerRelic(slotType, relicItem);
                     Main.mouseItem = lastRelicItem;
                 }
                 else// 若左键时鼠标遗器不为空，栏位遗器为空，放置鼠标遗器
                 {
                     relicItem = mouseItem.Clone();
+                    UpdatePlayerRelic(slotType, relicItem);
 
                     mouseItem.SetDefaults();
                 }
@@ -141,9 +144,39 @@
                     Main.mouseItem = relicItem.Clone();
 
                     relicItem.SetDefaults();
+                    UpdatePlayerRelic(slotType, relicItem);
 
                     SoundEngine.PlaySound(SoundID.Grab);
                 }
+            }
+        }
+
+        public static void UpdatePlayerRelic(RelicType relicType, Item relicItem)
+        {
+            RelicPlayer Player = Main.LocalPlayer.GetModPlayer<RelicPlayer>();
+
+            switch (relicType)
+            {
+                case RelicType.Head:
+                    Player.HeadRelic = relicItem;
+                    break;
+                case RelicType.Hands:
+                    Player.HandsRelic = relicItem;
+                    break;
+                case RelicType.Body:
+                    Player.BodyRelic = relicItem;
+                    break;
+                case RelicType.Feet:
+                    Player.FeetRelic = relicItem;
+                    break;
+                case RelicType.PlanarSphere:
+                    Player.PlanarSphereRelic = relicItem;
+                    break;
+                case RelicType.LinkRope:
+                    Player.LinkRopeRelic = relicItem;
+                    break;
+                case RelicType.None:
+                    break;
             }
         }
     }

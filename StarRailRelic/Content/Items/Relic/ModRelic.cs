@@ -159,8 +159,8 @@
         {
             Item.rare = RarityType<GoldRarity>();
 
-            Item.width = this.GetTextureValue().Width;
-            Item.height = this.GetTextureValue().Height;
+            Item.width = 45;
+            Item.height = 45;
 
             SetMainEntryByRelicType();
 

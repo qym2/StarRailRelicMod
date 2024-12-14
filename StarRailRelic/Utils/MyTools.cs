@@ -1,4 +1,5 @@
-﻿using StarRailRelic.Common.EntitySource;
+﻿using Microsoft.Xna.Framework.Graphics;
+using StarRailRelic.Common.EntitySource;
 
 namespace StarRailRelic.Utils
 {
@@ -44,6 +45,11 @@ namespace StarRailRelic.Utils
                 }
             }
         }
+
+        /// <summary>
+        /// 最大时间值
+        /// </summary>
+        public const double TimeMax = 86400;
         #endregion
 
         #region Item拓展方法
@@ -72,6 +78,46 @@ namespace StarRailRelic.Utils
             }
 
             return relic != null;
+        }
+
+        /// <summary>
+        /// 绘制物品的发光蒙版，代码来自CalamityMod
+        /// </summary>
+        /// <param name="item">目标物品</param>
+        /// <param name="spriteBatch">要绘制的SpriteBatch实例</param>
+        /// <param name="rotation">物品的旋转角度</param>
+        /// <param name="glowmaskTexture">发光蒙版的纹理</param>
+        public static void DrawItemGlowmaskSingleFrame(this Item item, SpriteBatch spriteBatch, float rotation, Texture2D glowmaskTexture, float alpha = 1)
+        {
+            Vector2 origin = new(glowmaskTexture.Width / 2f, glowmaskTexture.Height / 2f);
+
+            Color color = new(250, 250, 250);
+            color *= alpha;
+
+            spriteBatch.Draw(glowmaskTexture, item.Center - Main.screenPosition, null, color, rotation, origin, 1f, SpriteEffects.None, 0f);
+        }
+
+        /// <summary>
+        /// 绘制物品的动态描边效果，代码来自SpearToJavelin
+        /// </summary>
+        /// <param name="item">目标物品</param>
+        /// <param name="spriteBatch">要绘制的SpriteBatch实例</param>
+        /// <param name="position">绘制位置</param>
+        /// <param name="frame"></param>
+        /// <param name="origin">绘制原点</param>
+        /// <param name="scale">缩放</param>
+        public static void DrawDynamicOutline(this Item item, SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Vector2 origin, float scale)
+        {
+            Texture2D tex = TextureAssets.Item[item.type].Value;
+            float timer = Math.Abs((Main.GlobalTimeWrappedHourly % 1) - 0.5f) * 2f;
+            float range = 1 + timer * 2f;
+            Color color = Color.White * (1f / timer);
+            color.A = (byte)(color.A * 0.5f);
+            for (int i = 0; i < 6; i++)
+            {
+                Vector2 dir = ToRadians(i * 60).ToRotationVector2();
+                spriteBatch.Draw(tex, position + dir * range, frame, color, 0f, origin, scale, 0, 0f);
+            }
         }
         #endregion
 
@@ -213,22 +259,22 @@ namespace StarRailRelic.Utils
         }
 
         /// <summary>
-        /// 生成一个来自生成弹幕的主人弹幕源，以获取主人弹幕的实例
+        /// 生成一个来自生成射弹的主人射弹源，以获取主人射弹的实例
         /// </summary>
-        /// <param name="projectile">目标弹幕</param>
+        /// <param name="projectile">目标射弹</param>
         /// <param name="context">上下文</param>
-        /// <returns>主人弹幕的源</returns>
+        /// <returns>主人射弹的源</returns>
         public static IEntitySource GetSource_OwnerProjectile(this Projectile projectile, string? context = null)
         {
             return new EntitySource_OwnerProjectile(projectile, context);
         }
 
         /// <summary>
-        /// 生成一个来自生成弹幕的主人NPC源，以获取主人NPC的实例
+        /// 生成一个来自生成射弹的主人NPC源，以获取主人NPC的实例
         /// </summary>
-        /// <param name="projectile">目标弹幕</param>
+        /// <param name="projectile">目标射弹</param>
         /// <param name="context">上下文</param>
-        /// <returns>主人弹幕的源</returns>
+        /// <returns>主人射弹的源</returns>
         public static IEntitySource GetSource_OwnerNPC(this NPC npc, string? context = null)
         {
             return new EntitySource_OwnerNPC(npc, context);
@@ -264,6 +310,49 @@ namespace StarRailRelic.Utils
                             or NPCID.EaterofWorldsTail;
         }
         #endregion
+
+        public static void SpawnClusteredDusts(float timer, Player player, Vector2 position, int dustID)
+        {
+            float aTime = Clamp(150 - timer, 0f, 150f);
+
+            float targetRot3 = PiOver2 + player.direction * (float)Math.Pow(1f - aTime / 150f, 0.6f);
+            Vector2 vector = Vector2.Zero;
+
+            float cos1 = (float)Math.Cos(-targetRot3);
+            float sin1 = (float)Math.Sin(-targetRot3);
+
+            Vector3 originalVector = Vector3.UnitX * 80f;
+
+            float rotatedX = originalVector.X * cos1 - originalVector.Y * sin1;
+            float rotatedY = originalVector.X * sin1 + originalVector.Y * cos1;
+
+            Vector3 v = new(rotatedX, rotatedY, originalVector.Z);
+
+            float angle2 = -0.8f;
+            float cos2 = (float)Math.Cos(angle2);
+            float sin2 = (float)Math.Sin(angle2);
+
+            float newRotatedX = v.X;
+            float newRotatedY = v.Y * cos2 - v.Z * sin2;
+            float newRotatedZ = v.Y * sin2 + v.Z * cos2;
+
+            v = new Vector3(newRotatedX, newRotatedY, newRotatedZ);
+
+            Vector2 vector2 = -500f / (v.Z - 500f) * new Vector2(v.X, v.Y);
+            vector = Vector2.Lerp(vector, vector2, 0.1f);
+
+            for (int i = 0; i <= 6; i++)
+            {
+                if (Main.rand.NextBool(5))
+                {
+                    Vector2 r = Main.rand.NextVector2Unit();
+                    Dust dust = Dust.NewDustDirect(position + (float)Math.Pow(i / 6f, 0.5) * vector + r * aTime, 10, 10, dustID, 0f, 0f, 0, new Color(200, 50, 80), 2f);
+                    dust.velocity = -r * 4f;
+                    dust.position += Main.rand.NextVector2Unit() * 5f;
+                    dust.noGravity = true;
+                }
+            }
+        }
 
         public static void AddModifiersAdditive(this ref NPC.HitModifiers modifiers, Player player, float additive)
         {

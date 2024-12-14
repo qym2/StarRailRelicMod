@@ -8,8 +8,8 @@ namespace StarRailRelic.Content.Items.Tiles
         {
             Item.DefaultToPlaceableTile(TileType<RelicStrengtheningTable>());
 
-            Item.width = this.GetTextureValue().Width;
-            Item.height = this.GetTextureValue().Height;
+            Item.width = 32;
+            Item.height = 28;
 
             Item.value = Item.sellPrice(0, 1, 65, 0);
             Item.rare = RarityType<PurpleRarity>();

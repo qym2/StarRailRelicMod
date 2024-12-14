@@ -9,9 +9,16 @@ namespace StarRailRelic.Common.Systems
         public override void AddRecipeGroups()
         {
             AddRecipeGroupsEasily(nameof(ItemID.GoldCrown), ItemID.GoldCrown, ItemID.PlatinumCrown);
+            AddRecipeGroupsEasily(nameof(ItemID.DemoniteBar), ItemID.DemoniteBar, ItemID.CrimtaneBar);
+
+            AddRecipeGroupsEasily(nameof(ItemID.CopperBar), ItemID.CopperBar, ItemID.TinBar);
+            //AddRecipeGroupsEasily(nameof(ItemID.IronBar), ItemID.IronBar, ItemID.LeadBar);
             AddRecipeGroupsEasily(nameof(ItemID.SilverBar), ItemID.SilverBar, ItemID.TungstenBar);
             AddRecipeGroupsEasily(nameof(ItemID.GoldBar), ItemID.GoldBar, ItemID.PlatinumBar);
-            AddRecipeGroupsEasily(nameof(ItemID.CopperBar), ItemID.CopperBar, ItemID.TinBar);
+
+            AddRecipeGroupsEasily(nameof(ItemID.CobaltBar), ItemID.CobaltBar, ItemID.PalladiumBar);
+            AddRecipeGroupsEasily(nameof(ItemID.MythrilBar), ItemID.MythrilBar, ItemID.OrichalcumBar);
+            AddRecipeGroupsEasily(nameof(ItemID.AdamantiteBar), ItemID.AdamantiteBar, ItemID.TitaniumBar);
         }
 
         private static void AddRecipeGroupsEasily(string name, params int[] vaildItems)

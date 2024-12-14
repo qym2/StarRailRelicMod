@@ -13,8 +13,8 @@
 
             Item.useStyle = ItemUseStyleID.HoldUp;
 
-            Item.width = this.GetTextureValue().Width;
-            Item.height = this.GetTextureValue().Height;
+            Item.width = 38;
+            Item.height = 38;
 
             Item.rare = RarityType<GoldRarity>();
             Item.value = Item.sellPrice(0, 0, 1, 20);

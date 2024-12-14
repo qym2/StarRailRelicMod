@@ -76,36 +76,7 @@
         {
             // 同步栏位遗器数据
             RelicPlayer player = Main.LocalPlayer.GetModPlayer<RelicPlayer>();
-            SaveData(player);
             LoadData(player);
-        }
-
-        private void SaveData(RelicPlayer player)
-        {
-            if (slot1.relicItem != null && slot1.relicItem.stack > 0)
-            {
-                player.HeadRelic = slot1.relicItem;
-            }
-            if (slot2.relicItem != null && slot2.relicItem.stack > 0)
-            {
-                player.HandsRelic = slot2.relicItem;
-            }
-            if (slot3.relicItem != null && slot3.relicItem.stack > 0)
-            {
-                player.BodyRelic = slot3.relicItem;
-            }
-            if (slot4.relicItem != null && slot4.relicItem.stack > 0)
-            {
-                player.FeetRelic = slot4.relicItem;
-            }
-            if (slot5.relicItem != null && slot5.relicItem.stack > 0)
-            {
-                player.PlanarSphereRelic = slot5.relicItem;
-            }
-            if (slot6.relicItem != null && slot6.relicItem.stack > 0)
-            {
-                player.LinkRopeRelic = slot6.relicItem;
-            }
         }
 
         private void LoadData(RelicPlayer player)

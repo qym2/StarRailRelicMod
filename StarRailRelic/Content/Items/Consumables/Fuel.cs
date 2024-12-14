@@ -12,8 +12,8 @@
             Item.consumable = true;
             Item.maxStack = 20;
 
-            Item.width = this.GetTextureValue().Width;
-            Item.height = this.GetTextureValue().Height;
+            Item.width = 34;
+            Item.height = 36;
 
             Item.value = Item.sellPrice(0, 9, 0, 0);
             Item.rare = RarityType<PurpleRarity>();

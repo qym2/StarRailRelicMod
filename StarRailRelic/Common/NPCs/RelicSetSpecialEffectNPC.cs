@@ -11,14 +11,17 @@ namespace StarRailRelic.Common.NPCs
                 if(npc.GetSource_NPCKilledBy() is EntitySource_NPCKilledBy entitySource)
                 {
                     Player player = entitySource.Attacker;
-                    RelicSetSpecialEffectPlayer modPlayer = player.GetModPlayer<RelicSetSpecialEffectPlayer>();
-                    if (player.active && !player.dead && modPlayer.IsSigoniaTwoSet)
+                    if (player != null)
                     {
-                        if (modPlayer.sigoniaBoostStacks < RelicSetSpecialEffectPlayer.sigoniaBoostMaxStacks)
+                        RelicSetSpecialEffectPlayer modPlayer = player.GetModPlayer<RelicSetSpecialEffectPlayer>();
+                        if (player.active && !player.dead && modPlayer.IsSigoniaTwoSet)
                         {
-                            modPlayer.sigoniaBoostStacks++;
+                            if (modPlayer.sigoniaBoostStacks < RelicSetSpecialEffectPlayer.sigoniaBoostMaxStacks)
+                            {
+                                modPlayer.sigoniaBoostStacks++;
+                            }
+                            modPlayer.sigoniaBoostTimer = RelicSetSpecialEffectPlayer.sigoniaBoostDuration;
                         }
-                        modPlayer.sigoniaBoostTimer = RelicSetSpecialEffectPlayer.sigoniaBoostDuration;
                     }
                 }
             }
