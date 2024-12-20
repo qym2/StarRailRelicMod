@@ -5,6 +5,7 @@ SubworldExit4: All enemies have been defeated and the challenge is about to exit
 SubworldExit3: 3 seconds left...
 SubworldExit2: 2 seconds left...
 SubworldExit1: 1 seconds left...
+Exchange: Exchange
 
 Environment: {
 	ZoneBeach: Beach
@@ -46,3 +47,5 @@ Environment: {
 	ZoneUnderworldHeight: Underworld Height
 	ZoneWaterCandle: Water Candle
 }
+
+Emotes.StelleEmote.Command: "{$Mods.StarRailRelic.NPCs.Stelle.DisplayName}"

@@ -5,6 +5,7 @@ SubworldExit4: 已击败所有敌人，即将退出挑战
 SubworldExit3: 还有3秒...
 SubworldExit2: 2秒...
 SubworldExit1: 1秒...
+Exchange: 交换
 
 Environment: {
 	ZoneBeach: 海洋
@@ -46,3 +47,5 @@ Environment: {
 	ZoneUnderworldHeight: 地狱
 	ZoneWaterCandle: 水蜡烛
 }
+
+Emotes.StelleEmote.Command: "{$Mods.StarRailRelic.NPCs.Stelle.DisplayName}"

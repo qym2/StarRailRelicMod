@@ -2,6 +2,7 @@ RelicButton:
 	'''
 	装备遗器（再次点击关闭）
 	可在控件中绑定按键来快速装备
+	按住右键可拖动
 	'''
 HeadRelicText: 头部
 HandsRelicText: 手部

@@ -260,7 +260,7 @@
         /// <description> 是当前等级乘以每级的基础价格（50银币）.</description>
         /// </item>
         /// <item>
-        /// <description><c>baseValue</c>: 赋予遗器一个基础价值，即出售价格为 1银币.</description>
+        /// <description><c>baseValue</c>: 赋予遗器一个基础价值1金币.</description>
         /// </item>
         /// <item>
         /// <description>最后，将 <c>baseValue</c>、<c>mainValue</c> 和 <c>adverbValue</c> 相加，并乘以 0.66，</description>

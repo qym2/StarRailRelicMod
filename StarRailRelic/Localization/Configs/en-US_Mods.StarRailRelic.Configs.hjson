@@ -1,4 +1,4 @@
-﻿MainConfigs: {
+MainConfigs: {
 	DisplayName: Main Configs
 
 	SimplifiedMode: {
@@ -7,6 +7,24 @@
 			'''
 			In Simplified Mode, the acquisition of relics and their upgrade materials will be doubled
 			For players with limited time, this allows for a more relaxed experience of the game journey
+			'''
+	}
+}
+
+PersonalConfigs: {
+	DisplayName: Personal Configs
+
+	HideRelicMainUIWithInventory: {
+		Label: "[centeritem:5343] Relic Equipment UI Closes with Inventory"
+		Tooltip: If disabled, the Relic Equipment UI will remain open even after the inventory is closed
+	}
+
+	HideRelicButtonUI: {
+		Label: "[centeritem:538] Hide Relic Button"
+		Tooltip:
+			'''
+			If enabled, the relic button will no longer be displayed
+			The Relic Equipment UI will open and close with the inventory
 			'''
 	}
 }

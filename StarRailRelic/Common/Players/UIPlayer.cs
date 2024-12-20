@@ -4,7 +4,15 @@
     {
         public override void SetControls()
         {
-            if (GetInstance<RelicStrengtheningUISystem>().isUIOpen)
+            bool configCondition1 = (!PersonalConfigs.Instance.HideRelicButtonUI && !PersonalConfigs.Instance.HideRelicMainUIWithInventory) || PersonalConfigs.Instance.HideRelicButtonUI;
+            bool configCondition2 = !PersonalConfigs.Instance.HideRelicButtonUI && PersonalConfigs.Instance.HideRelicMainUIWithInventory;
+            
+            bool uiCondition1 = GetInstance<RelicStrengtheningUISystem>().isUIOpen;
+            bool uiCondition2 = GetInstance<RelicStrengtheningUISystem>().isUIOpen || GetInstance<RelicMainUISystem>().isUIOpen;
+
+            bool condition = (configCondition1 && uiCondition1) || (configCondition2 && uiCondition2);
+
+            if (condition)
             {
                 if (Main.LocalPlayer.controlInv)
                 {

@@ -10,3 +10,21 @@ MainConfigs: {
 			'''
 	}
 }
+
+PersonalConfigs: {
+	DisplayName: 个人配置
+
+	HideRelicMainUIWithInventory: {
+		Label: "[centeritem:5343] 遗器装备界面随背包一同关闭"
+		Tooltip: 关闭后，遗器装备界面在背包关闭后会依然显示
+	}
+
+	HideRelicButtonUI: {
+		Label: "[centeritem:538] 隐藏遗器按钮开关"
+		Tooltip:
+			'''
+			开启后将不再显示遗器按钮开关
+			遗器装备界面改为随背包一同开启和关闭
+			'''
+	}
+}

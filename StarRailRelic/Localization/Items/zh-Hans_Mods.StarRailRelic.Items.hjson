@@ -874,3 +874,13 @@ BaseballBat: {
 		所有球棒共用能量和休息时间
 		'''
 }
+
+WoodenBaseballBat: {
+	DisplayName: 木球棒
+	Tooltip: ""
+}
+
+WeaponChargingComponent: {
+	DisplayName: 武器充能组件
+	Tooltip: 用于将「命途」的能量注入武器中
+}

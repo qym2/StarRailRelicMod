@@ -2,13 +2,18 @@
 {
     public class LostCrystal : ModItem
     {
+        public override void SetStaticDefaults()
+        {
+            Item.ResearchUnlockCount = 10000;
+        }
+
         public override void SetDefaults()
         {
-            Item.maxStack = 9999;
+            Item.maxStack = 999999;
 
             Item.value = Item.sellPrice(0, 0, 0, 12);
 
-            Item.rare = RarityType<PurpleRarity>();
+            Item.rare = RarityType<BlueRarity>();
 
             Item.width = 33;
             Item.height = 30;

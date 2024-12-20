@@ -131,6 +131,10 @@
             /// “关闭”
             /// </summary>
             public static string Close => GetTextValue("LegacyMisc.56");
+            /// <summary>
+            /// “商店”
+            /// </summary>
+            public static string Shop => GetTextValue("LegacyInterface.28");
         }
     }
 }

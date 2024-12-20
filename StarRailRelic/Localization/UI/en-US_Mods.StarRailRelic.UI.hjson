@@ -2,6 +2,7 @@ RelicButton:
 	'''
 	Equip Relics (Click again to close)
 	Keys can be bound to controls to quickly equip
+	Right click to drag
 	'''
 HeadRelicText: Head
 HandsRelicText: Hands

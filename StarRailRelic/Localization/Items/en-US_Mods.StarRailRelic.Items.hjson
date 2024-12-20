@@ -878,3 +878,13 @@ BaseballBat: {
 		All bats share energy and rest time
 		'''
 }
+
+WoodenBaseballBat: {
+	DisplayName: Wooden Bat
+	Tooltip: ""
+}
+
+WeaponChargingComponent: {
+	DisplayName: Weapon Charging Component
+	Tooltip: Used to inject the energy of 'Paths' into weapons
+}

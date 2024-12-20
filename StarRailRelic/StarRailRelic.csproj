@@ -9,6 +9,8 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <None Remove="Localization\en-US_Mods.StarRailRelic.hjson" />
+	  <None Remove="Localization\NPCs\en-US_Mods.StarRailRelic.NPCs.hjson" />
+	  <None Remove="Localization\NPCs\zh-Hans_Mods.StarRailRelic.NPCs.hjson" />
 	  <None Remove="Localization\zh-Hans_Mods.StarRailRelic.hjson" />
 	  <None Remove="Localization\zh-Hans_Mods.StarRailRelic.UI.hjson" />
 	</ItemGroup>

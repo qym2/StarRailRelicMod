@@ -4,7 +4,7 @@
     {
         public override void ProcessTriggers(TriggersSet triggersSet)
         {
-            if (KeybindSystem.RelicButtonKeybind.JustPressed)
+            if (KeybindSystem.RelicButtonKeybind.JustPressed && !PersonalConfigs.Instance.HideRelicButtonUI)
             {
                 if (!GetInstance<RelicMainUISystem>().isUIOpen)
                 {

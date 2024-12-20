@@ -18,24 +18,24 @@
         private Vector2 offset;
         private bool dragging;
 
-        private readonly bool gragable;
+        private readonly bool dragable;
 
-        public UIHoverImageButton(Asset<Texture2D> texture, Asset<Texture2D> hoverTexture, string hoverText = null, float opacity = 0.8f, bool gragable = false) : base(texture)
+        public UIHoverImageButton(Asset<Texture2D> texture, Asset<Texture2D> hoverTexture, string hoverText = null, float opacity = 0.8f, bool dragable = false) : base(texture)
         {
             this.hoverText = hoverText;
             this.texture = texture;
             this.hoverTexture = hoverTexture;
             this.opacity = opacity;
-            this.gragable = gragable;
+            this.dragable = dragable;
         }
 
-        public UIHoverImageButton(Asset<Texture2D> texture, string hoverText = null, float opacity = 0.8f, bool gragable = false) : base(texture)
+        public UIHoverImageButton(Asset<Texture2D> texture, string hoverText = null, float opacity = 0.8f, bool dragable = false) : base(texture)
         {
             this.hoverText = hoverText;
             this.texture = texture;
             hoverTexture = texture;
             this.opacity = opacity;
-            this.gragable = gragable;
+            this.dragable = dragable;
         }
 
         protected override void DrawSelf(SpriteBatch spriteBatch)
@@ -83,21 +83,22 @@
                 Recalculate();
             }
         }
-        public override void MiddleMouseDown(UIMouseEvent evt)
-        {
-            base.MiddleMouseDown(evt);
 
-            if (gragable)
+        public override void RightMouseDown(UIMouseEvent evt)
+        {
+            base.RightMouseDown(evt);
+
+            if (dragable)
             {
                 DragStart(evt);
             }
         }
 
-        public override void MiddleMouseUp(UIMouseEvent evt)
+        public override void RightMouseUp(UIMouseEvent evt)
         {
-            base.MiddleMouseUp(evt);
+            base.RightMouseUp(evt);
 
-            if (gragable)
+            if (dragable)
             {
                 DragEnd(evt);
             }

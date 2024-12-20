@@ -1,0 +1,35 @@
+Stelle: {
+	DisplayName: 开拓者
+
+	TownNPCMood: {
+		Content: 感觉很不错。
+		NoHome: 难道我又要睡纸箱子了吗？
+		FarFromHome: 可惜这个地方没有界域定锚。
+		LoveSpace: 这地方不错，比我自己的房间还大。
+		DislikeCrowded: 这地方甚至比漫展还要拥挤。
+		HateCrowded: 睡纸箱子都比这里宽敞。
+		LoveBiome: 我非常喜欢{BiomeName}，简直像回了家一样。
+		LikeBiome: 我喜欢{BiomeName}。
+		DislikeBiome: "{BiomeName}太无聊了。"
+		HateBiome: 我厌恶{BiomeName}，这里杀戮不止。
+		LikeNPC: 我喜欢和{NPCName}聊天。
+		LoveNPC: 还有比{NPCName}更有意思的人吗？
+		DislikeNPC: 我不喜欢{NPCName}。
+		HateNPC: 我非常厌恶{NPCName}，它的言语令人作呕。
+		LikeNPC_Princess: 我喜欢{NPCName}。
+		Princess_LovesNPC: 我喜欢{NPCName}。
+	}
+
+	Dialogue: {
+		1: 你问「星核」？那没什么好讲的。
+		2: 要不要去找几个宝箱呢？啊。 。 。 你好。
+		3: 有什么有趣的事情吗？
+		4: 你可以拿满级遗器和我交换物品。
+		Common: 有关于「命途」的新消息吗？
+		Rare: 你这里有垃圾桶吗？
+		Exchange: 交易愉快。
+	}
+
+	BestiaryInfo: 为研究突现此地的「命途」力量而乘坐星穹列车到来的少女。体内有某种称作「星核」的力量。似乎对垃圾桶情有独钟。
+	Census.SpawnCondition: 装备一个任意的满级遗器并且已击败克苏鲁之眼
+}

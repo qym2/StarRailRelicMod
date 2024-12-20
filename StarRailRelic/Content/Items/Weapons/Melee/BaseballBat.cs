@@ -23,7 +23,7 @@
             Item.width = 56;
             Item.height = 56;
 
-            Item.value = Item.sellPrice(0, 1, 0, 0);
+            Item.value = Item.sellPrice(0, 5, 50, 0);
             Item.rare = RarityType<PurpleRarity>();
         }
 
@@ -41,13 +41,14 @@
             }
         }
 
-        // TODO: 删除配方
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.Diamond, 3)
-                .AddRecipeGroup("GoldBar", 3)
-                .AddIngredient(ItemID.Obsidian, 8)
+                .AddIngredient<WoodenBaseballBat>()
+                .AddIngredient<WeaponChargingComponent>()
+                .AddIngredient(ItemID.Diamond, 4)
+                .AddRecipeGroup("GoldBar", 2)
+                .AddIngredient(ItemID.Obsidian, 5)
                 .AddTile(TileID.Anvils)
                 .Register();
         }

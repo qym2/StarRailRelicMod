@@ -1,0 +1,35 @@
+Stelle: {
+	DisplayName: Trailblazer
+
+	TownNPCMood: {
+		Content: It feels good.
+		NoHome: Do I need to sleep in a cardboard box again?
+		FarFromHome: It's a pity that this place has no Space Anchor.
+		LoveSpace: This place is nice, bigger than my own room.
+		DislikeCrowded: This place is even more crowded than Comic Con.
+		HateCrowded: Even the sleeping paper boxes are roomier than this.
+		LoveBiome: I love {BiomeName} so much, it feels like coming home.
+		LikeBiome: I like {BiomeName}.
+		DislikeBiome: "{BiomeName} is so boring."
+		HateBiome: I hate {BiomeName}, there's so much killing here.
+		LikeNPC: I like chatting with {NPCName}.
+		LoveNPC: Is there anyone more interesting than {NPCName}?
+		DislikeNPC: I don't like {NPCName}.
+		HateNPC: I absolutely hate {NPCName}, its language is disgusting.
+		LikeNPC_Princess: I like {NPCName}.
+		Princess_LovesNPC: I like {NPCName}.
+	}
+
+	Dialogue: {
+		1: You asked about 'Stellaron'? That's nothing to talk about.
+		2: Should I look for some treasure chests? ah. . . Hello.
+		3: Anything interesting?
+		4: You can exchange items with me for max-level Relics.
+		Common: Any new news about 'Paths'?
+		Rare: Do you have a trash can here?
+		Exchange: Happy trading.
+	}
+
+	BestiaryInfo: A young girl arrived on the Astral Express to research the 'Paths' power that has emerged here. She possesses a certain power called 'Stellaron.' It seems she has a fondness for trash cans.
+	Census.SpawnCondition: Equip any max-level Relic and downed Eye of Cthulhu
+}

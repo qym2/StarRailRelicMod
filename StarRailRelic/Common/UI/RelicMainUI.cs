@@ -7,6 +7,12 @@
     [Autoload(Side = ModSide.Client)]
     public class RelicMainUISystem : UISystem<RelicMainUI>
     {
+        protected override void Update()
+        {
+            showInInventory = PersonalConfigs.Instance.HideRelicButtonUI;
+
+            base.Update();
+        }
     }
 
     /// <summary>
