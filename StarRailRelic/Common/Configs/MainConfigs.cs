@@ -6,8 +6,13 @@
 
         public static MainConfigs Instance => GetInstance<MainConfigs>();
 
+        [Header("Game")]
         [ReloadRequired]
         [DefaultValue(false)]
         public bool SimplifiedMode;
+
+        [Header("Subworld")]
+        [DefaultValue(false)]
+        public bool CompatibilityMode;
     }
 }

@@ -888,3 +888,8 @@ WeaponChargingComponent: {
 	DisplayName: Weapon Charging Component
 	Tooltip: Used to inject the energy of 'Paths' into weapons
 }
+
+RelicGuide: {
+	DisplayName: Relic Guide
+	Tooltip: Used to open Relic Information List
+}

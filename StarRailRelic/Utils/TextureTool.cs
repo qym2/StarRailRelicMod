@@ -66,6 +66,10 @@
         /// 开拓力图片
         /// </summary>
         public static Asset<Texture2D> TrailblazePowerTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/TrailblazePower");
+        /// <summary>
+        /// 遗器栏位图片
+        /// </summary>
+        public static Asset<Texture2D> RelicPanelTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/RelicPanel");
 
         /// <summary>
         /// 空图片路径

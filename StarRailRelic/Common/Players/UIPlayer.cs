@@ -29,6 +29,20 @@
                     Main.playerInventory = false;
                 }
             }
+
+            if (GetInstance<RelicDisplayUISystem>().isUIOpen)
+            {
+                if (Main.LocalPlayer.controlInv)
+                {
+                    GetInstance<RelicDisplayUISystem>().HideUI();
+                    Main.LocalPlayer.releaseInventory = false;
+                }
+                else if (Main.LocalPlayer.controlCreativeMenu)
+                {
+                    GetInstance<RelicDisplayUISystem>().HideUI();
+                    Main.LocalPlayer.releaseCreativeMenu = false;
+                }
+            }
         }
     }
 }

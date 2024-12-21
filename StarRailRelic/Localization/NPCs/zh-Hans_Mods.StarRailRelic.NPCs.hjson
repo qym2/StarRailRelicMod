@@ -31,5 +31,5 @@ Stelle: {
 	}
 
 	BestiaryInfo: 为研究突现此地的「命途」力量而乘坐星穹列车到来的少女。体内有某种称作「星核」的力量。似乎对垃圾桶情有独钟。
-	Census.SpawnCondition: 装备一个任意的满级遗器并且已击败克苏鲁之眼
+	Census.SpawnCondition: 头部、手部、躯干、脚部都装备遗器并且已击败克苏鲁之眼
 }

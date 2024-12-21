@@ -884,3 +884,8 @@ WeaponChargingComponent: {
 	DisplayName: 武器充能组件
 	Tooltip: 用于将「命途」的能量注入武器中
 }
+
+RelicGuide: {
+	DisplayName: 遗器指南
+	Tooltip: 用于打开遗器信息列表
+}

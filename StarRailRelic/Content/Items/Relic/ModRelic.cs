@@ -92,6 +92,11 @@
         public bool isFourSet;
 
         /// <summary>
+        /// 是否是展示模式
+        /// </summary>
+        public bool isDisplay;
+
+        /// <summary>
         /// 当副词条初始为3个时的待定副词条类型
         /// </summary>
         private RelicAdverbEntryType? pendingAdverbEntry;
@@ -174,15 +179,21 @@
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
+            TooltipLine tooltipLine = tooltips.FirstOrDefault(x => x.Mod == "Terraria" && x.Name == "Material");
+            tooltips.Remove(tooltipLine);
+
             // 遗器等级
-            TooltipLine line = new(Mod, "Level", $"+{level}")
+            if (!isDisplay)
             {
-                OverrideColor = new Color(255, 255, 0)
-            };
-            tooltips.Add(line);
+                TooltipLine line = new(Mod, "Level", $"+{level}")
+                {
+                    OverrideColor = new Color(255, 255, 0)
+                };
+                tooltips.Add(line);
+            }
 
             // 主词条信息
-            if (MainEntry != null)
+            if (MainEntry != null && !isDisplay)
             {
                 TooltipLine line1 = new(Mod, "MainEntry", $"{MainEntryText[(int)MainEntry].WithFormatArgs(Math.Round(MainEntryBonus[(int)MainEntry] * level, 1).ToString("F1")).Value}")
                 {
@@ -192,18 +203,21 @@
             }
 
             // 副词条信息
-            for (int i = 0; i < AdverbEntryList.Count; i++)
+            if (!isDisplay)
             {
-                TooltipLine line2 = new(Mod, "AdverbEntryList", $"{AdverbEntryText[(int)AdverbEntryList[i]].WithFormatArgs(Math.Round(AdverbEntryBonus[(int)AdverbEntryList[i]] * AdverbEntryNumList[i], 1).ToString("F1")).Value}")
+                for (int i = 0; i < AdverbEntryList.Count; i++)
                 {
-                    OverrideColor = new Color(0, 255, 0)
-                };
-                tooltips.Add(line2);
+                    TooltipLine line2 = new(Mod, "AdverbEntryList", $"{AdverbEntryText[(int)AdverbEntryList[i]].WithFormatArgs(Math.Round(AdverbEntryBonus[(int)AdverbEntryList[i]] * AdverbEntryNumList[i], 1).ToString("F1")).Value}")
+                    {
+                        OverrideColor = new Color(0, 255, 0)
+                    };
+                    tooltips.Add(line2);
+                }
             }
 
             // 套装效果
             TooltipLine line3;
-            if (isTwoSet)
+            if (isTwoSet || isDisplay)
             {
                 line3 = new(Mod, "RelicSet", $"{GetTextValue("Mods.StarRailRelic.Items.SetTwo")}\n{GetTextValue($"Mods.StarRailRelic.Items.{RelicSet}SetTwo")}")
                 {
@@ -225,7 +239,7 @@
                 return;
             }
 
-            if (isFourSet)
+            if (isFourSet || isDisplay)
             {
                 line4 = new(Mod, "RelicSet", $"{GetTextValue("Mods.StarRailRelic.Items.SetFour")}\n{GetTextValue($"Mods.StarRailRelic.Items.{RelicSet}SetFour")}")
                 {
@@ -335,7 +349,7 @@
         public void SetToFourSet(Player player)
         {
             isFourSet = true;
-            ModifyFourSetSpecialEffect(player.GetModPlayer<RelicSetSpecialEffectPlayer>());
+            ModifyFourSetSpecialEffect(player?.GetModPlayer<RelicSetSpecialEffectPlayer>());
         }
 
         /// <summary>

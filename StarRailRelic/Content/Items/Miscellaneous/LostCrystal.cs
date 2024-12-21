@@ -18,5 +18,15 @@
             Item.width = 33;
             Item.height = 30;
         }
+
+        public override void UpdateInventory(Player player)
+        {
+            Item.maxStack = 999999;
+        }
+
+        public override void PostUpdate()
+        {
+            Item.maxStack = 999999;
+        }
     }
 }

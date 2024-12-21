@@ -20,8 +20,9 @@ RelicInforText: Current Relic: {0} Level: {1}
 TrailblazePowerTipText:
 	'''
 	Trailblaze Power, used for the Relic Challenge
-	Restores one point every 15 secondsDouble 
+	Restores one point every 15 seconds
 	'''
+RelicDisplayUITital: Relic Information List
 
 Relic: {
 	LifeFlat: HP  {0}

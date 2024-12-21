@@ -80,6 +80,21 @@ namespace StarRailRelic.Utils
             return relic != null;
         }
 
+        public static bool IsValidRelic(this Item item)
+        {
+            ModRelic relic;
+            if (item != null && item.type > ItemID.None && item.stack > 0 && item.ModItem is ModRelic modRelic)
+            {
+                relic = modRelic;
+            }
+            else
+            {
+                relic = null;
+            }
+
+            return relic != null;
+        }
+
         /// <summary>
         /// 绘制物品的发光蒙版，代码来自CalamityMod
         /// </summary>

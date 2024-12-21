@@ -69,6 +69,10 @@
             /// 遗器获取提示文字
             /// </summary>
             public static LocalizedText StarRailPassTip => GetText("Mods.StarRailRelic.Items.StarRailPassTip");
+            /// <summary>
+            /// 遗器展示UI标题
+            /// </summary>
+            public static string RelicDisplayUITital => GetTextValue("Mods.StarRailRelic.UI.RelicDisplayUITital");
 
             /// <summary>
             /// 主词条本地化

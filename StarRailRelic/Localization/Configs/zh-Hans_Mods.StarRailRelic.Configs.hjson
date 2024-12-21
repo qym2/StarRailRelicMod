@@ -9,6 +9,22 @@ MainConfigs: {
 			对于时间有限的玩家来说，可以更加轻松地体验游戏进程
 			'''
 	}
+
+	Headers: {
+		Game: "[c/00ffff:游戏配置]"
+		Subworld: "[c/00ffff:遗器副本配置]"
+		UI: "[c/00ffff:UI配置]"
+	}
+
+	CompatibilityMode: {
+		Label: "[centeritem:3084] 兼容模式"
+		Tooltip:
+			'''
+			兼容模式下所有遗器副本的样式都会变成森林副本的样式
+			用于模组冲突的玩家使用
+			[c/ff0000:没有模组冲突不必开启]
+			'''
+	}
 }
 
 PersonalConfigs: {
@@ -27,4 +43,6 @@ PersonalConfigs: {
 			遗器装备界面改为随背包一同开启和关闭
 			'''
 	}
+
+	// Headers.UI: U I Header
 }

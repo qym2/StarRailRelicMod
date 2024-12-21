@@ -37,7 +37,11 @@
             float relicTextureX = GetDimensions().X + (GetDimensions().Width - relicTexture.Value.Width) / 2;
             float relicTextureY = GetDimensions().Y + (GetDimensions().Height - relicTexture.Value.Height) / 2;
 
-            spriteBatch.Draw(RelicSlotTexture.Value, GetDimensions().Position(), Color.White);
+            if (slotType != RelicType.Display)
+            {
+                spriteBatch.Draw(RelicSlotTexture.Value, GetDimensions().Position(), Color.White);
+            }
+
             spriteBatch.Draw(relicTexture.Value, new Vector2(relicTextureX, relicTextureY), Color.White);
 
             if (IsMouseHovering)
@@ -73,6 +77,11 @@
 
         public override void RightClick(UIMouseEvent evt)
         {
+            if (slotType == RelicType.Display)
+            {
+                return;
+            }
+
             // 若右键时栏位遗器不为空，则快捷取出遗器至玩家背包最前一格
             if (relicItem.IsValidRelic(out ModRelic relic))
             {
@@ -93,6 +102,11 @@
 
         public override void LeftClick(UIMouseEvent evt)
         {
+            if (slotType == RelicType.Display)
+            {
+                return;
+            }
+
             Item mouseItem = Main.mouseItem;
 
             if (mouseItem.IsValidRelic(out ModRelic relic) && (relic.RelicType == slotType || slotType == RelicType.None))

@@ -593,7 +593,12 @@
 
                 if (worldInfo.structureKey != "")
                 {
-                    Generator.GenerateStructure($"Assets/Structures/{worldInfo.structureKey}", worldInfo.structurePosition + new Point16((int)(Player.Center.X / 16), (int)(Player.Center.Y / 16)), Mod);
+                    string structureKey = worldInfo.structureKey;
+                    if (MainConfigs.Instance.CompatibilityMode)
+                    {
+                        structureKey = "NormalRuin";
+                    }
+                    Generator.GenerateStructure($"Assets/Structures/{structureKey}", worldInfo.structurePosition + new Point16((int)(Player.Center.X / 16), (int)(Player.Center.Y / 16)), Mod);
                 }
             }
         }

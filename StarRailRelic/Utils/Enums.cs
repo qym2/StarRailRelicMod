@@ -32,7 +32,11 @@
         /// <summary>
         /// 无
         /// </summary>
-        None
+        None,
+        /// <summary>
+        /// 展示
+        /// </summary>
+        Display
     }
 
     /// <summary>

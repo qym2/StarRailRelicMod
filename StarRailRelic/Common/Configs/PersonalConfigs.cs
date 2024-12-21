@@ -6,6 +6,7 @@
 
         public static PersonalConfigs Instance => GetInstance<PersonalConfigs>();
 
+        [Header("UI")]
         [DefaultValue(false)]
         public bool HideRelicButtonUI;
 

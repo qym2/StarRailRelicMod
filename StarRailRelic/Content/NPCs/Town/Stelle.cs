@@ -104,22 +104,18 @@ namespace StarRailRelic.Content.NPCs.Town
             {
                 RelicPlayer modPlayer = player.GetModPlayer<RelicPlayer>();
 
-                static bool RelicLevelMax(Item item)
+                static bool HasRelic(Item item)
                 {
-                    return item.ModItem is ModRelic modRelic && modRelic.level == modRelic.levelMax;
+                    return item.ModItem is ModRelic;
                 }
 
-                if (RelicLevelMax(modPlayer.HeadRelic) ||
-                    RelicLevelMax(modPlayer.HandsRelic) ||
-                    RelicLevelMax(modPlayer.BodyRelic) ||
-                    RelicLevelMax(modPlayer.FeetRelic) ||
-                    RelicLevelMax(modPlayer.LinkRopeRelic) ||
-                    RelicLevelMax(modPlayer.PlanarSphereRelic))
+                if (HasRelic(modPlayer.HeadRelic) &&
+                    HasRelic(modPlayer.HandsRelic) &&
+                    HasRelic(modPlayer.BodyRelic) &&
+                    HasRelic(modPlayer.FeetRelic) &&
+                    NPC.downedBoss1)
                 {
-                    if (NPC.downedBoss1)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
 
