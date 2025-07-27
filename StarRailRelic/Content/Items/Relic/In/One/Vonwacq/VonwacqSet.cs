@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Vonwacq
         }
     }
 
+    public class VonwacqRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Vonwacq;
+    }
+
     public class VonwacqSphere : VonwacqSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

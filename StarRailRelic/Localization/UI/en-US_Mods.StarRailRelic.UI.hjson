@@ -1,4 +1,4 @@
-RelicButton:
+RelicButton: 
 	'''
 	Equip Relics (Click again to close)
 	Keys can be bound to controls to quickly equip
@@ -23,6 +23,33 @@ TrailblazePowerTipText:
 	Restores one point every 15 seconds
 	'''
 RelicDisplayUITital: Relic Information List
+SUStartButtonText: Launch Simulated Universe
+SUEnemyListText: Others
+SUEnemyTitalText: "——✦Enemy List✦——"
+SURewardTitalText: "——✦Reward List✦——"
+SUDifficultyText: Difficulty
+SUTipsText:
+	'''
+	Startup Condition:
+	Ensure no tiles and walls obstruct the 150×150 area
+	Reward System:
+	After combat, rewards are distributed based on wave progress and difficulty.
+	The later the wave and higher the difficulty, the greater the quantity and quality of material drops.
+	Early waves yield lower progress rewards; it's recommended to complete the full sequence for maximum rewards.
+	'''
+SUCheckTileFiledText: Please clear the tiles within the 150×150 area first!
+
+SU: {
+	World1: World 1
+	World2: World 2
+	World3: World 3
+	World4: World 4
+	World5: World 5
+	World6: World 6
+	World7: World 7
+	World8: World 8
+	World9: World 9
+}
 
 Relic: {
 	LifeFlat: HP  {0}
@@ -41,4 +68,4 @@ Relic: {
 	MaxMinions: Max Minions  {0}
 	Defense: DEF  {0}
 	ArmorPenetration: Armor Penetration  {0}
-}
+}"

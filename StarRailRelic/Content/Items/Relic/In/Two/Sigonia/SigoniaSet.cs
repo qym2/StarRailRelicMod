@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.In.Two.Sigonia
         }
     }
 
+    public class SigoniaRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Sigonia;
+    }
+
     public class SigoniaSphere : SigoniaSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

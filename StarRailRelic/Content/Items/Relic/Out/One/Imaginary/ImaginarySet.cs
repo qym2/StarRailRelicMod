@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Imaginary
         }
     }
 
+    public class ImaginaryRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Imaginary;
+    }
+
     public class ImaginaryHead : ImaginarySet
     {
         public override RelicType RelicType => RelicType.Head;

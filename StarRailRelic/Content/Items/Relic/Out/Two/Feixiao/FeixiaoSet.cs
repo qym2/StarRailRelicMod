@@ -20,6 +20,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Feixiao
         }
     }
 
+    public class FeixiaoRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Feixiao;
+    }
+
     public class FeixiaoHead : FeixiaoSet
     {
         public override RelicType RelicType => RelicType.Head;

@@ -10,6 +10,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Xianzhou
         }
     }
 
+    public class XianzhouRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Xianzhou;
+    }
+
     public class XianzhouSphere : XianzhouSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

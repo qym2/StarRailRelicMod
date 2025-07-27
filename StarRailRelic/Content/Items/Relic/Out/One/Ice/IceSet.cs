@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Ice
         }
     }
 
+    public class IceRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Ice;
+    }
+
     public class IceHead : IceSet
     {
         public override RelicType RelicType => RelicType.Head;

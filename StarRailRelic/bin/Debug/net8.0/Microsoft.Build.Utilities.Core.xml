@@ -1315,6 +1315,31 @@
             Represents the ARM64 processor architecture.
             </summary>
         </member>
+        <member name="F:Microsoft.Build.Utilities.ProcessorArchitecture.WASM">
+            <summary>
+            Represents the WebAssembly platform.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Utilities.ProcessorArchitecture.S390X">
+            <summary>
+            Represents the S390x processor architecture.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Utilities.ProcessorArchitecture.LOONGARCH64">
+            <summary>
+            Represents the LoongAarch64 processor architecture.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Utilities.ProcessorArchitecture.ARMV6">
+            <summary>
+            Represents the 32-bit ARMv6 processor architecture.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Utilities.ProcessorArchitecture.PPC64LE">
+            <summary>
+            Represents the PowerPC 64-bit (little-endian) processor architecture.
+            </summary>
+        </member>
         <member name="P:Microsoft.Build.Utilities.ProcessorArchitecture.CurrentProcessArchitecture">
             <summary>
             Lazy-initted property for getting the architecture of the currently running process
@@ -2180,6 +2205,11 @@
         <member name="F:Microsoft.Build.Utilities.TargetDotNetFrameworkVersion.Version48">
             <summary>
             version 4.8
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Utilities.TargetDotNetFrameworkVersion.Version481">
+            <summary>
+            version 4.8.1
             </summary>
         </member>
         <member name="F:Microsoft.Build.Utilities.TargetDotNetFrameworkVersion.VersionLatest">
@@ -3053,10 +3083,10 @@
             <param name="targetFrameworkVersion">Version being targeted</param>
             <param name="targetFrameworkProfile">Profile being targeted</param>
             <param name="targetFrameworkRootPath">Root directory which will be used to calculate the reference assembly path. The references assemblies will be
-            <param name="targetFrameworkFallbackSearchPaths">';' separated list of paths that are looked up if the framework cannot be found in <paramref name="targetFrameworkRootPath"/></param>
             generated in the following way TargetFrameworkRootPath\TargetFrameworkIdentifier\TargetFrameworkVersion\SubType\TargetFrameworkSubType.
             Uses the default path if this is null.
             </param>
+            <param name="targetFrameworkFallbackSearchPaths">';' separated list of paths that are looked up if the framework cannot be found in <paramref name="targetFrameworkRootPath"/></param>
             <exception cref="T:System.ArgumentNullException">When the frameworkName is null</exception>
             <returns>Collection of reference assembly locations.</returns>
         </member>
@@ -3764,6 +3794,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Microsoft.Build.Utilities.ToolTask.canBeIncremental">
+            <summary>
+            ToolTask is not incremental by default. When a derived class overrides SkipTaskExecution, then Question feature can take into effect.
+            </summary>
+        </member>
         <member name="M:Microsoft.Build.Utilities.ToolTask.GenerateResponseFileCommands">
             <summary>
             Returns a string with those switches and other information that can go into a response file.
@@ -4345,6 +4380,13 @@
             <param name="messageArgs">Optional arguments for formatting the loaded string.</param>
             <exception cref="T:System.ArgumentNullException">Thrown when <c>messageResourceName</c> is null.</exception>
         </member>
+        <member name="M:Microsoft.Build.Utilities.TaskLoggingHelper.GetInnerExceptionMessageString(System.Exception)">
+            <summary>
+            Flatten the inner exception message
+            </summary>
+            <param name="e">Exception to flatten.</param>
+            <returns></returns>
+        </member>
         <member name="M:Microsoft.Build.Utilities.TaskLoggingHelper.LogExternalProjectStarted(System.String,System.String,System.String,System.String)">
             <summary>
             Small helper for logging the custom ExternalProjectStarted build event
@@ -4679,7 +4721,7 @@
         <member name="M:Microsoft.Build.Utilities.TaskLoggingHelper.LogMessageFromText(System.String,Microsoft.Build.Framework.MessageImportance)">
             <summary>
             Logs an error/warning/message from the given line of text. Errors/warnings are only logged for lines that fit a
-            particular (canonical) format -- all other lines are treated as messages.
+            <see href="https://docs.microsoft.com/visualstudio/msbuild/msbuild-diagnostic-format-for-tasks">particular (canonical) format</see> -- all other lines are treated as messages.
             Thread safe.
             </summary>
             <param name="lineOfText">The line of text to log from.</param>
@@ -5514,76 +5556,6 @@
             </summary>
             <param name="path">The path to create.</param>
         </member>
-        <member name="T:Microsoft.Build.Shared.EncodingUtilities">
-            <summary>
-            This class contains utility methods for dealing with encoding.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Shared.EncodingUtilities.CurrentSystemOemEncoding">
-            <summary>
-            Get the current system locale code page, OEM version. OEM code pages are used for console-based input/output
-            for historical reasons.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.SimilarToEncoding(System.Text.Encoding,System.Text.Encoding)">
-            <summary>
-            Checks two encoding types to determine if they are similar to each other (equal or if
-            the Encoding Name is the same).
-            </summary>
-            <param name="encoding1"></param>
-            <param name="encoding2"></param>
-            <returns>True if the two Encoding objects are equal or similar.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.IsUtf8Encoding(System.Text.Encoding)">
-            <summary>
-            Check if an encoding type is UTF8 (with or without BOM).
-            </summary>
-            <param name="encoding"></param>
-            <returns>True if the encoding is UTF8.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.StartsWithPreamble(System.IO.Stream)">
-            <summary>
-            Check the first 3 bytes of a stream to determine if it matches the UTF8 preamble.
-            </summary>
-            <param name="stream">Steam to check.</param>
-            <returns>True when the first 3 bytes of the Stream are equal to the UTF8 preamble (BOM).</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.StartsWithPreamble(System.IO.Stream,System.Byte[])">
-            <summary>
-            Check the first 3 bytes of a stream to determine if it matches the given preamble.
-            </summary>
-            <param name="stream">Steam to check.</param>
-            <param name="preamble">Preamble to look for.</param>
-            <returns>True when the first 3 bytes of the Stream are equal to the preamble.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.FileStartsWithPreamble(System.String)">
-            <summary>
-            Check the first 3 bytes of a file to determine if it matches the 3-byte UTF8 preamble (BOM).
-            </summary>
-            <param name="file">Path to file to check.</param>
-            <returns>True when the first 3 bytes of the file are equal to the UTF8 BOM.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.CanEncodeString(System.Int32,System.String)">
-            <summary>
-            Checks to see if a string can be encoded in a specified code page.
-            </summary>
-            <remarks>Internal for testing purposes.</remarks>
-            <param name="codePage">Code page for encoding.</param>
-            <param name="stringToEncode">String to encode.</param>
-            <returns>True if the string can be encoded in the specified code page.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.BatchFileEncoding(System.String,System.String)">
-             <summary>
-             Find the encoding for the batch file.
-             </summary>
-             <remarks>
-             The "best" encoding is the current OEM encoding, unless it's not capable of representing
-             the characters we plan to put in the file. If it isn't, we can fall back to UTF-8.
-            
-             Why not always UTF-8? Because tools don't always handle it well. See
-             https://github.com/dotnet/msbuild/issues/397
-             </remarks>
-        </member>
         <member name="T:Microsoft.Build.Shared.ErrorUtilities">
             <summary>
             This class contains methods that are useful for error checking and validation.
@@ -6067,7 +6039,7 @@
             <param name="projectConfigurationDescription">Properties to Print along with message</param>
             <returns>The formatted message string.</returns>
         </member>
-        <member name="M:Microsoft.Build.Shared.EventArgsFormatting.FormatEventMessage(Microsoft.Build.Framework.BuildMessageEventArgs,System.Boolean,System.String)">
+        <member name="M:Microsoft.Build.Shared.EventArgsFormatting.FormatEventMessage(Microsoft.Build.Framework.BuildMessageEventArgs,System.Boolean,System.String,System.String)">
             <summary>
             Format the message and all the other event data into a
             single string.
@@ -6075,6 +6047,7 @@
             <param name="e">Message to format</param>
             <param name="showProjectFile"><code>true</code> to show the project file which issued the event, otherwise <code>false</code>.</param>
             <param name="projectConfigurationDescription">Properties to Print along with message</param>
+            <param name="nonNullMessage">The complete message (including property name) for an environment-derived property</param>
             <returns>The formatted message string.</returns>
         </member>
         <member name="M:Microsoft.Build.Shared.EventArgsFormatting.FormatEventMessage(Microsoft.Build.Framework.BuildErrorEventArgs)">
@@ -6119,13 +6092,14 @@
             <param name="e">Message to format</param>
             <returns>The formatted message string.</returns>
         </member>
-        <member name="M:Microsoft.Build.Shared.EventArgsFormatting.FormatEventMessage(Microsoft.Build.Framework.BuildMessageEventArgs,System.Boolean)">
+        <member name="M:Microsoft.Build.Shared.EventArgsFormatting.FormatEventMessage(Microsoft.Build.Framework.BuildMessageEventArgs,System.Boolean,System.String)">
             <summary>
             Format the message and all the other event data into a
             single string.
             </summary>
             <param name="e">Message to format</param>
             <param name="showProjectFile">Show project file or not</param>
+            <param name="nonNullMessage">For an EnvironmentVariableReadEventArgs, adds an explanatory note and the name of the variable.</param>
             <returns>The formatted message string.</returns>
         </member>
         <member name="M:Microsoft.Build.Shared.EventArgsFormatting.FormatEventMessage(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
@@ -6772,6 +6746,15 @@
             <param name="createDirectory"></param>
             <param name="subfolder"></param>
         </member>
+        <member name="M:Microsoft.Build.Shared.FileUtilities.GetTemporaryFileName">
+            <summary>
+            Generates a unique temporary file name with a given extension in the temporary folder.
+            File is guaranteed to be unique.
+            Extension may have an initial period.
+            File will NOT be created.
+            May throw IOException.
+            </summary>
+        </member>
         <member name="M:Microsoft.Build.Shared.FileUtilities.GetTemporaryFileName(System.String)">
             <summary>
             Generates a unique temporary file name with a given extension in the temporary folder.
@@ -7266,7 +7249,7 @@
             Returns true if the given character is a valid drive letter.
             </summary>
             <remarks>
-            Copied from https://github.com/dotnet/corefx/blob/master/src/Common/src/System/IO/PathInternal.Windows.cs#L77-L83
+            Copied from https://github.com/dotnet/corefx/blob/b8b81a66738bb10ef0790023598396861d92b2c4/src/Common/src/System/IO/PathInternal.Windows.cs#L53-L59
             </remarks>
         </member>
         <member name="M:Microsoft.Build.Shared.FileMatcher.SkipSlashes(System.String,System.Int32)">

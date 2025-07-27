@@ -18,6 +18,8 @@
         protected virtual bool PlayOpenSound => true;
         protected virtual bool PlayCloseSound => true;
 
+        public Vector2? ActiveTilePosition { get; set; }
+
         public virtual void ShowUI()
         {
             userInterface?.SetState(uiState);
@@ -43,6 +45,7 @@
                     _ = SoundEngine.PlaySound(SoundID.MenuClose);
                 }
                 isUIOpen = false;
+                ActiveTilePosition = null;
             }
         }
 
@@ -86,6 +89,17 @@
                     }
                 }
             }//Main.NewText(Main.LocalPlayer.inventory[0].Name);
+
+            if (ActiveTilePosition != null)
+            {
+                Vector2 playerPos = Main.LocalPlayer.Center;
+                Vector2 tilePos = ActiveTilePosition.Value;
+
+                if (Vector2.Distance(tilePos, playerPos) / 16f > 8f)
+                {
+                    HideUI();
+                }
+            }
         }
 
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)

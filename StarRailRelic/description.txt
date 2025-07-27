@@ -1,11 +1,11 @@
-﻿开拓，星遗泰拉 ！是一个为游戏添加拓展内容的Mod。
-内容以崩坏：星穹铁道为原型，添加了一系列的遗器，旨在增强游戏的多样性和乐趣。
-玩家可以通过探索、挑战不同的环境和敌人，收集和强化遗器，以提升角色的能力和战斗效果。
+﻿本mod将崩坏星穹铁道中的遗器，角色，武器，Boss等移植进了泰拉瑞亚中。
+你可以尽情搭配遗器属性和套装效果来提高自己的实力。
+同时可以在泰拉瑞亚中挑战你的老对手们。
 
-更多信息请前往：https://github.com/qym2/StarRailRelicMod
+注意：作者比较懒，有时候会长时间不更新。
 
-Trailblaze: TerraRail! is a Mod that adds expanded content to the game. 
-This content is inspired by Honkai: Star Rail and introduces a variety of relics to enhance the diversity and enjoyment of the game. 
-Players can explore and challenge different environments and enemies, collecting and strengthening relics to improve their characters' abilities and combat effectiveness.
+This mod integrates elements from Honkai: Star Rail—including Relics, characters, weapons, and bosses—into Terraria. 
+Freely mix and match Relic stats and set bonuses to power up your build.
+And challenge your old foes in the world of Terraria.
 
-For more information, please visit: https://github.com/qym2/StarRailRelicMod
+Note: The developer may take extended breaks between updates.

@@ -10,6 +10,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Glamoth
         }
     }
 
+    public class GlamothRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Glamoth;
+    }
+
     public class GlamothSphere : GlamothSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

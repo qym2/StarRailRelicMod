@@ -30,17 +30,19 @@
                 }
             }
 
-            if (GetInstance<RelicDisplayUISystem>().isUIOpen)
+            if (GetInstance<SUMainUISystem>().isUIOpen)
             {
                 if (Main.LocalPlayer.controlInv)
                 {
-                    GetInstance<RelicDisplayUISystem>().HideUI();
+                    GetInstance<SUMainUISystem>().HideUI();
                     Main.LocalPlayer.releaseInventory = false;
+                    Main.playerInventory = false;
                 }
                 else if (Main.LocalPlayer.controlCreativeMenu)
                 {
-                    GetInstance<RelicDisplayUISystem>().HideUI();
+                    GetInstance<SUMainUISystem>().HideUI();
                     Main.LocalPlayer.releaseCreativeMenu = false;
+                    Main.playerInventory = false;
                 }
             }
         }

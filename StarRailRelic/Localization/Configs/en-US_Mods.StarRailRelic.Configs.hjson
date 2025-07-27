@@ -10,21 +10,7 @@ MainConfigs: {
 			'''
 	}
 
-	Headers: {
-		Game: "[c/00ffff:Game Configs]"
-		Subworld: "[c/00ffff:Relic Challenge Configs]"
-		UI: "[c/00ffff:UI Configs]"
-	}
-
-	CompatibilityMode: {
-		Label: Compatibility Mode
-		Tooltip:
-			'''
-			In Compatibility Mode, the style of all relic challenge dungeons will be changed to the style of the forest challenge dungeon
-			Used by players in mod conflicts
-			[c/ff0000: No need to enable it if there is no mod conflict]
-			'''
-	}
+	Headers.Game: Game Header
 }
 
 PersonalConfigs: {
@@ -44,5 +30,5 @@ PersonalConfigs: {
 			'''
 	}
 
-	Headers.UI: U I Header
+	Headers.UI: "[c/00ffff:UI Configs]"
 }

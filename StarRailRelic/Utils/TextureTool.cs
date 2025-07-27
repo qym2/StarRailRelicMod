@@ -37,9 +37,19 @@
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static Texture2D GetTextureValue(this string Texture)
+        public static Texture2D GetTextureValue(string Texture)
         {
             return Request<Texture2D>(Texture).Value;
+        }
+
+        /// <summary>
+        /// 根据图片路径获取图片
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Asset<Texture2D> GetTexture(string Texture)
+        {
+            return Request<Texture2D>(Texture);
         }
 
         /// <summary>
@@ -70,6 +80,30 @@
         /// 遗器栏位图片
         /// </summary>
         public static Asset<Texture2D> RelicPanelTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/RelicPanel");
+        /// <summary>
+        /// 增加按钮图片
+        /// </summary>
+        public static Asset<Texture2D> AddDifficultyButtonTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/Add");
+        /// <summary>
+        /// 增加按钮图片（鼠标悬浮）
+        /// </summary>
+        public static Asset<Texture2D> AddDifficultyButton_HoverTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/Add_Hover");
+        /// <summary>
+        /// 减少按钮图片
+        /// </summary>
+        public static Asset<Texture2D> SubtractDifficultyButtonTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/Subtract");
+        /// <summary>
+        /// 减少按钮图片（鼠标悬浮）
+        /// </summary>
+        public static Asset<Texture2D> SubtractDifficultyButton_HoverTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/Subtract_Hover");
+        /// <summary>
+        /// 提示按钮图片
+        /// </summary>
+        public static Asset<Texture2D> TipsButtonTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/Tips");
+        /// <summary>
+        /// 提示按钮图片（鼠标悬浮）
+        /// </summary>
+        public static Asset<Texture2D> TipsButton_HoverTexture => Request<Texture2D>("StarRailRelic/Assets/Textures/Tips_Hover");
 
         /// <summary>
         /// 空图片路径

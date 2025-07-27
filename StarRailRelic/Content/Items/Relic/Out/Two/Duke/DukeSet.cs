@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Duke
         }
     }
 
+    public class DukeRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Duke;
+    }
+
     public class DukeHead : DukeSet
     {
         public override RelicType RelicType => RelicType.Head;

@@ -29,6 +29,36 @@
             The target method.
             </summary>
         </member>
+        <member name="T:MonoMod.Core.ICoreDetourWithClone">
+            <summary>
+            An <see cref="T:MonoMod.Core.ICoreDetour"/> that additionally provides <see cref="P:MonoMod.Core.ICoreDetourWithClone.SourceMethodClone"/>.
+            </summary>
+            <remarks>
+            An <see cref="T:MonoMod.Core.ICoreDetour"/> may implement this interface without actually providing a source clone.
+            </remarks>
+            <seealso cref="P:MonoMod.Core.CreateDetourRequest.CreateSourceCloneIfNotILClone"/>
+        </member>
+        <member name="P:MonoMod.Core.ICoreDetourWithClone.SourceMethodClone">
+            <summary>
+            A clone of <see cref="P:MonoMod.Core.ICoreDetour.Source"/>, which behaves as-if it had not been detoured.
+            </summary>
+            <remarks>
+            This method will not be available unless <see cref="P:MonoMod.Core.CreateDetourRequest.CreateSourceCloneIfNotILClone"/> was
+            set when the detour was created. If the <see cref="T:MonoMod.Core.IDetourFactory"/> does not support that option,
+            this may not be set anyway.
+            </remarks>
+            <seealso cref="P:MonoMod.Core.CreateDetourRequest.CreateSourceCloneIfNotILClone"/>
+        </member>
+        <member name="P:MonoMod.Core.ICoreDetourWithClone.SourceMethodCloneIL">
+            <summary>
+            A <see cref="T:MonoMod.Utils.DynamicMethodDefinition"/> that contains the IL for <see cref="P:MonoMod.Core.ICoreDetourWithClone.SourceMethodClone"/>, if it has any.
+            </summary>
+            <remarks>
+            <para>This may be <see langword="null"/> even if <see cref="P:MonoMod.Core.ICoreDetourWithClone.SourceMethodClone"/> is not. This represents a method
+            which has no (meaningful) IL body. Clients should be sure to handle this case. For instance, RuntimeDetour treats
+            this case as meaning that <see cref="T:MonoMod.RuntimeDetour.ILHook"/>s cannot be applied to the method.</para>
+            </remarks>
+        </member>
         <member name="T:MonoMod.Core.ICoreDetourBase">
             <summary>
             A single detour. This is the base type of both <see cref="T:MonoMod.Core.ICoreDetour"/> and <see cref="T:MonoMod.Core.ICoreNativeDetour"/>.
@@ -128,6 +158,25 @@
             Gets or sets whether or not the detour should be applied when <see cref="M:MonoMod.Core.IDetourFactory.CreateDetour(MonoMod.Core.CreateDetourRequest)"/> returns.
             Defaults to <see langword="true"/>.
             </summary>
+        </member>
+        <member name="P:MonoMod.Core.CreateDetourRequest.CreateSourceCloneIfNotILClone">
+            <summary>
+            Gets or sets whether the detour factory should create a clone of <see cref="P:MonoMod.Core.CreateDetourRequest.Source"/> which, when called, behaves as-if
+            the source was not detoured. If the <see cref="T:MonoMod.Core.IDetourFactory"/> supports this, the created <see cref="T:MonoMod.Core.ICoreDetour"/> will
+            implement <see cref="T:MonoMod.Core.ICoreDetourWithClone"/>, and the clone will be available from <see cref="P:MonoMod.Core.ICoreDetourWithClone.SourceMethodClone"/>.
+            </summary>
+            <remarks>
+            <para>
+            The <see cref="T:MonoMod.Core.IDetourFactory"/> should only generate a clone if that clone is not strictly an IL clone.
+            </para>
+            <para>
+            The <see cref="T:MonoMod.Core.IDetourFactory"/> is not obligated to respect this option; it is permitted to ignore it. Clients which
+            require this behavior should have a fallback path which performs an IL clone using <see cref="T:MonoMod.Utils.DynamicMethodDefinition"/>
+            or another similar method.
+            </para>
+            </remarks>
+            <seealso cref="P:MonoMod.Core.ICoreDetourWithClone.SourceMethodClone"/>
+            <seealso cref="M:MonoMod.Utils.DynamicMethodDefinition.#ctor(System.Reflection.MethodBase)"/>
         </member>
         <member name="T:MonoMod.Core.CreateNativeDetourRequest">
             <summary>
@@ -679,6 +728,34 @@
             Gets the size, in bytes, of the detour this represents.
             </summary>
         </member>
+        <member name="T:MonoMod.Core.Platforms.IControlFlowGuard">
+            <summary>
+            An interface enabling interaction with features like Windows' Control Flow Guard.
+            </summary>
+            <seealso href="https://learn.microsoft.com/en-us/windows/win32/secbp/control-flow-guard"/>
+        </member>
+        <member name="P:MonoMod.Core.Platforms.IControlFlowGuard.IsSupported">
+            <summary>
+            <see langword="true"/> if this feature is supported, <see langword="false"/> otherwise.
+            </summary>
+        </member>
+        <member name="P:MonoMod.Core.Platforms.IControlFlowGuard.TargetAlignmentRequirement">
+            <summary>
+            Gets the alignment requirement for registerable entry points.
+            </summary>
+        </member>
+        <member name="M:MonoMod.Core.Platforms.IControlFlowGuard.RegisterValidIndirectCallTargets(System.Void*,System.IntPtr,System.ReadOnlySpan{System.IntPtr})">
+            <summary>
+            Registers a memory region's valid indirect call targets.
+            </summary>
+            <remarks>
+            Callers are responsible for ensuring that provided entrypoints are aligned according to <see cref="P:MonoMod.Core.Platforms.IControlFlowGuard.TargetAlignmentRequirement"/>.
+            </remarks>
+            <param name="memoryRegionStart">A pointer to the start of the memory region to register.</param>
+            <param name="memoryRegionLength">The length of the memory region to register.</param>
+            <param name="validTargetsInMemoryRegion">A set of <see cref="P:MonoMod.Core.Platforms.IControlFlowGuard.TargetAlignmentRequirement"/>-aligned valid entrypoints,
+            as offsets relative to <paramref name="memoryRegionStart"/>.</param>
+        </member>
         <member name="T:MonoMod.Core.Platforms.IMemoryAllocator">
             <summary>
             A native memory allocator, capable of allocating memory within certain bounds.
@@ -894,6 +971,16 @@
             </remarks>
             <param name="method"></param>
             <returns></returns>
+        </member>
+        <member name="M:MonoMod.Core.Platforms.IRuntime.RequiresGenericContext(System.Reflection.MethodBase)">
+            <summary>
+            Determines whether a particular method requires a generic context to be provided to it by the runtime.
+            </summary>
+            <param name="method">The method to check.</param>
+            <returns>
+            <c>true</c> if the method requires a generic context to be provided to it by the runtime;
+            otherwise, <c>false</c>.
+            </returns>
         </member>
         <member name="M:MonoMod.Core.Platforms.IRuntime.DisableInlining(System.Reflection.MethodBase)">
             <summary>
@@ -1309,6 +1396,9 @@
             <summary>
             Gets the <see cref="T:MonoMod.Core.Platforms.ISystem"/> for this <see cref="T:MonoMod.Core.Platforms.PlatformTriple"/>.
             </summary>
+            <remarks>
+            The <see cref="P:MonoMod.Core.Platforms.PlatformTriple.System"/> object may also implement <see cref="T:MonoMod.Core.Platforms.IControlFlowGuard"/>, if its operating system has such a feature.
+            </remarks>
         </member>
         <member name="P:MonoMod.Core.Platforms.PlatformTriple.Runtime">
             <summary>

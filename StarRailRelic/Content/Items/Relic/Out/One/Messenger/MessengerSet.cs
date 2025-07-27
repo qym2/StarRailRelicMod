@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Messenger
         }
     }
 
+    public class MessengerRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Messenger;
+    }
+
     public class MessengerHead : MessengerSet
     {
         public override RelicType RelicType => RelicType.Head;

@@ -1,5 +1,7 @@
 using StarRailRelic.Content.EmoteBubbles;
+using StarRailRelic.Content.Items.Tiles;
 using StarRailRelic.Content.Items.Weapons.Melee;
+using StarRailRelic.Content.Pets.Meme;
 using Terraria.DataStructures;
 using Terraria.GameContent.UI;
 
@@ -100,23 +102,9 @@ namespace StarRailRelic.Content.NPCs.Town
                 return true;
             }
 
-            foreach (Player player in Main.ActivePlayers)
+            if (NPC.downedBoss1)
             {
-                RelicPlayer modPlayer = player.GetModPlayer<RelicPlayer>();
-
-                static bool HasRelic(Item item)
-                {
-                    return item.ModItem is ModRelic;
-                }
-
-                if (HasRelic(modPlayer.HeadRelic) &&
-                    HasRelic(modPlayer.HandsRelic) &&
-                    HasRelic(modPlayer.BodyRelic) &&
-                    HasRelic(modPlayer.FeetRelic) &&
-                    NPC.downedBoss1)
-                {
-                    return true;
-                }
+                return true;
             }
 
             return false;
@@ -167,7 +155,7 @@ namespace StarRailRelic.Content.NPCs.Town
                     Main.npcChatText = GetTextValue("Mods.StarRailRelic.NPCs.Stelle.Dialogue.Exchange");
 
                     Main.LocalPlayer.HeldItem.TurnToAir();
-                    Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ItemType<LostCrystal>(), 7000);
+                    Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_GiftOrReward(), ItemType<LostCrystal>(), 70);
 
                     return;
                 }
@@ -180,7 +168,9 @@ namespace StarRailRelic.Content.NPCs.Town
         {
             NPCShop npcShop = new NPCShop(Type, ShopName)
                 .Add<WeaponChargingComponent>(Condition.TimeDay)
+                .Add<QuillOfRemembrance>()
                 .Add<LostCrystal>()
+                .Add<SimulatedUniverse>(Condition.InSpace)
                 ;
 
             //if (GetInstance<ExampleModConfig>().ExampleWingsToggle)

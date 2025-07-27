@@ -28,6 +28,11 @@ namespace StarRailRelic.Content.Items.Relic.In.Two.Wolves
         }
     }
 
+    public class WolvesRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Wolves;
+    }
+
     public class WolvesSphere : WolvesSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

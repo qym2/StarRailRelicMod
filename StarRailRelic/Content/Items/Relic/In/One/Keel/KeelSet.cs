@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Keel
         }
     }
 
+    public class KeelRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Keel;
+    }
+
     public class KeelSphere : KeelSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

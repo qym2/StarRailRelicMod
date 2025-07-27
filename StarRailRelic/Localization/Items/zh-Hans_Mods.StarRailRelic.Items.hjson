@@ -889,3 +889,282 @@ RelicGuide: {
 	DisplayName: 遗器指南
 	Tooltip: 用于打开遗器信息列表
 }
+
+HoneycorruptGrub: {
+	DisplayName: 腐蜜幼虫
+	Tooltip: 召唤虫群·真蛰虫
+}
+
+RelicRemians: {
+	DisplayName: 遗器残骸
+	Tooltip: ""
+}
+
+RottenStingcarapace: {
+	DisplayName: 腐蛰碎壳
+	Tooltip: ""
+}
+
+AbyssalNestHusk: {
+	DisplayName: 群噬蛰甲
+	Tooltip: ""
+}
+
+SwarmgnawedCarapace: {
+	DisplayName: 渊巢蛰骸
+	Tooltip: ""
+}
+
+SwarmTrueStingBossBag: {
+	DisplayName: 宝藏袋（虫群·真蛰虫）
+	Tooltip: ""
+}
+
+FireRelic: {
+	DisplayName: 熔岩锻铸的火匠
+	Tooltip: ""
+}
+
+BanditryRelic: {
+	DisplayName: 盗贼公国塔利亚
+	Tooltip: ""
+}
+
+BelobogRelic: {
+	DisplayName: 筑城者的贝洛伯格
+	Tooltip: ""
+}
+
+DifferentiatorRelic: {
+	DisplayName: 星体差分机
+	Tooltip: ""
+}
+
+EnterpriseRelic: {
+	DisplayName: 泛银河商业公司
+	Tooltip: ""
+}
+
+GlamothRelic: {
+	DisplayName: 苍穹战线格拉默
+	Tooltip: ""
+}
+
+KeelRelic: {
+	DisplayName: 折断的龙骨
+	Tooltip: ""
+}
+
+PenaconyRelic: {
+	DisplayName: 梦想之地匹诺康尼
+	Tooltip: ""
+}
+
+RutilantRelic: {
+	DisplayName: 繁星竞技场
+	Tooltip: ""
+}
+
+SalsottoRelic: {
+	DisplayName: 停转的萨尔索图
+	Tooltip: ""
+}
+
+SpaceRelic: {
+	DisplayName: 太空封印站
+	Tooltip: ""
+}
+
+VonwacqRelic: {
+	DisplayName: 生命的翁瓦克
+	Tooltip: ""
+}
+
+XianzhouRelic: {
+	DisplayName: 不老者的仙舟
+	Tooltip: ""
+}
+
+BananaRelic: {
+	DisplayName: 奇想蕉乐园
+	Tooltip: ""
+}
+
+IzumoRelic: {
+	DisplayName: 出云显世与高天神国
+	Tooltip: ""
+}
+
+KalpagniRelic: {
+	DisplayName: 劫火莲灯铸炼宫
+	Tooltip: ""
+}
+
+SigoniaRelic: {
+	DisplayName: 无主荒星茨冈尼亚
+	Tooltip: ""
+}
+
+SunkenRelic: {
+	DisplayName: 沉陆海域露莎卡
+	Tooltip: ""
+}
+
+WolvesRelic: {
+	DisplayName: 奔狼的都蓝王朝
+	Tooltip: ""
+}
+
+GuardRelic: {
+	DisplayName: 戍卫风雪的铁卫
+	Tooltip: ""
+}
+
+HealingRelic: {
+	DisplayName: 云无留迹的过客
+	Tooltip: ""
+}
+
+IceRelic: {
+	DisplayName: 密林卧雪的猎人
+	Tooltip: ""
+}
+
+ImaginaryRelic: {
+	DisplayName: 盗匪荒漠的废土客
+	Tooltip: ""
+}
+
+KnightRelic: {
+	DisplayName: 净庭教宗的圣骑士
+	Tooltip: ""
+}
+
+LifeRelic: {
+	DisplayName: 宝命长存的莳者
+	Tooltip: ""
+}
+
+LightningRelic: {
+	DisplayName: 激奏雷电的乐队
+	Tooltip: ""
+}
+
+MessengerRelic: {
+	DisplayName: 骇域漫游的信使
+	Tooltip: ""
+}
+
+MusketeerRelic: {
+	DisplayName: 野穗伴行的快枪手
+	Tooltip: ""
+}
+
+PhysicsRelic: {
+	DisplayName: 街头出身的拳王
+	Tooltip: ""
+}
+
+QuantumRelic: {
+	DisplayName: 繁星璀璨的天才
+	Tooltip: ""
+}
+
+ThiefRelic: {
+	DisplayName: 流星追迹的怪盗
+	Tooltip: ""
+}
+
+WindRelic: {
+	DisplayName: 晨昏交界的翔鹰
+	Tooltip: ""
+}
+
+DeadWatersRelic: {
+	DisplayName: 死水深潜的先驱
+	Tooltip: ""
+}
+
+DotRelic: {
+	DisplayName: 幽锁深牢的系囚
+	Tooltip: ""
+}
+
+DukeRelic: {
+	DisplayName: 毁烬焚骨的大公
+	Tooltip: ""
+}
+
+FeixiaoRelic: {
+	DisplayName: 风举云飞的勇烈
+	Tooltip: ""
+}
+
+IronRelic: {
+	DisplayName: 荡除蠹灾的铁骑
+	Tooltip: ""
+}
+
+SacerdosRelic: {
+	DisplayName: 重循苦旅的司铎
+	Tooltip: ""
+}
+
+ScholarRelic: {
+	DisplayName: 识海迷坠的学者
+	Tooltip: ""
+}
+
+WatchRelic: {
+	DisplayName: 机心戏梦的钟表匠
+	Tooltip: ""
+}
+
+KeyOfFragmentum: {
+	DisplayName: 裂界之钥
+	Tooltip: ""
+}
+
+QuillOfRemembrance: {
+	DisplayName: 铭忆之羽
+	Tooltip:
+		'''
+		召唤迷迷
+		"迷？迷！"
+		'''
+}
+
+LifelessBlade: {
+	DisplayName: 无生残刃
+	Tooltip: ""
+}
+
+ShatteredBlade: {
+	DisplayName: 破碎残刃
+	Tooltip: 当敌人对你造成超过生命值5%的伤害时，10%概率掉落
+}
+
+WorldbreakerBlade: {
+	DisplayName: 净世残刃
+	Tooltip: ""
+}
+
+AncestralHymn: {
+	DisplayName: 家族颂歌
+	Tooltip: ""
+}
+
+HarmonicTune: {
+	DisplayName: 谐乐小调
+	Tooltip: ""
+}
+
+StellarisSymphony: {
+	DisplayName: 群星乐章
+	Tooltip: ""
+}
+
+SimulatedUniverse: {
+	DisplayName: 模拟宇宙
+	Tooltip: “求你了，来测吧”
+}

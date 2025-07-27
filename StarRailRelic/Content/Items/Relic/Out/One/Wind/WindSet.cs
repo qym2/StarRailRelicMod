@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Wind
         }
     }
 
+    public class WindRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Wind;
+    }
+
     public class WindHead : WindSet
     {
         public override RelicType RelicType => RelicType.Head;

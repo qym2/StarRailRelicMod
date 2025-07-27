@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Iron
         }
     }
 
+    public class IronRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Iron;
+    }
+
     public class IronHead : IronSet
     {
         public override RelicType RelicType => RelicType.Head;

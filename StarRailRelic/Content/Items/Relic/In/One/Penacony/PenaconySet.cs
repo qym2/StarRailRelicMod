@@ -30,6 +30,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Penacony
         }
     }
 
+    public class PenaconyRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Penacony;
+    }
+
     public class PenaconySphere : PenaconySet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

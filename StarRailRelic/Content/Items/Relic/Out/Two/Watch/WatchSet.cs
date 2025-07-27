@@ -21,6 +21,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Watch
         }
     }
 
+    public class WatchRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Watch;
+    }
+
     public class WatchHead : WatchSet
     {
         public override RelicType RelicType => RelicType.Head;

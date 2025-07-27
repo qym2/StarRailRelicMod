@@ -1,4 +1,10 @@
-﻿namespace StarRailRelic.Content.Items.Relic
+﻿using log4net.Core;
+using StarRailRelic.Utils;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ModLoader;
+using static Terraria.Localization.NetworkText;
+
+namespace StarRailRelic.Content.Items.Relic
 {
     /// <summary>
     /// 表示一个抽象的遗器类，所有遗器的类型应继承自此类。 
@@ -30,7 +36,7 @@
         /// 遗器升每一级所需的物品数量列表
         /// </summary>
         public static readonly List<int> RelicStrengtheningRequiredItemCount =
-            [56, 80, 104, 136, 168, 206, 264, 324, 412, 512, 635, 803, 1032, 1296, 1572];
+            [1, 1, 2, 2, 3, 3, 4, 5, 6, 7, 8, 10, 11, 14, 17];
 
         /// <summary>
         /// 主词条的类型
@@ -167,14 +173,7 @@
             Item.width = 45;
             Item.height = 45;
 
-            SetMainEntryByRelicType();
-
-            if (AdverbEntryList == null)
-            {
-                InitializeAdverbEntries();
-            }
-
-            UpdateValue();
+            InitializeRelic();
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -191,7 +190,7 @@
                 };
                 tooltips.Add(line);
             }
-
+            
             // 主词条信息
             if (MainEntry != null && !isDisplay)
             {
@@ -288,6 +287,8 @@
             int mainValue = level * Item.sellPrice(0, 0, 50, 0);
             int baseValue = Item.sellPrice(0, 1, 0, 0);
             Item.value = (int)((baseValue + mainValue + adverbValue) * 0.66);
+
+            Item.NetStateChanged();
         }
 
         /// <summary>
@@ -324,6 +325,8 @@
             }
 
             UpdateValue();
+
+            Item.NetStateChanged();
         }
 
         /// <summary>
@@ -337,6 +340,8 @@
         {
             isTwoSet = true;
             ModifyTwoSetSpecialEffect(player.GetModPlayer<RelicSetSpecialEffectPlayer>());
+
+            Item.NetStateChanged();
         }
 
         /// <summary>
@@ -350,6 +355,8 @@
         {
             isFourSet = true;
             ModifyFourSetSpecialEffect(player?.GetModPlayer<RelicSetSpecialEffectPlayer>());
+
+            Item.NetStateChanged();
         }
 
         /// <summary>
@@ -362,6 +369,8 @@
         {
             isTwoSet = false;
             isFourSet = false;
+
+            Item.NetStateChanged();
         }
         #endregion
 
@@ -579,6 +588,108 @@
             return itemTypes;
         }
 
+        /// <summary>
+        /// 单独用一个方法初始化遗器，防置其它mod反复调用SD
+        /// </summary>
+        public void InitializeRelic()
+        {
+            if (MainEntry == null)
+            {
+                SetMainEntryByRelicType();
+            }
+            if (AdverbEntryList == null)
+            {
+                InitializeAdverbEntries();
+            }
+
+            UpdateValue();
+
+            Item.NetStateChanged();
+        }
+        #endregion
+
+        #region 网络同步
+        public override void NetSend(BinaryWriter writer)
+        {
+            writer.Write((byte)level);
+
+            // 发送 MainEntry 是否有值的标志
+            writer.Write(MainEntry.HasValue);
+            if (MainEntry.HasValue)
+            {
+                writer.Write((byte)MainEntry.Value);
+            }
+
+            // 发送 pendingAdverbEntry 是否有值的标志
+            writer.Write(pendingAdverbEntry.HasValue);
+            if (pendingAdverbEntry.HasValue)
+            {
+                writer.Write((byte)pendingAdverbEntry.Value);
+            }
+
+            // 发送 AdverbEntryList 的长度
+            writer.Write((byte)(AdverbEntryList?.Count ?? 0));
+            if (AdverbEntryList != null)
+            {
+                for (int i = 0; i < AdverbEntryList.Count; i++)
+                {
+                    writer.Write((byte)AdverbEntryList[i]);
+                }
+            }
+
+            // 发送 AdverbEntryNumList 的长度
+            writer.Write((byte)(AdverbEntryNumList?.Count ?? 0));
+            if (AdverbEntryNumList != null)
+            {
+                for (int i = 0; i < AdverbEntryNumList.Count; i++)
+                {
+                    writer.Write((byte)AdverbEntryNumList[i]);
+                }
+            }
+        }
+
+        public override void NetReceive(BinaryReader reader)
+        {
+            level = reader.ReadByte();
+
+            // 读取 MainEntry 是否有值的标志
+            bool hasMainEntry = reader.ReadBoolean();
+            MainEntry = hasMainEntry ? (RelicMainEntryType?)reader.ReadByte() : null;
+
+            // 读取 pendingAdverbEntry 是否有值的标志
+            bool hasPendingAdverb = reader.ReadBoolean();
+            pendingAdverbEntry = hasPendingAdverb ? (RelicAdverbEntryType?)reader.ReadByte() : null;
+
+            // 读取并设置 AdverbEntryList
+            int adverbEntryListCount = reader.ReadByte();
+            if (AdverbEntryList == null)
+            {
+                AdverbEntryList = [];
+            }
+            else
+            {
+                AdverbEntryList.Clear();
+            }
+            for (int i = 0; i < adverbEntryListCount; i++)
+            {
+                AdverbEntryList.Add((RelicAdverbEntryType)reader.ReadByte());
+            }
+
+            // 读取并设置 AdverbEntryNumList
+            int adverbEntryNumListCount = reader.ReadByte();
+            if (AdverbEntryNumList == null)
+            {
+                AdverbEntryNumList = [];
+            }
+            else
+            {
+                AdverbEntryNumList.Clear();
+            }
+            for (int i = 0; i < adverbEntryNumListCount; i++)
+            {
+                AdverbEntryNumList.Add(reader.ReadByte());
+            }
+        }
         #endregion
 
         #region 保存和加载
@@ -646,5 +757,90 @@
             }
         }
         #endregion
+    }
+
+    public abstract class InRelicBag : ModItem
+    {
+        public abstract RelicSet RelicSet { get; }
+        public virtual bool IsOutRelic => false;
+
+        public override void SetStaticDefaults()
+        {
+            Item.ResearchUnlockCount = 3;
+        }
+
+        public override void SetDefaults()
+        {
+            Item.consumable = true;
+            Item.maxStack = 9999;
+            Item.width = 66;
+            Item.height = 64;
+            Item.rare = RarityType<GoldRarity>();
+        }
+
+        public override bool CanRightClick()
+        {
+            return Main.LocalPlayer.GetModPlayer<TrailblazePowerPlayer>().TrailblazePower >= 40;
+        }
+
+        public override void RightClick(Player player)
+        {
+            player.GetModPlayer<TrailblazePowerPlayer>().TrailblazePower -= 40;
+
+            int[] relicTypes;
+            if (IsOutRelic)
+            {
+                relicTypes = [.. ModRelic.ModOutRelicLists[RelicSet].Values];
+            }
+            else
+            {
+                relicTypes = [.. ModRelic.ModInRelicLists[RelicSet].Values];
+            }
+
+            int relicNum = MainConfigs.Instance.SimplifiedMode ? 4 : 2;
+
+            for (int i = 0; i < relicNum; i++)
+            {
+                int type = relicTypes[Main.rand.Next(relicTypes.Length)];
+                Item item = NewItemSycn(Item.GetSource_Loot(), player.position, type);
+                ModRelic relic = item.ModItem as ModRelic;
+                relic.InitializeRelic();
+            }
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            // 套装效果
+            TooltipLine line1;
+            line1 = new(Mod, "RelicSet", $"{GetTextValue("Mods.StarRailRelic.Items.SetTwo")}\n{GetTextValue($"Mods.StarRailRelic.Items.{RelicSet}SetTwo")}")
+            {
+                OverrideColor = new Color(255, 110, 180)
+            };
+            tooltips.Add(line1);
+
+            TooltipLine line2;
+            if (!Exists($"Mods.StarRailRelic.Items.{RelicSet}SetFour"))
+            {
+                return;
+            }
+
+            line2 = new(Mod, "RelicSet", $"{GetTextValue("Mods.StarRailRelic.Items.SetFour")}\n{GetTextValue($"Mods.StarRailRelic.Items.{RelicSet}SetFour")}")
+            {
+                OverrideColor = new Color(255, 110, 180)
+            };
+            tooltips.Add(line2);
+        }
+
+        public override void AddRecipes()
+        {
+            _ = CreateRecipe()
+                .AddIngredient<RelicRemians>(100)
+                .Register();
+        }
+    }
+
+    public abstract class OutRelicBag : InRelicBag
+    {
+        public override bool IsOutRelic => true;
     }
 }

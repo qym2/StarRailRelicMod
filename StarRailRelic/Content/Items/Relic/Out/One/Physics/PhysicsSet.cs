@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Physics
         }
     }
 
+    public class PhysicsRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Physics;
+    }
+
     public class PhysicsHead : PhysicsSet
     {
         public override RelicType RelicType => RelicType.Head;

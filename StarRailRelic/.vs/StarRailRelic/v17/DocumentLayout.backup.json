@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\localization\\ui\\zh-hans_mods.starrailrelic.ui.hjson||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:localization\\ui\\zh-hans_mods.starrailrelic.ui.hjson||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\localization\\ui\\en-us_mods.starrailrelic.ui.hjson||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:localization\\ui\\en-us_mods.starrailrelic.ui.hjson||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\ui\\su\\sumainui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\ui\\su\\sumainui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\players\\suplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\players\\suplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\systems\\suevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\systems\\suevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\utils\\uitools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:utils\\uitools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\content\\tiles\\simulateduniversetile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:content\\tiles\\simulateduniversetile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\starrailrelic.networking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:starrailrelic.networking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\content\\items\\relic\\modrelic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:content\\items\\relic\\modrelic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\ui\\relicdisplayui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\ui\\relicdisplayui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\players\\uiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\players\\uiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\content\\items\\relicguide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:content\\items\\relicguide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\configs\\mainconfigs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\configs\\mainconfigs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\configs\\personalconfigs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\configs\\personalconfigs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|d:\\\u6587\u6863\\my games\\terraria\\tmodloader\\modsources\\starrailrelic\\common\\players\\relicplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1186B03D-1D54-45C9-91CB-4D8C9339CB31}|StarRailRelic.csproj|solutionrelative:common\\players\\relicplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,97 +50,135 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1a46fd64-28d5-434c-8eb3-17a02d419b53}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1a46fd64-28d5-0019-8eb3-17a02d419b53}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "en-US_Mods.StarRailRelic.UI.hjson",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\UI\\en-US_Mods.StarRailRelic.UI.hjson",
+              "RelativeDocumentMoniker": "Localization\\UI\\en-US_Mods.StarRailRelic.UI.hjson",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\UI\\en-US_Mods.StarRailRelic.UI.hjson",
+              "RelativeToolTip": "Localization\\UI\\en-US_Mods.StarRailRelic.UI.hjson",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-07-26T15:55:18.382Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ModRelic.cs",
-              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\ModRelic.cs",
-              "RelativeDocumentMoniker": "Content\\Items\\Relic\\ModRelic.cs",
-              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\ModRelic.cs",
-              "RelativeToolTip": "Content\\Items\\Relic\\ModRelic.cs",
-              "ViewState": "AgIAAK8AAAAAAAAAAAAYwLoAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T12:23:57.796Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RelicGuide.cs",
-              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\RelicGuide.cs",
-              "RelativeDocumentMoniker": "Content\\Items\\RelicGuide.cs",
-              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\RelicGuide.cs",
-              "RelativeToolTip": "Content\\Items\\RelicGuide.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwB0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T11:43:40.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UIPlayer.cs",
-              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\UIPlayer.cs",
-              "RelativeDocumentMoniker": "Common\\Players\\UIPlayer.cs",
-              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\UIPlayer.cs",
-              "RelativeToolTip": "Common\\Players\\UIPlayer.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T11:04:10.777Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RelicDisplayUI.cs",
-              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\UI\\RelicDisplayUI.cs",
-              "RelativeDocumentMoniker": "Common\\UI\\RelicDisplayUI.cs",
-              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\UI\\RelicDisplayUI.cs",
-              "RelativeToolTip": "Common\\UI\\RelicDisplayUI.cs",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAkwMoAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T08:27:39.789Z",
+              "Title": "zh-Hans_Mods.StarRailRelic.UI.hjson",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\UI\\zh-Hans_Mods.StarRailRelic.UI.hjson",
+              "RelativeDocumentMoniker": "Localization\\UI\\zh-Hans_Mods.StarRailRelic.UI.hjson",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Localization\\UI\\zh-Hans_Mods.StarRailRelic.UI.hjson",
+              "RelativeToolTip": "Localization\\UI\\zh-Hans_Mods.StarRailRelic.UI.hjson",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-07-26T15:55:10.957Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "PersonalConfigs.cs",
-              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Configs\\PersonalConfigs.cs",
-              "RelativeDocumentMoniker": "Common\\Configs\\PersonalConfigs.cs",
-              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Configs\\PersonalConfigs.cs",
-              "RelativeToolTip": "Common\\Configs\\PersonalConfigs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwoAAAAfAAAAAAAAAA==",
+              "Title": "UITools.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Utils\\UITools.cs",
+              "RelativeDocumentMoniker": "Utils\\UITools.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Utils\\UITools.cs",
+              "RelativeToolTip": "Utils\\UITools.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAAwHgAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T06:56:35.53Z",
+              "WhenOpened": "2025-07-26T15:23:09.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SUMainUI.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\UI\\SU\\SUMainUI.cs",
+              "RelativeDocumentMoniker": "Common\\UI\\SU\\SUMainUI.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\UI\\SU\\SUMainUI.cs",
+              "RelativeToolTip": "Common\\UI\\SU\\SUMainUI.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAAAHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T04:42:26.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SimulatedUniverseTile.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Tiles\\SimulatedUniverseTile.cs",
+              "RelativeDocumentMoniker": "Content\\Tiles\\SimulatedUniverseTile.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Tiles\\SimulatedUniverseTile.cs",
+              "RelativeToolTip": "Content\\Tiles\\SimulatedUniverseTile.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAQwJ8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T10:07:11.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SUPlayer.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\SUPlayer.cs",
+              "RelativeDocumentMoniker": "Common\\Players\\SUPlayer.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\SUPlayer.cs",
+              "RelativeToolTip": "Common\\Players\\SUPlayer.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvxQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T07:06:26.764Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MainConfigs.cs",
-              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Configs\\MainConfigs.cs",
-              "RelativeDocumentMoniker": "Common\\Configs\\MainConfigs.cs",
-              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Configs\\MainConfigs.cs",
-              "RelativeToolTip": "Common\\Configs\\MainConfigs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwMAAAAFAAAAAAAAAA==",
+              "Title": "SUEvent.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Systems\\SUEvent.cs",
+              "RelativeDocumentMoniker": "Common\\Systems\\SUEvent.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Systems\\SUEvent.cs",
+              "RelativeToolTip": "Common\\Systems\\SUEvent.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAA8wEEAAAA/AgAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T06:43:38.62Z",
+              "WhenOpened": "2025-07-23T07:00:01.912Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StarRailRelic.Networking.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\StarRailRelic.Networking.cs",
+              "RelativeDocumentMoniker": "StarRailRelic.Networking.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\StarRailRelic.Networking.cs",
+              "RelativeToolTip": "StarRailRelic.Networking.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T04:21:38.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ModRelic.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\ModRelic.cs",
+              "RelativeDocumentMoniker": "Content\\Items\\Relic\\ModRelic.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Content\\Items\\Relic\\ModRelic.cs",
+              "RelativeToolTip": "Content\\Items\\Relic\\ModRelic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAN4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T06:32:59.989Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RelicPlayer.cs",
+              "DocumentMoniker": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\RelicPlayer.cs",
+              "RelativeDocumentMoniker": "Common\\Players\\RelicPlayer.cs",
+              "ToolTip": "D:\\\u6587\u6863\\My Games\\Terraria\\tModLoader\\ModSources\\StarRailRelic\\Common\\Players\\RelicPlayer.cs",
+              "RelativeToolTip": "Common\\Players\\RelicPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-23T05:17:16.508Z"
             }
           ]
         }

@@ -11,6 +11,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Space
         }
     }
 
+    public class SpaceRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Space;
+    }
+
     public class SpaceSphere : SpaceSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

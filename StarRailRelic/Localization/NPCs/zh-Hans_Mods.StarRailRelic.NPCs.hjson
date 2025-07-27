@@ -31,5 +31,49 @@ Stelle: {
 	}
 
 	BestiaryInfo: 为研究突现此地的「命途」力量而乘坐星穹列车到来的少女。体内有某种称作「星核」的力量。似乎对垃圾桶情有独钟。
-	Census.SpawnCondition: 头部、手部、躯干、脚部都装备遗器并且已击败克苏鲁之眼
+	Census.SpawnCondition: 已击败克苏鲁之眼
+}
+
+SwarmTrueSting: {
+	DisplayName: 虫群·真蛰虫
+	BossChecklistIntegration.SpawnInfo: 使用 [i:StarRailRelic/HoneycorruptGrub]
+	DespawnMessage: 真蛰虫们返回了虫群。
+	BestiaryInfo: 成熟体的真蛰虫，将繁育的力量注入蜂王卵中变异而成。
+}
+
+SwarmTrueStingDivided: {
+	DisplayName: 虫群·真蛰虫（分裂体）
+	BestiaryInfo: 由普通的成熟体的真蛰虫分裂而成。
+}
+
+JunvenileSting: {
+	DisplayName: 幼蛰虫
+	BestiaryInfo: 真蛰虫幼体。由真蛰虫繁殖而来。
+}
+
+WildJunvenileSting: {
+	DisplayName: 野生幼蛰虫
+	BestiaryInfo: 真蛰虫幼体。由本土生物吸收繁育的力量变异而来。
+}
+
+LesserSting: {
+	DisplayName: 次蛰虫
+	BestiaryInfo: 真蛰虫幼体，但是更加的炸裂。
+}
+
+BlazeOutOfSpace: {
+	DisplayName: 外宇宙之炎
+	BestiaryInfo: 不属于此世的怪异生命，自星核带来的裂界中成长，寄生在世界的根基结构中汲取能量，其甲胄外壳上燃烧着星辰内核的烈焰。在战斗中，外宇宙之炎能轻易将敌人焚作灰烬。
+}
+
+IceOutOfSpace: {
+	DisplayName: 外宇宙之冰
+	BestiaryInfo: 不属于此世的怪异生命，自星核带来的裂界中成长，寄生在世界的根基结构中汲取能量，其甲胄外壳上倒映着幽深暗淡的星空。战斗中，外宇宙之冰能轻易将敌人冻结凝固。
+
+	BossChecklistIntegration: {
+		EntryName: 外宇宙冰炎
+		SpawnInfo: 使用 [i:StarRailRelic/KeyOfFragmentum]
+	}
+
+	DespawnMessage: 外宇宙之冰和外宇宙之炎回到了裂界。
 }

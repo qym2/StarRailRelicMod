@@ -31,5 +31,49 @@ Stelle: {
 	}
 
 	BestiaryInfo: A young girl arrived on the Astral Express to research the 'Paths' power that has emerged here. She possesses a certain power called 'Stellaron.' It seems she has a fondness for trash cans.
-	Census.SpawnCondition: The Head, Hands, Body, and Feet are all equipped with Relics and downed the Eye of Cthulhu
+	Census.SpawnCondition: Downed the Eye of Cthulhu
+}
+
+SwarmTrueSting: {
+	DisplayName: Swarm:True Sting
+	BossChecklistIntegration.SpawnInfo: Use a [i:StarRailRelic/HoneycorruptGrub]
+	DespawnMessage: The True Stings have returned to the Swarm.
+	BestiaryInfo: Mature True Sting. Injecting the power of Propagation into the queen bee eggs mutated.
+}
+
+SwarmTrueStingDivided: {
+	DisplayName: Swarm:True Sting (Fission Body)
+	BestiaryInfo: Formed by the fission of a normal Swarm:True Sting.
+}
+
+JunvenileSting: {
+	DisplayName: Junvenile Sting
+	BestiaryInfo: The youngling of a True Sting. Derived from True Sting.
+}
+
+WildJunvenileSting: {
+	DisplayName: Wild Junvenile Sting
+	BestiaryInfo: The youngling of a True Sting. They are mutated from the power of Propagation absorbed from native organisms.
+}
+
+LesserSting: {
+	DisplayName: Lesser Sting
+	BestiaryInfo: The youngling of a True Sting, but even more explosive.
+}
+
+BlazeOutOfSpace: {
+	DisplayName: Blaze Out of Space
+	BestiaryInfo: A strange being that does not belong to this world. Nurtured in the Fragmentum created by the Stellaron, it parasitizes upon this world��s root structures to obtain energy. Its armor burns with the blazing flames in the core of stars. In combat, the Blaze Out of Space will incinerate anything it touches.
+}
+
+IceOutOfSpace: {
+	DisplayName: Ice Out of Space
+	BestiaryInfo: A strange being that does not belong to this world. Nurtured in the Fragmentum brought by the Stellaron, it feeds upon this world��s root structures to obtain energy. Its armor reflects the gloomy and profound starry sky. In combat, the Ice Out of Space will freeze targets it touches.
+
+	BossChecklistIntegration: {
+		EntryName: Ice and Blaze Out of Space
+		SpawnInfo: Use a [i:StarRailRelic/KeyOfFragmentum]
+	}
+
+	DespawnMessage: Ice Out of Space and Blaze Out of Space have returned to the Fragmentum.
 }

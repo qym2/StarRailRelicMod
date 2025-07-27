@@ -19,6 +19,11 @@
         }
     }
 
+    public class SalsottoRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Salsotto;
+    }
+
     public class SalsottoSphere : SalsottoSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

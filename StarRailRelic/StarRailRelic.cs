@@ -1,34 +1,99 @@
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using StarRailRelic.Content.Items.Weapons.Melee;
+ï»¿/*namespace StarRailRelic.Content.Items
+{
+    public class RelicGuide : ModItem
+    {
+        public override void SetDefaults()
+        {
+            Item.rare = RarityType<BlueRarity>();
+            Item.value = Item.sellPrice(0, 0, 12, 0);
+
+            Item.width = 40;
+            Item.height = 38;
+
+            Item.useTime = 30;
+            Item.useAnimation = 10;
+            Item.useStyle = ItemUseStyleID.HoldUp;
+        }
+
+        public override bool AltFunctionUse(Player player)
+        {
+            return true;
+        }
+
+        public override bool CanUseItem(Player player)
+        {
+            RelicDisplayUISystem uiSystem = GetInstance<RelicDisplayUISystem>();
+            if (player.altFunctionUse == 2)
+            {
+                uiSystem.HideUI();
+                return false;
+            }
+            if (uiSystem.isUIOpen)
+            {
+                uiSystem.HideUI();
+                return false;
+            }
+            return base.CanUseItem(player);
+        }
+
+        public override bool? UseItem(Player player)
+        {
+            GetInstance<RelicDisplayUISystem>().ShowUI();
+
+            return base.UseItem(player);
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+                .AddIngredient(ItemID.Book)
+                .AddIngredient<LostCrystal>()
+                .Register();
+        }
+    }
+}*/
+using Terraria;
 using Terraria.UI.Gamepad;
 
 namespace StarRailRelic
 {
     /// <summary>
-    /// Ö÷modÀà£¬¸ºÔğ³õÊ¼»¯ºÍ¹ÜÀíÓëÒÅÆ÷Ïà¹ØµÄ¹¦ÄÜºÍÂß¼­¡£
+    /// ä¸»modç±»ï¼Œè´Ÿè´£åˆå§‹åŒ–å’Œç®¡ç†ä¸é—å™¨ç›¸å…³çš„åŠŸèƒ½å’Œé€»è¾‘ã€‚
     /// </summary>
     /// <remarks>
-    /// ´ËÀàÍ¨¹ı Hooking µÄ·½Ê½À¹½Ø²¢ĞŞ¸ÄÓÎÏ·ÖĞµÄÎïÆ·²ÛµÄÓÒ¼üµã»÷ÊÂ¼ş£¬
-    /// Ö¼ÔÚÀ©Õ¹ÒÅÆ÷µÄ½»»¥¹¦ÄÜ¡£¾ßÌå°üÀ¨ÒÅÆ÷µÄÑ¡È¡¡¢½»»»Óë·ÅÖÃ¡£
-    /// <para>Ö÷Òª¹¦ÄÜ°üÀ¨£º</para>
+    /// æ­¤ç±»é€šè¿‡ Hooking çš„æ–¹å¼æ‹¦æˆªå¹¶ä¿®æ”¹æ¸¸æˆä¸­çš„ç‰©å“æ§½çš„å³é”®ç‚¹å‡»äº‹ä»¶ï¼Œ
+    /// æ—¨åœ¨æ‰©å±•é—å™¨çš„äº¤äº’åŠŸèƒ½ã€‚å…·ä½“åŒ…æ‹¬é—å™¨çš„é€‰å–ã€äº¤æ¢ä¸æ”¾ç½®ã€‚
+    /// <para>ä¸»è¦åŠŸèƒ½åŒ…æ‹¬ï¼š</para>
     /// <list type="bullet">
-    /// <item><description>¼ÓÔØÓÒ¼üµã»÷ÊÂ¼şµÄ´¦ÀíÂß¼­¡£</description></item>
-    /// <item><description>¸ù¾İÓÎÏ·µÄÉÏÏÂÎÄÀ´Ö´ĞĞÎïÆ·µÄ²Ù×÷£¬°üÀ¨ÒÅÆ÷µÄ½»»¥¡£</description></item>
-    /// <item><description>ÔÚÊµÏÖ¶ÀÌØµÄÒÅÆ÷½»»»Âß¼­Ê±´¦ÀíĞü¸¡ºÍµã»÷ÊÂ¼ş¡£</description></item>
-    /// <item><description>Í¨¹ıĞ¶ÔØÇåÀíÒÑ¹Ò¹³µÄÊÂ¼ş£¬È·±£²»»áÒı·¢ÄÚ´æĞ¹Â©¡£</description></item>
+    /// <item><description>åŠ è½½å³é”®ç‚¹å‡»äº‹ä»¶çš„å¤„ç†é€»è¾‘ã€‚</description></item>
+    /// <item><description>æ ¹æ®æ¸¸æˆçš„ä¸Šä¸‹æ–‡æ¥æ‰§è¡Œç‰©å“çš„æ“ä½œï¼ŒåŒ…æ‹¬é—å™¨çš„äº¤äº’ã€‚</description></item>
+    /// <item><description>åœ¨å®ç°ç‹¬ç‰¹çš„é—å™¨äº¤æ¢é€»è¾‘æ—¶å¤„ç†æ‚¬æµ®å’Œç‚¹å‡»äº‹ä»¶ã€‚</description></item>
+    /// <item><description>é€šè¿‡å¸è½½æ¸…ç†å·²æŒ‚é’©çš„äº‹ä»¶ï¼Œç¡®ä¿ä¸ä¼šå¼•å‘å†…å­˜æ³„æ¼ã€‚</description></item>
     /// </list>
     /// </remarks>
-    public class StarRailRelic : Mod
+    public partial class StarRailRelic : Mod
 	{
         public override void Load()
         {
             On_ItemSlot.RightClick_ItemArray_int_int += On_ItemSlot_RightClick_ItemArray_int_int;
+
             On_Player.HealEffect += On_Player_HealEffect;
             On_Player.ManaEffect += On_Player_ManaEffect;
+
             On_Main.DrawCursor += On_Main_DrawCursor;
             On_Main.DrawThickCursor += On_Main_DrawThickCursor;
+
+            On_NPC.NPCLoot += On_NPC_NPCLoot;
+        }
+
+        private void On_NPC_NPCLoot(On_NPC.orig_NPCLoot orig, NPC self)
+        {
+            if (self.GetGlobalNPC<SUNPC>().IsSimulatedEnemy)
+            {
+                return;
+            }
+
+            orig.Invoke(self);
         }
 
         private void On_ItemSlot_RightClick_ItemArray_int_int(On_ItemSlot.orig_RightClick_ItemArray_int_int orig, Item[] inv, int context, int slot)
@@ -170,7 +235,7 @@ namespace StarRailRelic
                 Item clickItem = inv[slot];
                 Item relicItem = relicUnitSlots[(int)relic.RelicType].relicItem;
 
-                if (relicItem.IsValidRelic(out ModRelic relic1))// ÈôÓÒ¼üÊ±µã»÷ÒÅÆ÷ºÍÀ¸Î»ÒÅÆ÷¾ù²»Îª¿Õ£¬½»»»Êó±êÒÅÆ÷ºÍÀ¸Î»ÒÅÆ÷
+                if (relicItem.IsValidRelic(out ModRelic relic1))// è‹¥å³é”®æ—¶ç‚¹å‡»é—å™¨å’Œæ ä½é—å™¨å‡ä¸ä¸ºç©ºï¼Œäº¤æ¢é¼ æ ‡é—å™¨å’Œæ ä½é—å™¨
                 {
                     relic1.SetToNoSet();
                     relic1.UpdateValue();
@@ -180,7 +245,7 @@ namespace StarRailRelic
                     RelicUnitSlot.UpdatePlayerRelic(relic.RelicType, relicUnitSlots[(int)relic.RelicType].relicItem);
                     inv[slot] = lastRelicItem;
                 }
-                else// ÈôÓÒ¼üÊ±µã»÷ÒÅÆ÷²»Îª¿Õ£¬À¸Î»ÒÅÆ÷Îª¿Õ£¬·ÅÖÃÊó±êÒÅÆ÷
+                else// è‹¥å³é”®æ—¶ç‚¹å‡»é—å™¨ä¸ä¸ºç©ºï¼Œæ ä½é—å™¨ä¸ºç©ºï¼Œæ”¾ç½®é¼ æ ‡é—å™¨
                 {
                     relicUnitSlots[(int)relic.RelicType].relicItem = clickItem.Clone();
                     RelicUnitSlot.UpdatePlayerRelic(relic.RelicType, relicUnitSlots[(int)relic.RelicType].relicItem);

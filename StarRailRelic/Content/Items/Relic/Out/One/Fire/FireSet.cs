@@ -20,6 +20,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Fire
         }
     }
 
+    public class FireRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Fire;
+    }
+
     public class FireHead : FireSet
     {
         public override RelicType RelicType => RelicType.Head;

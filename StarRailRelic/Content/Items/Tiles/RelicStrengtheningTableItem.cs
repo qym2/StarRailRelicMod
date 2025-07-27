@@ -1,6 +1,4 @@
-﻿using StarRailRelic.Content.Items.Miscellaneous;
-
-namespace StarRailRelic.Content.Items.Tiles
+﻿namespace StarRailRelic.Content.Items.Tiles
 {
     public class RelicStrengtheningTableItem : ModItem
     {
@@ -18,7 +16,7 @@ namespace StarRailRelic.Content.Items.Tiles
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient<LostCrystal>(128)
+                .AddIngredient<LostCrystal>()
                 .AddRecipeGroup("SilverBar", 10)
                 .AddIngredient(ItemID.Diamond, 1)
                 .AddIngredient(ItemID.Sapphire, 3)

@@ -1,5 +1,10 @@
 Keybinds.RelicButton.DisplayName: Quickly Equip Relics
-Tiles.RelicStrengtheningTable.MapEntry: Relic Strengthening Table
+
+Tiles: {
+	RelicStrengtheningTable.MapEntry: Relic Strengthening Table
+	SimulatedUniverseTile.MapEntry: Simulated Universe
+}
+
 ItemTextrue: "[i:StarRailRelic/{0}]"
 SubworldExit4: All enemies have been defeated and the challenge is about to exit
 SubworldExit3: 3 seconds left...
@@ -49,3 +54,25 @@ Environment: {
 }
 
 Emotes.StelleEmote.Command: "{$Mods.StarRailRelic.NPCs.Stelle.DisplayName}"
+
+Projectiles: {
+	Melee.DisplayName: Melee
+	CorrosiveBarrage.DisplayName: Corrosive Barrage
+	EntomonEulogy.DisplayName: Entomon Eulogy
+	BurstingDetonation.DisplayName: Bursting Detonation
+	FireBall.DisplayName: Cosmic Cinder
+	Ice.DisplayName: Permafrost Shard
+	MemeProjectile.DisplayName: Meme
+}
+
+Buffs: {
+	ShatterDebuffI: {
+		DisplayName: Shatter I
+		Description: Defense reduced by {0}%
+	}
+
+	MemeBuff: {
+		DisplayName: Meme
+		Description: Me? Me!
+	}
+}

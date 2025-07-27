@@ -16,6 +16,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Dot
         }
     }
 
+    public class DotRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Dot;
+    }
+
     public class DotHead : DotSet
     {
         public override RelicType RelicType => RelicType.Head;

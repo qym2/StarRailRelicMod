@@ -11,6 +11,13 @@
             base.Load();
             showInInventory = true;
         }
+
+        public override void ShowUI()
+        {
+            uiState.InitializeUI();
+
+            base.ShowUI();
+        }
     }
 
     public class TrailblazePowerUI : UIState
@@ -20,8 +27,8 @@
 
         public override void OnInitialize()
         {
-            image = new(TrailblazePowerTexture);
-            image.SetRectangle(left: 580, top: 80, width: 35, height: 36);
+            image = new(TrailblazePowerTexture.Value);
+            image.SetRectangle(left: 580, top: 60, width: 35, height: 36);
             text.Top.Set(11, 0f);
             text.Left.Set(40, 0f);
             image.Append(text);
@@ -42,6 +49,11 @@
         {
             base.Update(gameTime);
             text.SetText($"{Main.LocalPlayer.GetModPlayer<TrailblazePowerPlayer>().TrailblazePower}");
+        }
+
+        public void InitializeUI()
+        {
+            image.Set(TrailblazePowerTexture.Value);
         }
     }
 }

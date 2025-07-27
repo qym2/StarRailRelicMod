@@ -30,6 +30,11 @@ namespace StarRailRelic.Content.Items.Relic.In.Two.Sunken
         }
     }
 
+    public class SunkenRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Sunken;
+    }
+
     public class SunkenSphere : SunkenSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

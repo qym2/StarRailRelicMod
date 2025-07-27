@@ -22,6 +22,11 @@ namespace StarRailRelic.Content.Items.Relic.In.Two.Kalpagni
         }
     }
 
+    public class KalpagniRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Kalpagni;
+    }
+
     public class KalpagniSphere : KalpagniSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Life
         }
     }
 
+    public class LifeRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Life;
+    }
+
     public class LifeHead : LifeSet
     {
         public override RelicType RelicType => RelicType.Head;

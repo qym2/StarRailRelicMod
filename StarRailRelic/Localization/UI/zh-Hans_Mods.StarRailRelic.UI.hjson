@@ -23,6 +23,33 @@ TrailblazePowerTipText:
 	每15秒回复一点
 	'''
 RelicDisplayUITital: 遗器信息列表
+SUStartButtonText: 启动「模拟宇宙」
+SUEnemyListText: 非Boss
+SUEnemyTitalText: "——✦敌人列表✦——"
+SURewardTitalText: "——✦奖励列表✦——"
+SUDifficultyText: 难度
+SUTipsText:
+	'''
+	启动条件：
+	需确保 150×150 范围内无物块和墙壁阻挡
+	奖励机制：
+	战斗结束后，根据波次进度和难度评级发放奖励
+	波次越靠后、难度越高，掉落的材料数量和品质就越好
+	前期波次进度收益较低，建议完成完整流程获取最大奖励
+	'''
+SUCheckTileFiledText: 请先清理150×150区域内的方块！
+
+SU: {
+	World1: 第一世界
+	World2: 第二世界
+	World3: 第三世界
+	World4: 第四世界
+	World5: 第五世界
+	World6: 第六世界
+	World7: 第七世界
+	World8: 第八世界
+	World9: 第九世界
+}
 
 Relic: {
 	LifeFlat: 生命值  {0}

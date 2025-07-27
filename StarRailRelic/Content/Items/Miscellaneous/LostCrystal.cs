@@ -9,24 +9,14 @@
 
         public override void SetDefaults()
         {
-            Item.maxStack = 999999;
+            Item.maxStack = 9999;
 
-            Item.value = Item.sellPrice(0, 0, 0, 12);
+            Item.value = Item.sellPrice(0, 0, 12, 0);
 
             Item.rare = RarityType<BlueRarity>();
 
             Item.width = 33;
             Item.height = 30;
-        }
-
-        public override void UpdateInventory(Player player)
-        {
-            Item.maxStack = 999999;
-        }
-
-        public override void PostUpdate()
-        {
-            Item.maxStack = 999999;
         }
     }
 }

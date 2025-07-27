@@ -436,8 +436,11 @@
         <member name="P:System.HexConverter.CharToHexLookup">
             <summary>Map from an ASCII char to its hex value, e.g. arr['b'] == 11. 0xFF means it's not a hex digit.</summary>
         </member>
-        <member name="P:System.SR.ArgumentOutOfRange_Index">
+        <member name="P:System.SR.ArgumentOutOfRange_IndexMustBeLess">
             <summary>Index was out of range. Must be non-negative and less than the size of the collection.</summary>
+        </member>
+        <member name="P:System.SR.ArgumentOutOfRange_IndexMustBeLessOrEqual">
+            <summary>Index was out of range. Must be non-negative and less than or equal to the size of the collection.</summary>
         </member>
         <member name="P:System.SR.Arg_EmptyOrNullString">
             <summary>String cannot be empty or null.</summary>
@@ -708,6 +711,9 @@
         </member>
         <member name="P:System.SR.WrongRootElement">
             <summary>Root element must be {0} element in namespace {1}</summary>
+        </member>
+        <member name="P:System.SR.Cryptography_Xml_EntityResolutionNotSupported">
+            <summary>External entity resolution is not supported.</summary>
         </member>
     </members>
 </doc>

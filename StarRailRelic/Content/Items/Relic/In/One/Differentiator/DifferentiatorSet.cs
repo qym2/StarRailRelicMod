@@ -10,6 +10,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Differentiator
         }
     }
 
+    public class DifferentiatorRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Differentiator;
+    }
+
     public class DifferentiatorSphere : DifferentiatorSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

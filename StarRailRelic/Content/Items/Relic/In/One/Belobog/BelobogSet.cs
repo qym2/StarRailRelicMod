@@ -17,6 +17,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Belobog
         }
     }
 
+    public class BelobogRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Belobog;
+    }
+
     public class BelobogSphere : BelobogSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

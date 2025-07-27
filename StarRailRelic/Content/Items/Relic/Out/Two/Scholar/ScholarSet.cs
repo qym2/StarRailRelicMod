@@ -20,6 +20,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Scholar
         }
     }
 
+    public class ScholarRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Scholar;
+    }
+
     public class ScholarHead : ScholarSet
     {
         public override RelicType RelicType => RelicType.Head;

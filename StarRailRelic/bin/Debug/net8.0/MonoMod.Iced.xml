@@ -7983,7 +7983,7 @@
         <member name="F:Iced.Intel.Code.Rdpru">
             <summary><c>RDPRU</c><br/>
             <br/>
-            <c>0F 01 FD</c><br/>
+            <c>NP 0F 01 FD</c><br/>
             <br/>
             <c>RDPRU</c><br/>
             <br/>
@@ -43731,6 +43731,924 @@
         <member name="F:Iced.Intel.Code.Zero_bytes">
             <summary>A zero-sized instruction. Can be used as a label.</summary>
         </member>
+        <member name="F:Iced.Intel.Code.Wrmsrns">
+            <summary><c>WRMSRNS</c><br/>
+            <br/>
+            <c>NP 0F 01 C6</c><br/>
+            <br/>
+            <c>WRMSRNS</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Wrmsrlist">
+            <summary><c>WRMSRLIST</c><br/>
+            <br/>
+            <c>F3 0F 01 C6</c><br/>
+            <br/>
+            <c>MSRLIST</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Rdmsrlist">
+            <summary><c>RDMSRLIST</c><br/>
+            <br/>
+            <c>F2 0F 01 C6</c><br/>
+            <br/>
+            <c>MSRLIST</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Rmpquery">
+            <summary><c>RMPQUERY</c><br/>
+            <br/>
+            <c>F3 0F 01 FD</c><br/>
+            <br/>
+            <c>RMPQUERY</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Prefetchit1_m8">
+            <summary><c>PREFETCHIT1 m8</c><br/>
+            <br/>
+            <c>0F 18 /6</c><br/>
+            <br/>
+            <c>PREFETCHITI</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Prefetchit0_m8">
+            <summary><c>PREFETCHIT0 m8</c><br/>
+            <br/>
+            <c>0F 18 /7</c><br/>
+            <br/>
+            <c>PREFETCHITI</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Aadd_m32_r32">
+            <summary><c>AADD m32, r32</c><br/>
+            <br/>
+            <c>NP 0F 38 FC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>RAO-INT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Aadd_m64_r64">
+            <summary><c>AADD m64, r64</c><br/>
+            <br/>
+            <c>NP o64 0F 38 FC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>RAO-INT</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Aand_m32_r32">
+            <summary><c>AAND m32, r32</c><br/>
+            <br/>
+            <c>66 0F 38 FC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>RAO-INT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Aand_m64_r64">
+            <summary><c>AAND m64, r64</c><br/>
+            <br/>
+            <c>66 o64 0F 38 FC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>RAO-INT</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Axor_m32_r32">
+            <summary><c>AXOR m32, r32</c><br/>
+            <br/>
+            <c>F3 0F 38 FC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>RAO-INT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Axor_m64_r64">
+            <summary><c>AXOR m64, r64</c><br/>
+            <br/>
+            <c>F3 o64 0F 38 FC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>RAO-INT</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Aor_m32_r32">
+            <summary><c>AOR m32, r32</c><br/>
+            <br/>
+            <c>F2 0F 38 FC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>RAO-INT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Aor_m64_r64">
+            <summary><c>AOR m64, r64</c><br/>
+            <br/>
+            <c>F2 o64 0F 38 FC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>RAO-INT</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbuud_xmm_xmm_xmmm128">
+            <summary><c>VPDPBUUD xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.0F38.W0 50 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbuud_ymm_ymm_ymmm256">
+            <summary><c>VPDPBUUD ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.0F38.W0 50 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbsud_xmm_xmm_xmmm128">
+            <summary><c>VPDPBSUD xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.F3.0F38.W0 50 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbsud_ymm_ymm_ymmm256">
+            <summary><c>VPDPBSUD ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.F3.0F38.W0 50 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbssd_xmm_xmm_xmmm128">
+            <summary><c>VPDPBSSD xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.F2.0F38.W0 50 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbssd_ymm_ymm_ymmm256">
+            <summary><c>VPDPBSSD ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.F2.0F38.W0 50 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbuuds_xmm_xmm_xmmm128">
+            <summary><c>VPDPBUUDS xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.0F38.W0 51 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbuuds_ymm_ymm_ymmm256">
+            <summary><c>VPDPBUUDS ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.0F38.W0 51 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbsuds_xmm_xmm_xmmm128">
+            <summary><c>VPDPBSUDS xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.F3.0F38.W0 51 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbsuds_ymm_ymm_ymmm256">
+            <summary><c>VPDPBSUDS ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.F3.0F38.W0 51 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbssds_xmm_xmm_xmmm128">
+            <summary><c>VPDPBSSDS xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.F2.0F38.W0 51 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpbssds_ymm_ymm_ymmm256">
+            <summary><c>VPDPBSSDS ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.F2.0F38.W0 51 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT8</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Tdpfp16ps_tmm_tmm_tmm">
+            <summary><c>TDPFP16PS tmm1, tmm2, tmm3</c><br/>
+            <br/>
+            <c>VEX.128.F2.0F38.W0 5C 11:rrr:bbb</c><br/>
+            <br/>
+            <c>AMX-FP16</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneps2bf16_xmm_xmmm128">
+            <summary><c>VCVTNEPS2BF16 xmm1, xmm2/m128</c><br/>
+            <br/>
+            <c>VEX.128.F3.0F38.W0 72 /r</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneps2bf16_xmm_ymmm256">
+            <summary><c>VCVTNEPS2BF16 xmm1, ymm2/m256</c><br/>
+            <br/>
+            <c>VEX.256.F3.0F38.W0 72 /r</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneoph2ps_xmm_m128">
+            <summary><c>VCVTNEOPH2PS xmm1, m128</c><br/>
+            <br/>
+            <c>VEX.128.0F38.W0 B0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneoph2ps_ymm_m256">
+            <summary><c>VCVTNEOPH2PS ymm1, m256</c><br/>
+            <br/>
+            <c>VEX.256.0F38.W0 B0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneeph2ps_xmm_m128">
+            <summary><c>VCVTNEEPH2PS xmm1, m128</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 B0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneeph2ps_ymm_m256">
+            <summary><c>VCVTNEEPH2PS ymm1, m256</c><br/>
+            <br/>
+            <c>VEX.256.66.0F38.W0 B0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneebf162ps_xmm_m128">
+            <summary><c>VCVTNEEBF162PS xmm1, m128</c><br/>
+            <br/>
+            <c>VEX.128.F3.0F38.W0 B0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneebf162ps_ymm_m256">
+            <summary><c>VCVTNEEBF162PS ymm1, m256</c><br/>
+            <br/>
+            <c>VEX.256.F3.0F38.W0 B0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneobf162ps_xmm_m128">
+            <summary><c>VCVTNEOBF162PS xmm1, m128</c><br/>
+            <br/>
+            <c>VEX.128.F2.0F38.W0 B0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vcvtneobf162ps_ymm_m256">
+            <summary><c>VCVTNEOBF162PS ymm1, m256</c><br/>
+            <br/>
+            <c>VEX.256.F2.0F38.W0 B0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vbcstnesh2ps_xmm_m16">
+            <summary><c>VBCSTNESH2PS xmm1, m16</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 B1 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vbcstnesh2ps_ymm_m16">
+            <summary><c>VBCSTNESH2PS ymm1, m16</c><br/>
+            <br/>
+            <c>VEX.256.66.0F38.W0 B1 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vbcstnebf162ps_xmm_m16">
+            <summary><c>VBCSTNEBF162PS xmm1, m16</c><br/>
+            <br/>
+            <c>VEX.128.F3.0F38.W0 B1 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vbcstnebf162ps_ymm_m16">
+            <summary><c>VBCSTNEBF162PS ymm1, m16</c><br/>
+            <br/>
+            <c>VEX.256.F3.0F38.W0 B1 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>AVX-NE-CONVERT</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpmadd52luq_xmm_xmm_xmmm128">
+            <summary><c>VPMADD52LUQ xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 B4 /r</c><br/>
+            <br/>
+            <c>AVX-IFMA</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpmadd52luq_ymm_ymm_ymmm256">
+            <summary><c>VPMADD52LUQ ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.66.0F38.W1 B4 /r</c><br/>
+            <br/>
+            <c>AVX-IFMA</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpmadd52huq_xmm_xmm_xmmm128">
+            <summary><c>VPMADD52HUQ xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 B5 /r</c><br/>
+            <br/>
+            <c>AVX-IFMA</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpmadd52huq_ymm_ymm_ymmm256">
+            <summary><c>VPMADD52HUQ ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.66.0F38.W1 B5 /r</c><br/>
+            <br/>
+            <c>AVX-IFMA</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpoxadd_m32_r32_r32">
+            <summary><c>CMPOXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpoxadd_m64_r64_r64">
+            <summary><c>CMPOXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E0 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnoxadd_m32_r32_r32">
+            <summary><c>CMPNOXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E1 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnoxadd_m64_r64_r64">
+            <summary><c>CMPNOXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E1 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpbxadd_m32_r32_r32">
+            <summary><c>CMPBXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E2 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpbxadd_m64_r64_r64">
+            <summary><c>CMPBXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E2 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnbxadd_m32_r32_r32">
+            <summary><c>CMPNBXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E3 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnbxadd_m64_r64_r64">
+            <summary><c>CMPNBXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E3 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpzxadd_m32_r32_r32">
+            <summary><c>CMPZXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E4 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpzxadd_m64_r64_r64">
+            <summary><c>CMPZXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E4 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnzxadd_m32_r32_r32">
+            <summary><c>CMPNZXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E5 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnzxadd_m64_r64_r64">
+            <summary><c>CMPNZXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E5 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpbexadd_m32_r32_r32">
+            <summary><c>CMPBEXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E6 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpbexadd_m64_r64_r64">
+            <summary><c>CMPBEXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E6 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnbexadd_m32_r32_r32">
+            <summary><c>CMPNBEXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E7 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnbexadd_m64_r64_r64">
+            <summary><c>CMPNBEXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E7 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpsxadd_m32_r32_r32">
+            <summary><c>CMPSXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E8 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpsxadd_m64_r64_r64">
+            <summary><c>CMPSXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E8 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnsxadd_m32_r32_r32">
+            <summary><c>CMPNSXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 E9 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnsxadd_m64_r64_r64">
+            <summary><c>CMPNSXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 E9 !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmppxadd_m32_r32_r32">
+            <summary><c>CMPPXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 EA !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmppxadd_m64_r64_r64">
+            <summary><c>CMPPXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 EA !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnpxadd_m32_r32_r32">
+            <summary><c>CMPNPXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 EB !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnpxadd_m64_r64_r64">
+            <summary><c>CMPNPXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 EB !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmplxadd_m32_r32_r32">
+            <summary><c>CMPLXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 EC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmplxadd_m64_r64_r64">
+            <summary><c>CMPLXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 EC !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnlxadd_m32_r32_r32">
+            <summary><c>CMPNLXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 ED !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnlxadd_m64_r64_r64">
+            <summary><c>CMPNLXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 ED !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmplexadd_m32_r32_r32">
+            <summary><c>CMPLEXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 EE !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmplexadd_m64_r64_r64">
+            <summary><c>CMPLEXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 EE !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnlexadd_m32_r32_r32">
+            <summary><c>CMPNLEXADD m32, r32, r32</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 EF !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Cmpnlexadd_m64_r64_r64">
+            <summary><c>CMPNLEXADD m64, r64, r64</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W1 EF !(11):rrr:bbb</c><br/>
+            <br/>
+            <c>CMPCCXADD</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Tcmmrlfp16ps_tmm_tmm_tmm">
+            <summary><c>TCMMRLFP16PS tmm1, tmm2, tmm3</c><br/>
+            <br/>
+            <c>VEX.128.0F38.W0 6C 11:rrr:bbb</c><br/>
+            <br/>
+            <c>AMX-COMPLEX</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Tcmmimfp16ps_tmm_tmm_tmm">
+            <summary><c>TCMMIMFP16PS tmm1, tmm2, tmm3</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 6C 11:rrr:bbb</c><br/>
+            <br/>
+            <c>AMX-COMPLEX</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.Pbndkb">
+            <summary><c>PBNDKB</c><br/>
+            <br/>
+            <c>NP 0F 01 C7</c><br/>
+            <br/>
+            <c>TSE</c><br/>
+            <br/>
+            <c>64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsha512rnds2_ymm_ymm_xmm">
+            <summary><c>VSHA512RNDS2 ymm1, ymm2, xmm3</c><br/>
+            <br/>
+            <c>VEX.256.F2.0F38.W0 CB 11:rrr:bbb</c><br/>
+            <br/>
+            <c>AVX and SHA512</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsha512msg1_ymm_xmm">
+            <summary><c>VSHA512MSG1 ymm1, xmm2</c><br/>
+            <br/>
+            <c>VEX.256.F2.0F38.W0 CC 11:rrr:bbb</c><br/>
+            <br/>
+            <c>AVX and SHA512</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsha512msg2_ymm_ymm">
+            <summary><c>VSHA512MSG2 ymm1, ymm2</c><br/>
+            <br/>
+            <c>VEX.256.F2.0F38.W0 CD 11:rrr:bbb</c><br/>
+            <br/>
+            <c>AVX and SHA512</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwuud_xmm_xmm_xmmm128">
+            <summary><c>VPDPWUUD xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.0F38.W0 D2 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwuud_ymm_ymm_ymmm256">
+            <summary><c>VPDPWUUD ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.0F38.W0 D2 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwusd_xmm_xmm_xmmm128">
+            <summary><c>VPDPWUSD xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 D2 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwusd_ymm_ymm_ymmm256">
+            <summary><c>VPDPWUSD ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.66.0F38.W0 D2 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwsud_xmm_xmm_xmmm128">
+            <summary><c>VPDPWSUD xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.F3.0F38.W0 D2 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwsud_ymm_ymm_ymmm256">
+            <summary><c>VPDPWSUD ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.F3.0F38.W0 D2 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwuuds_xmm_xmm_xmmm128">
+            <summary><c>VPDPWUUDS xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.0F38.W0 D3 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwuuds_ymm_ymm_ymmm256">
+            <summary><c>VPDPWUUDS ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.0F38.W0 D3 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwusds_xmm_xmm_xmmm128">
+            <summary><c>VPDPWUSDS xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 D3 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwusds_ymm_ymm_ymmm256">
+            <summary><c>VPDPWUSDS ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.66.0F38.W0 D3 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwsuds_xmm_xmm_xmmm128">
+            <summary><c>VPDPWSUDS xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.F3.0F38.W0 D3 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vpdpwsuds_ymm_ymm_ymmm256">
+            <summary><c>VPDPWSUDS ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.F3.0F38.W0 D3 /r</c><br/>
+            <br/>
+            <c>AVX-VNNI-INT16</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsm3msg1_xmm_xmm_xmmm128">
+            <summary><c>VSM3MSG1 xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.0F38.W0 DA /r</c><br/>
+            <br/>
+            <c>AVX and SM3</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsm3msg2_xmm_xmm_xmmm128">
+            <summary><c>VSM3MSG2 xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.66.0F38.W0 DA /r</c><br/>
+            <br/>
+            <c>AVX and SM3</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsm4key4_xmm_xmm_xmmm128">
+            <summary><c>VSM4KEY4 xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.F3.0F38.W0 DA /r</c><br/>
+            <br/>
+            <c>AVX and SM4</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsm4key4_ymm_ymm_ymmm256">
+            <summary><c>VSM4KEY4 ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.F3.0F38.W0 DA /r</c><br/>
+            <br/>
+            <c>AVX and SM4</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsm4rnds4_xmm_xmm_xmmm128">
+            <summary><c>VSM4RNDS4 xmm1, xmm2, xmm3/m128</c><br/>
+            <br/>
+            <c>VEX.128.F2.0F38.W0 DA /r</c><br/>
+            <br/>
+            <c>AVX and SM4</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsm4rnds4_ymm_ymm_ymmm256">
+            <summary><c>VSM4RNDS4 ymm1, ymm2, ymm3/m256</c><br/>
+            <br/>
+            <c>VEX.256.F2.0F38.W0 DA /r</c><br/>
+            <br/>
+            <c>AVX and SM4</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
+        <member name="F:Iced.Intel.Code.VEX_Vsm3rnds2_xmm_xmm_xmmm128_imm8">
+            <summary><c>VSM3RNDS2 xmm1, xmm2, xmm3/m128, imm8</c><br/>
+            <br/>
+            <c>VEX.128.66.0F3A.W0 DE /r ib</c><br/>
+            <br/>
+            <c>AVX and SM3</c><br/>
+            <br/>
+            <c>16/32/64-bit</c></summary>
+        </member>
         <member name="T:Iced.Intel.CodeReader">
             <summary>
             Reads instruction bytes
@@ -46259,7 +47177,7 @@
         </member>
         <member name="M:Iced.Intel.InstructionInfoExtensions.NegateConditionCode(Iced.Intel.Code)">
             <summary>
-            Negates the condition code, eg. <c>JE</c> -> <c>JNE</c>. Can be used if it's <c>Jcc</c>, <c>SETcc</c>, <c>CMOVcc</c>, <c>LOOPcc</c>
+            Negates the condition code, eg. <c>JE</c> -> <c>JNE</c>. Can be used if it's <c>Jcc</c>, <c>SETcc</c>, <c>CMOVcc</c>, <c>CMPccXADD</c>, <c>LOOPcc</c>
             and returns the original value if it's none of those instructions.
             </summary>
             <param name="code">Code value</param>
@@ -46873,6 +47791,9 @@
         <member name="F:Iced.Intel.MemorySize.Packed128_Float64">
             <summary>128-bit location: 2 x <see cref="T:System.Double"/></summary>
         </member>
+        <member name="F:Iced.Intel.MemorySize.Packed128_BFloat16">
+            <summary>128-bit location: 8 x <c>bfloat16</c></summary>
+        </member>
         <member name="F:Iced.Intel.MemorySize.Packed128_2xFloat16">
             <summary>128-bit location: 4 x (2 x <c>float16</c>)</summary>
         </member>
@@ -46923,6 +47844,9 @@
         </member>
         <member name="F:Iced.Intel.MemorySize.Packed256_Float128">
             <summary>256-bit location: 2 x <c>float128</c></summary>
+        </member>
+        <member name="F:Iced.Intel.MemorySize.Packed256_BFloat16">
+            <summary>256-bit location: 16 x <c>bfloat16</c></summary>
         </member>
         <member name="F:Iced.Intel.MemorySize.Packed256_2xFloat16">
             <summary>256-bit location: 8 x (2 x <c>float16</c>)</summary>

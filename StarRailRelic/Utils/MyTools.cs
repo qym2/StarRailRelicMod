@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using StarRailRelic.Common.EntitySource;
+﻿using StarRailRelic.Common.EntitySource;
+using System.Linq.Expressions;
 
 namespace StarRailRelic.Utils
 {
@@ -249,6 +249,51 @@ namespace StarRailRelic.Utils
         }
         #endregion
 
+        #region Projectilet拓展方法
+        /// <summary>
+        /// 根据投射物的速度设置它的旋转
+        /// </summary>
+        /// <param name="Projectile">目标投射物</param>
+        /// <param name="isInclined">图片是否为斜角</param>
+        /// <param name="isReversed">投射物反向</param>
+        /// <remarks>
+        /// 根据投射物的速度设置它的旋转，并根据图片是否为斜角来调整旋转角度。
+        /// </remarks>
+        public static void RotateByVelocity(this Projectile Projectile, bool isDown = false, bool isInclined = true, bool isReversed = false, float offset = 0)
+        {
+            Projectile.direction = Projectile.spriteDirection = Projectile.velocity.X > 0f ? 1 : -1;
+
+            Projectile.rotation = Projectile.velocity.ToRotation() + offset;
+
+            if (Projectile.spriteDirection == -1)
+            {
+                Projectile.rotation += Pi;
+                if (isInclined)
+                {
+                    Projectile.rotation -= PiOver2;
+                }
+                if (isDown)
+                {
+                    Projectile.rotation -= PiOver2;
+                }
+            }
+
+            if (isInclined)
+            {
+                Projectile.rotation += PiOver4;
+            }
+            if (isDown)
+            {
+                Projectile.rotation += (Pi + PiOver4);
+            }
+
+            if (isReversed)
+            {
+                Projectile.direction = Projectile.spriteDirection = -Projectile.spriteDirection;
+            }
+        }
+        #endregion
+
         #region 生成源扩展
 #nullable enable
         /// <summary>
@@ -313,10 +358,10 @@ namespace StarRailRelic.Utils
         }
         
         /// <summary>
-         /// 检测目标npc是否是Boss
-         /// </summary>
-         /// <param name="npc">目标npc</param>
-         /// <returns>是否是Boss</returns>
+        /// 检测目标npc是否是Boss
+        /// </summary>
+        /// <param name="npc">目标npc</param>
+        /// <returns>是否是Boss</returns>
         public static bool IsBoss(this NPC npc)
         {
             return npc.boss ||
@@ -324,8 +369,399 @@ namespace StarRailRelic.Utils
                             or NPCID.EaterofWorldsBody
                             or NPCID.EaterofWorldsTail;
         }
+
+        /// <summary>
+        /// 通过NPC的位置获取其绘制的原点
+        /// </summary>
+        /// <param name="NPC">目标NPC</param>
+        /// <param name="position">NPC的位置</param>
+        /// <param name="screenPos">屏幕位置</param>
+        /// <returns></returns>
+        public static Vector2 GetNPCDrawPosition(this NPC NPC, Vector2 position, Vector2 screenPos)
+        {
+            Asset<Texture2D> textureAsset = TextureAssets.Npc[NPC.type];
+            Vector2 halfSize = new(textureAsset.Width() / 2, textureAsset.Height() / Main.npcFrameCount[NPC.type] / 2);
+            return new(position.X - screenPos.X + NPC.width / 2 - textureAsset.Width() * NPC.scale / 2f + halfSize.X * NPC.scale, position.Y - screenPos.Y + NPC.height - textureAsset.Height() * NPC.scale / Main.npcFrameCount[NPC.type] + 4f + halfSize.Y * NPC.scale + NPC.gfxOffY);
+        }
+
+        /// <summary>
+        /// 通过加速度和速度大小、方向为实体平滑设置速度
+        /// </summary>
+        /// <param name="entity">目标实体</param>
+        /// <param name="acceleration">加速度</param>
+        /// <param name="targetVelocity">速度大小、方向</param>
+        public static void SetVelocity(this Entity entity, float acceleration, Vector2 targetVelocity)
+        {
+            if (entity.velocity.X < targetVelocity.X)
+            {
+                entity.velocity.X += acceleration;
+                if (entity.velocity.X < 0f && targetVelocity.X > 0f)
+                {
+                    entity.velocity.X += acceleration;
+                }
+            }
+            else if (entity.velocity.X > targetVelocity.X)
+            {
+                entity.velocity.X -= acceleration;
+                if (entity.velocity.X > 0f && targetVelocity.X < 0f)
+                {
+                    entity.velocity.X -= acceleration;
+                }
+            }
+
+            if (entity.velocity.Y < targetVelocity.Y)
+            {
+                entity.velocity.Y += acceleration;
+                if (entity.velocity.Y < 0f && targetVelocity.Y > 0f)
+                {
+                    entity.velocity.Y += acceleration;
+                }
+            }
+            else if (entity.velocity.Y > targetVelocity.Y)
+            {
+                entity.velocity.Y -= acceleration;
+                if (entity.velocity.Y > 0f && targetVelocity.Y < 0f)
+                {
+                    entity.velocity.Y -= acceleration;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 通过加速度和速度大小为NPC平滑设置速度
+        /// </summary>
+        /// <param name="entity">目标NPC</param>
+        /// <param name="acceleration">加速度</param>
+        /// <param name="speed">速度</param>
+        public static void SetVelocity(this NPC entity, float acceleration, float speed)
+        {
+
+            if (entity.direction == -1 && entity.velocity.X > 0f - speed)
+            {
+                entity.velocity.X -= 0.1f;
+                if (entity.velocity.X > speed)
+                {
+                    entity.velocity.X -= 0.1f;
+                }
+                else if (entity.velocity.X > 0f)
+                {
+                    entity.velocity.X += 0.05f;
+                }
+
+                if (entity.velocity.X < 0f - speed)
+                {
+                    entity.velocity.X = 0f - speed;
+                }
+            }
+            else if (entity.direction == 1 && entity.velocity.X < speed)
+            {
+                entity.velocity.X += 0.1f;
+                if (entity.velocity.X < 0f - speed)
+                {
+                    entity.velocity.X += 0.1f;
+                }
+                else if (entity.velocity.X < 0f)
+                {
+                    entity.velocity.X -= 0.05f;
+                }
+
+                if (entity.velocity.X > speed)
+                {
+                    entity.velocity.X = speed;
+                }
+            }
+
+            if (entity.directionY == -1 && entity.velocity.Y > 0f - acceleration)
+            {
+                entity.velocity.Y -= 0.04f;
+                if (entity.velocity.Y > acceleration)
+                {
+                    entity.velocity.Y -= 0.05f;
+                }
+                else if (entity.velocity.Y > 0f)
+                {
+                    entity.velocity.Y += 0.03f;
+                }
+
+                if (entity.velocity.Y < 0f - acceleration)
+                {
+                    entity.velocity.Y = 0f - acceleration;
+                }
+            }
+            else if (entity.directionY == 1 && entity.velocity.Y < acceleration)
+            {
+                entity.velocity.Y += 0.04f;
+                if (entity.velocity.Y < 0f - acceleration)
+                {
+                    entity.velocity.Y += 0.05f;
+                }
+                else if (entity.velocity.Y < 0f)
+                {
+                    entity.velocity.Y -= 0.03f;
+                }
+
+                if (entity.velocity.Y > acceleration)
+                {
+                    entity.velocity.Y = acceleration;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使NPC在碰撞时反弹
+        /// </summary>
+        /// <param name="npc">目标NPC</param>
+        public static void BounceWhenTileCollide(this NPC npc)
+        {
+            if (!npc.noTileCollide)
+            {
+                if (npc.collideX)
+                {
+                    npc.velocity.X = npc.oldVelocity.X * -0.5f;
+                    if (npc.direction == -1 && npc.velocity.X > 0f && npc.velocity.X < 2f)
+                    {
+                        npc.velocity.X = 2f;
+                    }
+
+                    if (npc.direction == 1 && npc.velocity.X < 0f && npc.velocity.X > -2f)
+                    {
+                        npc.velocity.X = -2f;
+                    }
+                }
+
+                if (npc.collideY)
+                {
+                    npc.velocity.Y = npc.oldVelocity.Y * -0.5f;
+                    if (npc.velocity.Y > 0f && npc.velocity.Y < 1f)
+                    {
+                        npc.velocity.Y = 1f;
+                    }
+
+                    if (npc.velocity.Y < 0f && npc.velocity.Y > -1f)
+                    {
+                        npc.velocity.Y = -1f;
+                    }
+                }
+            }
+        }
         #endregion
 
+        #region Entity拓展方法
+        /// <summary>
+        /// 使实体碰到水面后就立刻脱离水面
+        /// </summary>
+        /// <param name="entity">目标实体</param>
+        public static void EscapeFromWater(this Entity entity)
+        {
+            if (entity.wet)
+            {
+                if (entity.velocity.Y > 0f)
+                {
+                    entity.velocity.Y *= 0.95f;
+                }
+
+                entity.velocity.Y -= 0.5f;
+                if (entity.velocity.Y < -4f)
+                {
+                    entity.velocity.Y = -4f;
+                }
+
+                if (entity is NPC npc && !npc.friendly)
+                {
+                    npc.TargetClosest();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 如果实体速度过小，就直接设置为0
+        /// </summary>
+        /// <param name="entity">目标实体</param>
+        public static void LimitVelocity(this Entity entity)
+        {
+            if (entity.velocity.X > -0.1 && entity.velocity.X < 0.1)
+            {
+                entity.velocity.X = 0f;
+            }
+            if (entity.velocity.Y > -0.1 && entity.velocity.Y < 0.1)
+            {
+                entity.velocity.Y = 0f;
+            }
+        }
+        #endregion
+
+        #region 粒子效果
+        public static void CreateVanillaFireExplosion(Vector2 position, float intensity = 1f)
+        {
+            // 火焰核心粒子（使用 Torch 和 Fire 类型）
+            for (int i = 0; i < 15 * intensity; i++)
+            {
+                Dust fire = Dust.NewDustPerfect(
+                    position,
+                    Main.rand.NextBool() ? DustID.Torch : DustID.FlameBurst,
+                    Main.rand.NextVector2Circular(10f, 10f) * intensity,
+                    Scale: Main.rand.NextFloat(1f, 2.5f)
+                );
+                fire.noGravity = true;
+                fire.fadeIn = 1.2f;
+            }
+
+            // 爆炸烟雾（Smoke 类型）
+            for (int i = 0; i < 8 * intensity; i++)
+            {
+                Dust smoke = Dust.NewDustDirect(
+                    position, 0, 0,
+                    DustID.Smoke,
+                    SpeedX: Main.rand.NextFloat(-3f, 3f) * intensity,
+                    SpeedY: Main.rand.NextFloat(-2f, 0.5f) * intensity,
+                    Alpha: 150
+                );
+                smoke.scale *= 1.5f;
+            }
+
+            // 余烬火花（CopperCoin 类型）
+            for (int i = 0; i < 10 * intensity; i++)
+            {
+                Dust spark = Dust.NewDustPerfect(
+                    position,
+                    DustID.CopperCoin,
+                    Main.rand.NextVector2Circular(8f, 8f) * intensity,
+                    newColor: Color.OrangeRed
+                );
+                spark.noGravity = true;
+                spark.scale = 0.8f;
+            }
+        }
+
+        public static void CreateNebulaVortex(Vector2 center, float intensity = 1f)
+        {
+            for (int i = 0; i < 30 * intensity; i++)
+            {
+                Dust d = Dust.NewDustPerfect(center, DustID.PurpleTorch,
+                    Vector2.UnitX.RotatedBy(MathHelper.TwoPi * i / 30) * 5f * intensity);
+                d.noGravity = true;
+                d.scale = 1.5f * intensity;
+                d.velocity += (center - d.position) * 0.02f; // 向心引力
+            }
+        }
+
+        public static void CreateSakuraPetals(Vector2 center, int count = 20)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Dust d = Dust.NewDustPerfect(center, DustID.PinkStarfish,
+                    new Vector2(Main.rand.NextFloat(-1f, 1f), Main.rand.NextFloat(1f, 3f)));
+                d.rotation = Main.rand.NextFloat(TwoPi);
+                d.velocity.Y += 0.1f; // 重力模拟
+                d.noGravity = false;
+            }
+        }
+
+        public static void CreateHologram(Vector2 center, float size = 100f)
+        {
+            for (int x = -50; x <= 50; x += 10)
+            {
+                for (int y = -50; y <= 50; y += 10)
+                {
+                    Vector2 pos = center + new Vector2(x, y) * (size / 100f);
+                    Dust d = Dust.NewDustPerfect(pos, DustID.BlueFairy,
+                        new Vector2(0, (float)Math.Sin(Main.time * 3f + x) * 0.5f));
+                    d.noGravity = true;
+                    d.scale = 0.8f;
+                }
+            }
+        }
+
+        public static void CreateLavaEruption(Vector2 position, float power = 1f)
+        {
+            for (int i = 0; i < 20 * power; i++)
+            {
+                Dust d = Dust.NewDustDirect(position, 0, 0, DustID.Lava);
+                d.velocity = Main.rand.NextVector2Circular(8f, 8f) * power;
+                d.noGravity = true;
+                d.scale = Main.rand.NextFloat(1f, 2f);
+
+                // 拖尾效果
+                Dust.NewDustPerfect(d.position, DustID.Torch,
+                    d.velocity * 0.5f, Scale: d.scale * 0.7f);
+            }
+        }
+
+        public static void CreateAurora(Vector2 start, float width = 400f, float speed = 1f)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+                Vector2 pos = start + new Vector2(Main.rand.NextFloat(width), 0);
+                Dust d = Dust.NewDustPerfect(pos, DustID.GemEmerald,
+                    new Vector2(0, Main.rand.NextFloat(-1f, -0.5f) * speed));
+                d.scale = Main.rand.NextFloat(1f, 1.8f);
+                d.noGravity = true;
+                d.color = Color.Lerp(Color.Cyan, Color.Purple, Main.rand.NextFloat());
+            }
+        }
+
+        public static void CreateMagicRune(Vector2 center, float size = 100f)
+        {
+            // 绘制圆形符文
+            for (int i = 0; i < 36; i++)
+            {
+                Vector2 pos = center + Vector2.UnitX.RotatedBy(TwoPi * i / 36) * size;
+                Dust d = Dust.NewDustPerfect(pos, DustID.MagicMirror,
+                    Vector2.Zero, Scale: 1.5f);
+                d.noGravity = true;
+                d.velocity = Vector2.UnitY * (float)Math.Sin(Main.time * 3f + i) * 0.3f;
+            }
+        }
+        #endregion
+
+        #region 数学计算
+
+        /// <summary>
+        /// 根据三角形的两直角边长计算斜边
+        /// </summary>
+        /// <param name="a">a边</param>
+        /// <param name="b">b边</param>
+        /// <returns></returns>
+        public static float Pythagorean(float a, float b)
+        {
+            return (float)Math.Sqrt(a * a + b * b);
+        }
+
+        /// <summary>
+        /// 标准化角度，使其在0-360之间
+        /// </summary>
+        /// <param name="angle">目标角度</param>
+        public static void NormalizeAngle(ref float angle)
+        {
+            if (angle < 0f)
+            {
+                angle += Pi * 2;
+            }
+            else if (angle > Pi * 2)
+            {
+                angle -= Pi * 2;
+            }
+        }
+
+        public static Vector2 RotateVector(Vector2 v, float degrees)
+        {
+            float radians = (float)(degrees * Math.PI / 180);
+            float cos = (float)Math.Cos(radians);
+            float sin = (float)Math.Sin(radians);
+            return new Vector2(
+                v.X * cos - v.Y * sin,
+                v.X * sin + v.Y * cos
+            );
+        }
+
+        public static Vector2 GetRandomRotated(this Vector2 original, float maxAngleRadians)
+        {
+            float randomAngle = Main.rand.NextFloatDirection() * ToRadians(maxAngleRadians);
+            return original.RotatedBy(randomAngle);
+        }
+        #endregion
+
+        #region 其它
         public static void SpawnClusteredDusts(float timer, Player player, Vector2 position, int dustID)
         {
             float aTime = Clamp(150 - timer, 0f, 150f);
@@ -471,5 +907,86 @@ namespace StarRailRelic.Utils
 
             return Main.npc[npc];
         }
+
+        public static string GetName<T>(Expression<Func<T>> expr)
+        {
+            if (expr.Body is MemberExpression memberExpr)
+            {
+                return memberExpr.Member.Name;
+            }
+            return "Unknown";
+        }
+
+        public static void NewText<T>(Expression<Func<T>> expr)
+        {
+            string name = GetName(expr);
+            T value = expr.Compile()();
+            Main.NewText($"{name}: {value}");
+        }
+
+        /// <summary>
+        /// 获取NPC的显示纹理（优先使用头像，没有则提取单帧）
+        /// </summary>
+        /// <param name="npcType">NPC类型ID</param>
+        /// <returns>适合显示的纹理</returns>
+        public static Texture2D GetNPCDisplayTexture(int npcType)
+        {
+            NPC tempNPC = new();
+            tempNPC.SetDefaults(npcType);
+
+            int headIndex = NPC.TypeToDefaultHeadIndex(npcType);
+            int headIndexBoss = tempNPC.GetBossHeadTextureIndex();
+            if (NPC.TypeToDefaultHeadIndex(npcType) > -1)
+            {
+                return TextureAssets.NpcHead[headIndex].Value;
+            }
+            else if (tempNPC.GetBossHeadTextureIndex() > -1)
+            {
+                return TextureAssets.NpcHeadBoss[headIndexBoss].Value;
+            }
+
+            Texture2D fullTexture = TextureAssets.Npc[npcType].Value;
+            Rectangle frameRect = tempNPC.frame;
+
+            // 创建仅包含单帧的新纹理
+            Texture2D frameTexture = new(Main.graphics.GraphicsDevice, frameRect.Width, frameRect.Height);
+
+            // 从完整纹理中读取像素并复制到新纹理
+            Color[] pixels = new Color[frameRect.Width * frameRect.Height];
+            fullTexture.GetData(0, frameRect, pixels, 0, pixels.Length);
+            frameTexture.SetData(pixels);
+
+            return frameTexture;
+        }
+
+        /// <summary>
+        /// 将整数转换为罗马数字字符串（支持 1-3999）
+        /// </summary>
+        /// <param name="number">要转换的整数（范围 1-3999）</param>
+        /// <returns>对应的罗马数字字符串，超出范围时返回原数字字符串</returns>
+        public static string IntToRoman(int number)
+        {
+            if (number < 1 || number > 3999)
+            {
+                return number.ToString(); // 超出范围返回原数字
+            }
+
+            string[] romanSymbols = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+            int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+
+            StringBuilder result = new StringBuilder();
+
+            for (int i = 0; i < values.Length; i++)
+            {
+                while (number >= values[i])
+                {
+                    result.Append(romanSymbols[i]);
+                    number -= values[i];
+                }
+            }
+
+            return result.ToString();
+        }
+        #endregion
     }
 }

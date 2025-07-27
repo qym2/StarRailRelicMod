@@ -26,6 +26,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Knight
         }
     }
 
+    public class KnightRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Knight;
+    }
+
     public class KnightHead : KnightSet
     {
         public override RelicType RelicType => RelicType.Head;

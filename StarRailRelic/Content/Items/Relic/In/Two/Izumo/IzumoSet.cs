@@ -30,6 +30,11 @@ namespace StarRailRelic.Content.Items.Relic.In.Two.Izumo
         }
     }
 
+    public class IzumoRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Izumo;
+    }
+
     public class IzumoSphere : IzumoSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

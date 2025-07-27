@@ -20,6 +20,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.DeadWaters
         }
     }
 
+    public class DeadWatersRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.DeadWaters;
+    }
+
     public class DeadWatersHead : DeadWatersSet
     {
         public override RelicType RelicType => RelicType.Head;

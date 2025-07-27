@@ -19,6 +19,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Rutilant
         }
     }
 
+    public class RutilantRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Rutilant;
+    }
+
     public class RutilantSphere : RutilantSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

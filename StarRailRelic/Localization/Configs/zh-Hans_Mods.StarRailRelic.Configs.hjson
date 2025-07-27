@@ -10,21 +10,7 @@ MainConfigs: {
 			'''
 	}
 
-	Headers: {
-		Game: "[c/00ffff:游戏配置]"
-		Subworld: "[c/00ffff:遗器副本配置]"
-		UI: "[c/00ffff:UI配置]"
-	}
-
-	CompatibilityMode: {
-		Label: "[centeritem:3084] 兼容模式"
-		Tooltip:
-			'''
-			兼容模式下所有遗器副本的样式都会变成森林副本的样式
-			用于模组冲突的玩家使用
-			[c/ff0000:没有模组冲突不必开启]
-			'''
-	}
+	// Headers.Game: Game Header
 }
 
 PersonalConfigs: {
@@ -44,5 +30,5 @@ PersonalConfigs: {
 			'''
 	}
 
-	// Headers.UI: U I Header
+	Headers.UI: "[c/00ffff:UI配置]"
 }

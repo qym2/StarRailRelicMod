@@ -23,6 +23,7 @@
         public Item PlanarSphereRelic;
         public Item LinkRopeRelic;
 
+        #region 更新效果
         public override void ResetEffects()
         {
             foreach (Item item in new[] { HeadRelic, HandsRelic, BodyRelic, FeetRelic, PlanarSphereRelic, LinkRopeRelic })
@@ -339,7 +340,165 @@
             }
         }
         #endregion
+        #endregion
 
+        #region 网络同步
+        public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
+        {
+            ModPacket packet = Mod.GetPacket();
+            packet.Write((byte)StarRailRelic.MessageType.RelicPlayer);
+            packet.Write((byte)Player.whoAmI);
+
+            SyncRelicSlot(packet, HeadRelic);
+            SyncRelicSlot(packet, HandsRelic);
+            SyncRelicSlot(packet, BodyRelic);
+            SyncRelicSlot(packet, FeetRelic);
+            SyncRelicSlot(packet, PlanarSphereRelic);
+            SyncRelicSlot(packet, LinkRopeRelic);
+
+            packet.Send(toWho, fromWho);
+        }
+
+        // 同步单个遗器槽位
+        private static void SyncRelicSlot(ModPacket packet, Item relicItem)
+        {
+            // 是否有遗器
+            bool hasRelic = relicItem != null && relicItem.ModItem is ModRelic;
+            packet.Write(hasRelic);
+
+            if (!hasRelic)
+            {
+                return;
+            }
+
+            ModRelic modRelic = relicItem.ModItem as ModRelic;
+
+            // 写入遗器类型
+            packet.Write(relicItem.type);
+
+            // 写入等级
+            packet.Write((byte)modRelic.level);
+
+            // 写入主词条（使用byte表示枚举值）
+            packet.Write(modRelic.MainEntry.HasValue);
+            if (modRelic.MainEntry.HasValue)
+            {
+                packet.Write((byte)modRelic.MainEntry.Value);
+            }
+
+            // 写入副词条数量
+            int adverbCount = modRelic.AdverbEntryList?.Count ?? 0;
+            packet.Write((byte)adverbCount);
+
+            // 写入每个副词条
+            for (int i = 0; i < adverbCount; i++)
+            {
+                packet.Write((byte)modRelic.AdverbEntryList[i]);
+                packet.Write((byte)modRelic.AdverbEntryNumList[i]);
+            }
+        }
+
+        public void ReceivePlayerSync(BinaryReader reader)
+        {
+            HeadRelic = ReadRelicSlot(reader);
+            HandsRelic = ReadRelicSlot(reader);
+            BodyRelic = ReadRelicSlot(reader);
+            FeetRelic = ReadRelicSlot(reader);
+            PlanarSphereRelic = ReadRelicSlot(reader);
+            LinkRopeRelic = ReadRelicSlot(reader);
+        }
+
+        // 读取单个遗器槽位
+        private static Item ReadRelicSlot(BinaryReader reader)
+        {
+            // 检查是否有遗器
+            bool hasRelic = reader.ReadBoolean();
+            if (!hasRelic)
+            {
+                return new Item();
+            }
+
+            // 创建物品实例
+            int itemType = reader.ReadInt32();
+            Item relicItem = new();
+            relicItem.SetDefaults(itemType);
+
+            // 获取ModRelic组件
+            ModRelic modRelic = relicItem.ModItem as ModRelic;
+
+            // 读取等级
+            modRelic.level = reader.ReadByte();
+
+            // 读取主词条
+            bool hasMainEntry = reader.ReadBoolean();
+            if (hasMainEntry)
+            {
+                modRelic.MainEntry = (RelicMainEntryType)reader.ReadByte();
+            }
+
+            // 读取副词条数量
+            int adverbCount = reader.ReadByte();
+            modRelic.AdverbEntryList = new List<RelicAdverbEntryType>(adverbCount);
+            modRelic.AdverbEntryNumList = new List<int>(adverbCount);
+
+            // 读取每个副词条
+            for (int i = 0; i < adverbCount; i++)
+            {
+                modRelic.AdverbEntryList.Add((RelicAdverbEntryType)reader.ReadByte());
+                modRelic.AdverbEntryNumList.Add(reader.ReadByte());
+            }
+
+            return relicItem;
+        }
+
+        public override void CopyClientState(ModPlayer targetCopy)
+        {
+            RelicPlayer clone = (RelicPlayer)targetCopy;
+            clone.HeadRelic = HeadRelic;
+            clone.HandsRelic = HandsRelic;
+            clone.BodyRelic = BodyRelic;
+            clone.FeetRelic = FeetRelic;
+            clone.PlanarSphereRelic = PlanarSphereRelic;
+            clone.LinkRopeRelic = LinkRopeRelic;
+        }
+
+        public override void SendClientChanges(ModPlayer clientPlayer)
+        {
+            RelicPlayer clientClone = (RelicPlayer)clientPlayer;
+
+            // 检查遗器是否发生变化
+            bool relicsChanged = !RelicEquals(HeadRelic, clientClone.HeadRelic) ||
+                                 !RelicEquals(HandsRelic, clientClone.HandsRelic) ||
+                                 !RelicEquals(BodyRelic, clientClone.BodyRelic) ||
+                                 !RelicEquals(FeetRelic, clientClone.FeetRelic) ||
+                                 !RelicEquals(PlanarSphereRelic, clientClone.PlanarSphereRelic) ||
+                                 !RelicEquals(LinkRopeRelic, clientClone.LinkRopeRelic);
+
+            // 如果有变化，触发同步
+            if (relicsChanged)
+            {
+                SyncPlayer(toWho: -1, fromWho: Main.myPlayer, newPlayer: false);
+            }
+        }
+
+        // 比较两个遗器是否相同
+        private static bool RelicEquals(Item a, Item b)
+        {
+            if (a.type != b.type)
+            {
+                return false;
+            }
+
+            return a.ModItem is ModRelic relicA && 
+                   b.ModItem is ModRelic relicB && 
+                   relicA.MainEntry == relicB.MainEntry &&
+                   relicA.level == relicB.level &&
+                   relicA.AdverbEntryList.SequenceEqual(relicB.AdverbEntryList) &&
+                   relicA.AdverbEntryNumList.SequenceEqual(relicB.AdverbEntryNumList);
+        }
+        #endregion
+
+        #region 保存数据
         public override void SaveData(TagCompound tag)
         {
             tag["HeadRelic"] = HeadRelic;
@@ -359,5 +518,6 @@
             PlanarSphereRelic = tag.Get<Item>("PlanarSphereRelic");
             LinkRopeRelic = tag.Get<Item>("LinkRopeRelic");
         }
+        #endregion
     }
 }

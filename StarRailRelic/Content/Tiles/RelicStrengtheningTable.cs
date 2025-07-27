@@ -17,7 +17,7 @@ namespace StarRailRelic.Content.Tiles
             TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.CoordinateHeights = [16, 16];
-            TileObjectData.newTile.Origin = new Point16(0, 1);
+            TileObjectData.newTile.Origin = new Point16(1, 1);
             TileObjectData.newTile.LavaDeath = false;
             TileObjectData.newTile.AnchorInvalidTiles = [
                 TileID.MagicalIceBlock,
@@ -43,8 +43,14 @@ namespace StarRailRelic.Content.Tiles
             return true;
         }
 
+        public override bool Slope(int i, int j)
+        {
+            return false;
+        }
+
         public override bool RightClick(int i, int j)
         {
+            GetInstance<RelicStrengtheningUISystem>().ActiveTilePosition = new Vector2(i, j) * 16;
             GetInstance<RelicStrengtheningUISystem>().ShowUI();
             GetInstance<RelicMainUISystem>().ShowUI();
             Main.playerInventory = true;

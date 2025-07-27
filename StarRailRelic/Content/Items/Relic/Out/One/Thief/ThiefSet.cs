@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Thief
         }
     }
 
+    public class ThiefRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Thief;
+    }
+
     public class ThiefHead : ThiefSet
     {
         public override RelicType RelicType => RelicType.Head;

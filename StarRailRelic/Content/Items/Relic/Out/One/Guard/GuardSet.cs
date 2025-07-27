@@ -15,6 +15,11 @@
         }
     }
 
+    public class GuardRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Guard;
+    }
+
     public class GuardHead : GuardSet
     {
         public override RelicType RelicType => RelicType.Head;

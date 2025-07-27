@@ -52,7 +52,7 @@ namespace StarRailRelic.Common.Systems
                 object instance = typeof(ContentInstance<>).MakeGenericType(relicType).GetProperty("Instance").GetValue(null);
                 if (instance is ModItem modItem)
                 {
-                    Recipe.Create(ItemType<LostCrystal>(), 150)
+                    Recipe.Create(ItemType<LostCrystal>(), 2)
                       .AddIngredient(modItem.Type)
                       .DisableDecraft()
                       .Register();

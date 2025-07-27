@@ -11,6 +11,11 @@ namespace StarRailRelic.Content.Items.Relic.In.One.Enterprise
         }
     }
 
+    public class EnterpriseRelic : InRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Enterprise;
+    }
+
     public class EnterpriseSphere : EnterpriseSet
     {
         public override RelicType RelicType => RelicType.PlanarSphere;

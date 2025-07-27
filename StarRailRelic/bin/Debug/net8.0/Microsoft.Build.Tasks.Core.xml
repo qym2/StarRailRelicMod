@@ -966,6 +966,15 @@
             <param name="createDirectory"></param>
             <param name="subfolder"></param>
         </member>
+        <member name="M:Microsoft.Build.Shared.FileUtilities.GetTemporaryFileName">
+            <summary>
+            Generates a unique temporary file name with a given extension in the temporary folder.
+            File is guaranteed to be unique.
+            Extension may have an initial period.
+            File will NOT be created.
+            May throw IOException.
+            </summary>
+        </member>
         <member name="M:Microsoft.Build.Shared.FileUtilities.GetTemporaryFileName(System.String)">
             <summary>
             Generates a unique temporary file name with a given extension in the temporary folder.
@@ -2407,7 +2416,7 @@
             Returns true if the given character is a valid drive letter.
             </summary>
             <remarks>
-            Copied from https://github.com/dotnet/corefx/blob/master/src/Common/src/System/IO/PathInternal.Windows.cs#L77-L83
+            Copied from https://github.com/dotnet/corefx/blob/b8b81a66738bb10ef0790023598396861d92b2c4/src/Common/src/System/IO/PathInternal.Windows.cs#L53-L59
             </remarks>
         </member>
         <member name="M:Microsoft.Build.Shared.FileMatcher.SkipSlashes(System.String,System.Int32)">
@@ -2882,76 +2891,6 @@
             Reads/writes this class
             </summary>
             <param name="translator"></param>
-        </member>
-        <member name="T:Microsoft.Build.Shared.EncodingUtilities">
-            <summary>
-            This class contains utility methods for dealing with encoding.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.Shared.EncodingUtilities.CurrentSystemOemEncoding">
-            <summary>
-            Get the current system locale code page, OEM version. OEM code pages are used for console-based input/output
-            for historical reasons.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.SimilarToEncoding(System.Text.Encoding,System.Text.Encoding)">
-            <summary>
-            Checks two encoding types to determine if they are similar to each other (equal or if
-            the Encoding Name is the same).
-            </summary>
-            <param name="encoding1"></param>
-            <param name="encoding2"></param>
-            <returns>True if the two Encoding objects are equal or similar.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.IsUtf8Encoding(System.Text.Encoding)">
-            <summary>
-            Check if an encoding type is UTF8 (with or without BOM).
-            </summary>
-            <param name="encoding"></param>
-            <returns>True if the encoding is UTF8.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.StartsWithPreamble(System.IO.Stream)">
-            <summary>
-            Check the first 3 bytes of a stream to determine if it matches the UTF8 preamble.
-            </summary>
-            <param name="stream">Steam to check.</param>
-            <returns>True when the first 3 bytes of the Stream are equal to the UTF8 preamble (BOM).</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.StartsWithPreamble(System.IO.Stream,System.Byte[])">
-            <summary>
-            Check the first 3 bytes of a stream to determine if it matches the given preamble.
-            </summary>
-            <param name="stream">Steam to check.</param>
-            <param name="preamble">Preamble to look for.</param>
-            <returns>True when the first 3 bytes of the Stream are equal to the preamble.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.FileStartsWithPreamble(System.String)">
-            <summary>
-            Check the first 3 bytes of a file to determine if it matches the 3-byte UTF8 preamble (BOM).
-            </summary>
-            <param name="file">Path to file to check.</param>
-            <returns>True when the first 3 bytes of the file are equal to the UTF8 BOM.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.CanEncodeString(System.Int32,System.String)">
-            <summary>
-            Checks to see if a string can be encoded in a specified code page.
-            </summary>
-            <remarks>Internal for testing purposes.</remarks>
-            <param name="codePage">Code page for encoding.</param>
-            <param name="stringToEncode">String to encode.</param>
-            <returns>True if the string can be encoded in the specified code page.</returns>
-        </member>
-        <member name="M:Microsoft.Build.Shared.EncodingUtilities.BatchFileEncoding(System.String,System.String)">
-             <summary>
-             Find the encoding for the batch file.
-             </summary>
-             <remarks>
-             The "best" encoding is the current OEM encoding, unless it's not capable of representing
-             the characters we plan to put in the file. If it isn't, we can fall back to UTF-8.
-            
-             Why not always UTF-8? Because tools don't always handle it well. See
-             https://github.com/dotnet/msbuild/issues/397
-             </remarks>
         </member>
         <member name="T:Microsoft.Build.Shared.ErrorUtilities">
             <summary>
@@ -3677,884 +3616,6 @@
             <remarks>This property is thread-safe.</remarks>
             <value>ResourceManager for shared resources.</value>
         </member>
-        <member name="T:Microsoft.Build.BackEnd.ITranslatable">
-            <summary>
-            An interface representing an object which may be serialized by the node packet serializer.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslatable.Translate(Microsoft.Build.BackEnd.ITranslator)">
-            <summary>
-            Reads or writes the packet to the serializer.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.NodePacketValueFactory`1">
-            <summary>
-            This delegate is used for objects which do not have public parameterless constructors and must be constructed using
-            another method.  When invoked, this delegate should return a new object which has been translated appropriately.
-            </summary>
-            <typeparam name="T">The type to be translated.</typeparam>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.ObjectTranslator`1">
-            <summary>
-            Delegate for users that want to translate an arbitrary structure that doesn't implement <see cref="T:Microsoft.Build.BackEnd.ITranslatable"/> (e.g. translating a complex collection)
-            </summary>
-            <param name="translator">the translator</param>
-            <param name="objectToTranslate">the object to translate</param>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.NodePacketCollectionCreator`1">
-            <summary>
-            This delegate is used to create arbitrary collection types for serialization.
-            </summary>
-            <typeparam name="T">The type of dictionary to be created.</typeparam>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.TranslationDirection">
-            <summary>
-            The serialization mode.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.BackEnd.TranslationDirection.WriteToStream">
-            <summary>
-            Indicates the serializer is operating in write mode.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.BackEnd.TranslationDirection.ReadFromStream">
-            <summary>
-            Indicates the serializer is operating in read mode.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.ITranslator">
-            <summary>
-            This interface represents an object which aids objects in serializing and 
-            deserializing INodePackets.
-            </summary>
-            <remarks>
-            The reason we bother with a custom serialization mechanism at all is two fold:
-            1. The .Net serialization mechanism is inefficient, even if you implement ISerializable
-               with your own custom mechanism.  This is because the serializer uses a bag called
-               SerializationInfo into which you are expected to drop all your data.  This adds
-               an unnecessary level of indirection to the serialization routines and prevents direct,
-               efficient access to the byte-stream.
-            2. You have to implement both a reader and writer part, which introduces the potential for
-               error should the classes be later modified.  If the reader and writer methods are not
-               kept in perfect sync, serialization errors will occur.  Our custom serializer eliminates
-               that by ensuring a single Translate method on a given object can handle both reads and
-               writes without referencing any field more than once.
-            </remarks>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.ITranslator.Mode">
-            <summary>
-            Returns the current serialization mode.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.ITranslator.Reader">
-            <summary>
-            Returns the binary reader.
-            </summary>
-            <remarks>
-            This should ONLY be used when absolutely necessary for translation.  It is generally unnecessary for the 
-            translating object to know the direction of translation.  Use one of the Translate methods instead.
-            </remarks>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.ITranslator.Writer">
-            <summary>
-            Returns the binary writer.
-            </summary>
-            <remarks>
-            This should ONLY be used when absolutely necessary for translation.  It is generally unnecessary for the 
-            translating object to know the direction of translation.  Use one of the Translate methods instead.
-            </remarks>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Boolean@)">
-            <summary>
-            Translates a boolean.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Byte@)">
-            <summary>
-            Translates a byte.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Int16@)">
-            <summary>
-            Translates a short.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.UInt16@)">
-            <summary>
-            Translates a unsigned short.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Int32@)">
-            <summary>
-            Translates an integer.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Int32[]@)">
-            <summary>
-            Translates an <see langword="int"/> array.
-            </summary>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Int64@)">
-            <summary>
-            Translates a long.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.String@)">
-            <summary>
-            Translates a string.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Double@)">
-            <summary>
-            Translates a double.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.String[]@)">
-            <summary>
-            Translates a string array.
-            </summary>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Collections.Generic.List{System.String}@)">
-            <summary>
-            Translates a list of strings
-            </summary>
-            <param name="list">The list to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Collections.Generic.HashSet{System.String}@)">
-            <summary>
-            Translates a set of strings
-            </summary>
-            <param name="set">The set to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate``1(System.Collections.Generic.List{``0}@,Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates a list of T using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>
-            </summary>
-            <param name="list">The list to be translated.</param>
-            <param name="objectTranslator">The translator to use for the items in the list</param>
-            <typeparam name="T">A TaskItemType</typeparam>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate``2(System.Collections.Generic.IList{``0}@,Microsoft.Build.BackEnd.ObjectTranslator{``0},Microsoft.Build.BackEnd.NodePacketCollectionCreator{``1})">
-            <summary>
-            Translates a list of T using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/> anda collection factory
-            </summary>
-            <param name="list">The list to be translated.</param>
-            <param name="objectTranslator">The translator to use for the items in the list</param>
-            <typeparam name="T">An ITranslatable subtype</typeparam>
-            <typeparam name="L">An IList subtype</typeparam>
-            <param name="collectionFactory">factory to create a collection</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate``2(System.Collections.Generic.ICollection{``0}@,Microsoft.Build.BackEnd.ObjectTranslator{``0},Microsoft.Build.BackEnd.NodePacketCollectionCreator{``1})">
-            <summary>
-            Translates a collection of T into the specified type using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/> and <see cref="T:Microsoft.Build.BackEnd.NodePacketCollectionCreator`1"/>
-            </summary>
-            <param name="collection">The collection to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the collection.</param>
-            <param name="collectionFactory">The factory to create the ICollection.</param>
-            <typeparam name="T">The type contained in the collection.</typeparam>
-            <typeparam name="L">The type of collection to be created.</typeparam>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.DateTime@)">
-            <summary>
-            Translates a DateTime.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.TimeSpan@)">
-            <summary>
-            Translates a TimeSpan.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(Microsoft.Build.Framework.BuildEventContext@)">
-            <summary>
-            Translates a BuildEventContext
-            </summary>
-            <remarks>
-            This method exists only because there is no serialization method built into the BuildEventContext
-            class, and it lives in Framework and we don't want to add a public method to it.
-            </remarks>
-            <param name="value">The context to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateEnum``1(``0@,System.Int32)">
-            <summary>
-            Translates an enumeration.
-            </summary>
-            <typeparam name="T">The enumeration type.</typeparam>
-            <param name="value">The enumeration instance to be translated.</param>
-            <param name="numericValue">The enumeration value as an integer.</param>
-            <remarks>This is a bit ugly, but it doesn't seem like a nice method signature is possible because
-            you can't pass the enum type as a reference and constrain the generic parameter to Enum.  Nor
-            can you simply pass as ref Enum, because an enum instance doesn't match that function signature.
-            Finally, converting the enum to an int assumes that we always want to transport enums as ints.  This
-            works in all of our current cases, but certainly isn't perfectly generic.</remarks>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateDotNet``1(``0@)">
-            <summary>
-            Translates a value using the .Net binary formatter.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="value">The value to be translated.</param>
-            <remarks>
-            The primary purpose of this method is to support serialization of Exceptions and
-            custom build logging events, since these do not support our custom serialization
-            methods.
-            </remarks>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate``1(``0@)">
-            <summary>
-            Translates an object implementing INodePacketTranslatable.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateCulture(System.Globalization.CultureInfo@)">
-            <summary>
-            Translates a culture
-            </summary>
-            <param name="culture">The culture</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Byte[]@)">
-            <summary>
-            Translates a byte array
-            </summary>
-            <param name="byteArray">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.Translate(System.Byte[]@,System.Int32@)">
-            <summary>
-            Translates a byte array
-            </summary>
-            <param name="byteArray">The array to be translated.</param>
-            <param name="length">The length of array which will be used in translation</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateArray``1(``0[]@)">
-            <summary>
-            Translates an array of objects implementing INodePacketTranslatable.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateArray``1(``0[]@,Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates an array of objects using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="array">The array to be translated.</param>
-            <param name="objectTranslator">The translator to use for the elements in the array.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateDictionary(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.IEqualityComparer{System.String})">
-            <summary>
-            Translates a dictionary of { string, string }.
-            </summary>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="comparer">The comparer used to instantiate the dictionary.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateDictionary``1(System.Collections.Generic.Dictionary{System.String,``0}@,System.Collections.Generic.IEqualityComparer{System.String},Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates a dictionary of { string, T }.  
-            </summary>
-            <typeparam name="T">The reference type for the values, which implements INodePacketTranslatable.</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="comparer">The comparer used to instantiate the dictionary.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateDictionary``2(``0@,Microsoft.Build.BackEnd.ObjectTranslator{``1})">
-            <summary>
-            Translates a dictionary of { string, T } for dictionaries with public parameterless constructors.
-            </summary>
-            <typeparam name="D">The reference type for the dictionary.</typeparam>
-            <typeparam name="T">The reference type for values in the dictionary.</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateDictionary``2(``0@,Microsoft.Build.BackEnd.ObjectTranslator{``1},Microsoft.Build.BackEnd.NodePacketCollectionCreator{``0})">
-            <summary>
-            Translates a dictionary of { string, T } for dictionaries with public parameterless constructors.
-            </summary>
-            <typeparam name="D">The reference type for the dictionary.</typeparam>
-            <typeparam name="T">The reference type for values in the dictionary.</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary</param>
-            <param name="collectionCreator">A factory used to create the dictionary.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.ITranslator.TranslateNullable``1(``0)">
-            <summary>
-            Translates the boolean that says whether this value is null or not
-            </summary>
-            <param name="value">The object to test.</param>
-            <typeparam name="T">The type of object to test.</typeparam>
-            <returns>True if the object should be written, false otherwise.</returns>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.BinaryTranslator">
-            <summary>
-            This class is responsible for serializing and deserializing simple types to and
-            from the byte streams used to communicate INodePacket-implementing classes.
-            Each class implements a Translate method on INodePacket which takes this class
-            as a parameter, and uses it to store and retrieve fields to the stream.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.GetReadTranslator(System.IO.Stream,Microsoft.Build.SharedReadBuffer)">
-            <summary>
-            Returns a read-only serializer.
-            </summary>
-            <returns>The serializer.</returns>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.GetWriteTranslator(System.IO.Stream)">
-            <summary>
-            Returns a write-only serializer.
-            </summary>
-            <param name="stream">The stream containing data to serialize.</param>
-            <returns>The serializer.</returns>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator">
-            <summary>
-            Implementation of ITranslator for reading from a stream.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator._packetStream">
-            <summary>
-            The stream used as a source or destination for data.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator._reader">
-            <summary>
-            The binary reader used in read mode.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.#ctor(System.IO.Stream,Microsoft.Build.SharedReadBuffer)">
-            <summary>
-            Constructs a serializer from the specified stream, operating in the designated mode.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Dispose">
-            <summary>
-            Delegates the Dispose call the to the underlying BinaryReader.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Reader">
-            <summary>
-            Gets the reader, if any.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Writer">
-            <summary>
-            Gets the writer, if any.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Mode">
-            <summary>
-            Returns the current serialization mode.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Boolean@)">
-            <summary>
-            Translates a boolean.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Byte@)">
-            <summary>
-            Translates a byte.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Int16@)">
-            <summary>
-            Translates a short.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.UInt16@)">
-            <summary>
-            Translates an unsigned short.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Int32@)">
-            <summary>
-            Translates an integer.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Int32[]@)">
-            <summary>
-            Translates an <see langword="int"/> array.
-            </summary>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Int64@)">
-            <summary>
-            Translates a long.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Double@)">
-            <summary>
-            Translates a double.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.String@)">
-            <summary>
-            Translates a string.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Byte[]@)">
-            <summary>
-            Translates a byte array
-            </summary>
-            <param name="byteArray">The array to be translated</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Byte[]@,System.Int32@)">
-            <summary>
-            Translates a byte array
-            </summary>
-            <param name="byteArray">The array to be translated.</param>
-            <param name="length">The length of array which will be used in translation. This parameter is not used when reading</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.String[]@)">
-            <summary>
-            Translates a string array.
-            </summary>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Collections.Generic.HashSet{System.String}@)">
-            <inheritdoc />
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.Collections.Generic.List{System.String}@)">
-            <summary>
-            Translates a list of strings
-            </summary>
-            <param name="list">The list to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate``1(System.Collections.Generic.List{``0}@,Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates a list of T using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>
-            </summary>
-            <param name="list">The list to be translated.</param>
-            <param name="objectTranslator">The translator to use for the items in the list</param>
-            <typeparam name="T">TaskItem type</typeparam>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate``2(System.Collections.Generic.ICollection{``0}@,Microsoft.Build.BackEnd.ObjectTranslator{``0},Microsoft.Build.BackEnd.NodePacketCollectionCreator{``1})">
-            <summary>
-            Translates a collection of T into the specified type using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/> and <see cref="T:Microsoft.Build.BackEnd.NodePacketCollectionCreator`1"/>
-            </summary>
-            <param name="collection">The collection to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the collection.</param>
-            <param name="collectionFactory">The factory to create the ICollection.</param>
-            <typeparam name="T">The type contained in the collection.</typeparam>
-            <typeparam name="L">The type of collection to be created.</typeparam>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.DateTime@)">
-            <summary>
-            Translates a DateTime.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(System.TimeSpan@)">
-            <summary>
-            Translates a TimeSpan.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate(Microsoft.Build.Framework.BuildEventContext@)">
-            <summary>
-            Translates a BuildEventContext
-            </summary>
-            <remarks>
-            This method exists only because there is no serialization method built into the BuildEventContext
-            class, and it lives in Framework and we don't want to add a public method to it.
-            </remarks>
-            <param name="value">The context to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateCulture(System.Globalization.CultureInfo@)">
-            <summary>
-            Translates a CultureInfo
-            </summary>
-            <param name="value">The CultureInfo to translate</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateEnum``1(``0@,System.Int32)">
-            <summary>
-            Translates an enumeration.
-            </summary>
-            <typeparam name="T">The enumeration type.</typeparam>
-            <param name="value">The enumeration instance to be translated.</param>
-            <param name="numericValue">The enumeration value as an integer.</param>
-            <remarks>This is a bit ugly, but it doesn't seem like a nice method signature is possible because
-            you can't pass the enum type as a reference and constrain the generic parameter to Enum.  Nor
-            can you simply pass as ref Enum, because an enum instance doesn't match that function signature.
-            Finally, converting the enum to an int assumes that we always want to transport enums as ints.  This
-            works in all of our current cases, but certainly isn't perfectly generic.</remarks>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateDotNet``1(``0@)">
-            <summary>
-            Translates a value using the .Net binary formatter.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.Translate``1(``0@)">
-            <summary>
-            Translates an object implementing INodePacketTranslatable.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateArray``1(``0[]@)">
-            <summary>
-            Translates an array of objects implementing INodePacketTranslatable.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateArray``1(``0[]@,Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates an array of objects using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="array">The array to be translated.</param>
-            <param name="objectTranslator">The translator to use for the elements in the array</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateDictionary(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.IEqualityComparer{System.String})">
-            <summary>
-            Translates a dictionary of { string, string }.
-            </summary>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="comparer">The comparer used to instantiate the dictionary.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateDictionary``1(System.Collections.Generic.Dictionary{System.String,``0}@,System.Collections.Generic.IEqualityComparer{System.String},Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates a dictionary of { string, T }.  
-            </summary>
-            <typeparam name="T">The reference type for the values</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="comparer">The comparer used to instantiate the dictionary.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateDictionary``2(``0@,Microsoft.Build.BackEnd.ObjectTranslator{``1})">
-            <summary>
-            Translates a dictionary of { string, T } for dictionaries with public parameterless constructors.
-            </summary>
-            <typeparam name="D">The reference type for the dictionary.</typeparam>
-            <typeparam name="T">The reference type for values in the dictionary.</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateDictionary``2(``0@,Microsoft.Build.BackEnd.ObjectTranslator{``1},Microsoft.Build.BackEnd.NodePacketCollectionCreator{``0})">
-            <summary>
-            Translates a dictionary of { string, T } for dictionaries with public parameterless constructors.
-            </summary>
-            <typeparam name="D">The reference type for the dictionary.</typeparam>
-            <typeparam name="T">The reference type for values in the dictionary.</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary</param>
-            <param name="dictionaryCreator">The delegate used to instantiate the dictionary.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryReadTranslator.TranslateNullable``1(``0)">
-            <summary>
-            Reads in the boolean which says if this object is null or not.
-            </summary>
-            <typeparam name="T">The type of object to test.</typeparam>
-            <returns>True if the object should be read, false otherwise.</returns>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator">
-            <summary>
-            Implementation of ITranslator for writing to a stream.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator._packetStream">
-            <summary>
-            The stream used as a source or destination for data.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator._writer">
-            <summary>
-            The binary writer used in write mode.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.#ctor(System.IO.Stream)">
-            <summary>
-            Constructs a serializer from the specified stream, operating in the designated mode.
-            </summary>
-            <param name="packetStream">The stream serving as the source or destination of data.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Dispose">
-            <summary>
-            Delegates the Dispose call the to the underlying BinaryWriter.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Reader">
-            <summary>
-            Gets the reader, if any.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Writer">
-            <summary>
-            Gets the writer, if any.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Mode">
-            <summary>
-            Returns the current serialization mode.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Boolean@)">
-            <summary>
-            Translates a boolean.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Byte@)">
-            <summary>
-            Translates a byte.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Int16@)">
-            <summary>
-            Translates a short.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.UInt16@)">
-            <summary>
-            Translates an unsigned short.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Int32@)">
-            <summary>
-            Translates an integer.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Int32[]@)">
-            <summary>
-            Translates an <see langword="int"/> array.
-            </summary>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Int64@)">
-            <summary>
-            Translates a long.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Double@)">
-            <summary>
-            Translates a double.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.String@)">
-            <summary>
-            Translates a string.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.String[]@)">
-            <summary>
-            Translates a string array.
-            </summary>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Collections.Generic.List{System.String}@)">
-            <summary>
-            Translates a list of strings
-            </summary>
-            <param name="list">The list to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Collections.Generic.HashSet{System.String}@)">
-            <inheritdoc />
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate``1(System.Collections.Generic.List{``0}@,Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates a list of T using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>
-            </summary>
-            <param name="list">The list to be translated.</param>
-            <param name="objectTranslator">The translator to use for the items in the list</param>
-            <typeparam name="T">A TaskItemType</typeparam>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate``2(System.Collections.Generic.IList{``0}@,Microsoft.Build.BackEnd.ObjectTranslator{``0},Microsoft.Build.BackEnd.NodePacketCollectionCreator{``1})">
-            <summary>
-            Translates a list of T using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>
-            </summary>
-            <param name="list">The list to be translated.</param>
-            <param name="objectTranslator">The translator to use for the items in the list</param>
-            <param name="collectionFactory">factory to create the IList</param>
-            <typeparam name="T">A TaskItemType</typeparam>
-            <typeparam name="L">IList subtype</typeparam>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate``2(System.Collections.Generic.ICollection{``0}@,Microsoft.Build.BackEnd.ObjectTranslator{``0},Microsoft.Build.BackEnd.NodePacketCollectionCreator{``1})">
-            <summary>
-            Translates a collection of T into the specified type using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/> and <see cref="T:Microsoft.Build.BackEnd.NodePacketCollectionCreator`1"/>
-            </summary>
-            <param name="collection">The collection to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the collection.</param>
-            <param name="collectionFactory">The factory to create the ICollection.</param>
-            <typeparam name="T">The type contained in the collection.</typeparam>
-            <typeparam name="L">The type of collection to be created.</typeparam>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.DateTime@)">
-            <summary>
-            Translates a DateTime.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.TimeSpan@)">
-            <summary>
-            Translates a TimeSpan.
-            </summary>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(Microsoft.Build.Framework.BuildEventContext@)">
-            <summary>
-            Translates a BuildEventContext
-            </summary>
-            <remarks>
-            This method exists only because there is no serialization method built into the BuildEventContext
-            class, and it lives in Framework and we don't want to add a public method to it.
-            </remarks>
-            <param name="value">The context to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateCulture(System.Globalization.CultureInfo@)">
-            <summary>
-            Translates a CultureInfo
-            </summary>
-            <param name="value">The CultureInfo</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateEnum``1(``0@,System.Int32)">
-            <summary>
-            Translates an enumeration.
-            </summary>
-            <typeparam name="T">The enumeration type.</typeparam>
-            <param name="value">The enumeration instance to be translated.</param>
-            <param name="numericValue">The enumeration value as an integer.</param>
-            <remarks>This is a bit ugly, but it doesn't seem like a nice method signature is possible because
-            you can't pass the enum type as a reference and constrain the generic parameter to Enum.  Nor
-            can you simply pass as ref Enum, because an enum instance doesn't match that function signature.
-            Finally, converting the enum to an int assumes that we always want to transport enums as ints.  This
-            works in all of our current cases, but certainly isn't perfectly generic.</remarks>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateDotNet``1(``0@)">
-            <summary>
-            Translates a value using the .Net binary formatter.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate``1(``0@)">
-            <summary>
-            Translates an object implementing INodePacketTranslatable.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="value">The value to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Byte[]@)">
-            <summary>
-            Translates a byte array
-            </summary>
-            <param name="byteArray">The byte array to be translated</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.Translate(System.Byte[]@,System.Int32@)">
-            <summary>
-            Translates a byte array
-            </summary>
-            <param name="byteArray">The array to be translated.</param>
-            <param name="length">The length of array which will be used in translation</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateArray``1(``0[]@)">
-            <summary>
-            Translates an array of objects implementing INodePacketTranslatable.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="array">The array to be translated.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateArray``1(``0[]@,Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates an array of objects using an <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="array">The array to be translated.</param>
-            <param name="objectTranslator">The translator to use for the elements in the array</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateDictionary(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.IEqualityComparer{System.String})">
-            <summary>
-            Translates a dictionary of { string, string }.
-            </summary>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="comparer">The comparer used to instantiate the dictionary.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateDictionary``1(System.Collections.Generic.Dictionary{System.String,``0}@,System.Collections.Generic.IEqualityComparer{System.String},Microsoft.Build.BackEnd.ObjectTranslator{``0})">
-            <summary>
-            Translates a dictionary of { string, T }.  
-            </summary>
-            <typeparam name="T">The reference type for the values, which implements INodePacketTranslatable.</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="comparer">The comparer used to instantiate the dictionary.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateDictionary``2(``0@,Microsoft.Build.BackEnd.ObjectTranslator{``1})">
-            <summary>
-            Translates a dictionary of { string, T } for dictionaries with public parameterless constructors.
-            </summary>
-            <typeparam name="D">The reference type for the dictionary.</typeparam>
-            <typeparam name="T">The reference type for values in the dictionary.</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateDictionary``2(``0@,Microsoft.Build.BackEnd.ObjectTranslator{``1},Microsoft.Build.BackEnd.NodePacketCollectionCreator{``0})">
-            <summary>
-            Translates a dictionary of { string, T } for dictionaries with public parameterless constructors.
-            </summary>
-            <typeparam name="D">The reference type for the dictionary.</typeparam>
-            <typeparam name="T">The reference type for values in the dictionary.</typeparam>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="objectTranslator">The translator to use for the values in the dictionary</param>
-            <param name="dictionaryCreator">The delegate used to instantiate the dictionary.</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateDictionary(System.Collections.Generic.Dictionary{System.String,System.DateTime}@,System.StringComparer)">
-            <summary>
-            Translates a dictionary of { string, DateTime }.
-            </summary>
-            <param name="dictionary">The dictionary to be translated.</param>
-            <param name="comparer">Key comparer</param>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.BinaryTranslator.BinaryWriteTranslator.TranslateNullable``1(``0)">
-            <summary>
-            Writes out the boolean which says if this object is null or not.
-            </summary>
-            <param name="value">The object to test.</param>
-            <typeparam name="T">The type of object to test.</typeparam>
-            <returns>True if the object should be written, false otherwise.</returns>
-        </member>
-        <member name="T:Microsoft.Build.BackEnd.TranslatorHelpers">
-            <summary>
-            This class provides helper methods to adapt from <see cref="T:Microsoft.Build.BackEnd.NodePacketValueFactory`1"/> to
-            <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Build.BackEnd.TranslatorHelpers.Translate``1(Microsoft.Build.BackEnd.ITranslator,``0@,Microsoft.Build.BackEnd.NodePacketValueFactory{``0})">
-            <summary>
-            Translates an object implementing <see cref="T:Microsoft.Build.BackEnd.ITranslatable"/> which does not expose a
-            public parameterless constructor.
-            </summary>
-            <typeparam name="T">The reference type.</typeparam>
-            <param name="translator">The translator</param>
-            <param name="instance">The value to be translated.</param>
-            <param name="valueFactory">The factory method used to instantiate values of type T.</param>
-        </member>
         <member name="T:Microsoft.Build.InterningBinaryReader">
             <summary>
             Replacement for BinaryReader which attempts to intern the strings read by ReadString.
@@ -4603,8 +3664,16 @@
             A shared buffer to avoid extra allocations in InterningBinaryReader.
             </summary>
             <remarks>
-            The caller is responsible for managing the lifetime of the returned buffer and for passing it to <see cref="M:Microsoft.Build.InterningBinaryReader.Create(System.IO.Stream,Microsoft.Build.SharedReadBuffer)"/>.
+            The caller is responsible for managing the lifetime of the returned buffer and for passing it to <see cref="M:Microsoft.Build.InterningBinaryReader.Create(System.IO.Stream,Microsoft.Build.BinaryReaderFactory)"/>.
             </remarks>
+        </member>
+        <member name="P:Microsoft.Build.InterningBinaryReader.PoolingBuffer">
+            <summary>
+            A placeholder instructing InterningBinaryReader to use pooled buffer (to avoid extra allocations).
+            </summary>
+            <remarks>
+            Lifetime of the pooled buffer is managed by InterningBinaryReader (tied to BinaryReader lifetime wrapping the buffer)
+            </remarks> 
         </member>
         <member name="M:Microsoft.Build.InterningBinaryReader.GetPooledBuffer">
             <summary>
@@ -4617,7 +3686,7 @@
             Returns our buffer to the pool if we were not passed one by the caller.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.InterningBinaryReader.Create(System.IO.Stream,Microsoft.Build.SharedReadBuffer)">
+        <member name="M:Microsoft.Build.InterningBinaryReader.Create(System.IO.Stream,Microsoft.Build.BinaryReaderFactory)">
             <summary>
             Create a BinaryReader. It will either be an interning reader or standard binary reader
             depending on whether the interning reader is possible given the buffer and stream.
@@ -4643,10 +3712,21 @@
             The byte buffer.
             </summary>
         </member>
-        <member name="T:Microsoft.Build.SharedReadBuffer">
+        <member name="T:Microsoft.Build.BackEnd.TranslatorHelpers">
             <summary>
-            Opaque holder of shared buffer.
+            This class provides helper methods to adapt from <see cref="T:Microsoft.Build.BackEnd.NodePacketValueFactory`1"/> to
+            <see cref="T:Microsoft.Build.BackEnd.ObjectTranslator`1"/>.
             </summary>
+        </member>
+        <member name="M:Microsoft.Build.BackEnd.TranslatorHelpers.Translate``1(Microsoft.Build.BackEnd.ITranslator,``0@,Microsoft.Build.BackEnd.NodePacketValueFactory{``0})">
+            <summary>
+            Translates an object implementing <see cref="T:Microsoft.Build.BackEnd.ITranslatable"/> which does not expose a
+            public parameterless constructor.
+            </summary>
+            <typeparam name="T">The reference type.</typeparam>
+            <param name="translator">The translator</param>
+            <param name="instance">The value to be translated.</param>
+            <param name="valueFactory">The factory method used to instantiate values of type T.</param>
         </member>
         <member name="F:Microsoft.Build.Tasks.AssemblyFoldersFromConfig.AssemblyFoldersFromConfig._directoryNames">
             <summary>
@@ -4766,22 +3846,8 @@
             Initialize this class if it hasn't been initialized yet.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.AssemblyFoldersFromConfig.AssemblyFoldersFromConfigResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
-            <summary>
-            Resolve a reference to a specific file name.
-            </summary>
-            <param name="assemblyName">The assemblyname of the reference.</param>
-            <param name="sdkName">Not used by this type.</param>
-            <param name="rawFileNameCandidate">Not used by this type.</param>
-            <param name="isPrimaryProjectReference">Whether or not this reference was directly from the project file (and therefore not a dependency)</param>
-            <param name="wantSpecificVersion">Whether an exact version match is requested.</param>
-            <param name="executableExtensions">Allowed executable extensions.</param>
-            <param name="hintPath">Not used by this type.</param>
-            <param name="assemblyFolderKey">Not used by this type.</param>
-            <param name="assembliesConsideredAndRejected">Receives the list of locations that this function tried to find the assembly. May be "null".</param>
-            <param name="foundPath">The path where the file was found.</param>
-            <param name="userRequestedSpecificFile">Whether or not the user wanted a specific file (for example, HintPath is a request for a specific file)</param>
-            <returns>True if the file was resolved.</returns>
+        <member name="M:Microsoft.Build.Tasks.AssemblyFoldersFromConfig.AssemblyFoldersFromConfigResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+            <inheritdoc/>
         </member>
         <member name="T:Microsoft.Build.Tasks.AssemblyDependency.AssemblyMetadata">
             <summary>
@@ -4932,7 +3998,7 @@
             <summary>
             Read the .config from a file.
             </summary>
-            <param name="appConfigFile"></param>
+            <param name="appConfigFilePath"></param>
         </member>
         <member name="M:Microsoft.Build.Tasks.AppConfig.Read(System.Xml.XmlReader)">
             <summary>
@@ -5065,22 +4131,8 @@
             <param name="getRuntimeVersion">Delegate that returns the clr runtime version for the file.</param>
             <param name="targetedRuntimeVesion">The targeted runtime version.</param>
         </member>
-        <member name="M:Microsoft.Build.Tasks.AssemblyFoldersResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
-            <summary>
-            Resolve a reference to a specific file name.
-            </summary>
-            <param name="assemblyName">The assemblyname of the reference.</param>
-            <param name="sdkName">The sdk name of the reference.</param>
-            <param name="rawFileNameCandidate">The reference's 'include' treated as a raw file name.</param>
-            <param name="isPrimaryProjectReference">Whether or not this reference was directly from the project file (and therefore not a dependency)</param>
-            <param name="wantSpecificVersion">Whether an exact version match is requested.</param>
-            <param name="executableExtensions">Allowed executable extensions.</param>
-            <param name="hintPath">The item's hintpath value.</param>
-            <param name="assemblyFolderKey">Like "hklm\Vendor RegKey" as provided to a reference by the &lt;AssemblyFolderKey&gt; on the reference in the project.</param>
-            <param name="assembliesConsideredAndRejected">Receives the list of locations that this function tried to find the assembly. May be "null".</param>
-            <param name="foundPath">The path where the file was found.</param>
-            <param name="userRequestedSpecificFile">Whether or not the user wanted a specific file (for example, HintPath is a request for a specific file)</param>
-            <returns>True if the file was resolved.</returns>
+        <member name="M:Microsoft.Build.Tasks.AssemblyFoldersResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+            <inheritdoc/>
         </member>
         <member name="T:Microsoft.Build.Tasks.AssemblyInformation">
             <summary>
@@ -5175,10 +4227,17 @@
         </member>
         <member name="M:Microsoft.Build.Tasks.ManagedRuntimeVersionReader.GetRuntimeVersion(System.String)">
             <summary>
-            Given a path get the CLR runtime version of the file
+            Given a path get the CLR runtime version of the file.
             </summary>
             <param name="path">path to the file</param>
             <returns>The CLR runtime version or empty if the path does not exist or the file is not an assembly.</returns>
+        </member>
+        <member name="M:Microsoft.Build.Tasks.ManagedRuntimeVersionReader.GetRuntimeVersion(System.IO.BinaryReader)">
+            <summary>
+            Given a <see cref="T:System.IO.BinaryReader"/> get the CLR runtime version of the underlying file.
+            </summary>
+            <param name="sr">A <see cref="T:System.IO.BinaryReader"/> positioned at the first byte of the file.</param>
+            <returns>The CLR runtime version or empty if the data does not represent an assembly.</returns>
         </member>
         <member name="T:Microsoft.Build.Tasks.AssemblyNameReference">
             <summary>
@@ -5229,7 +4288,7 @@
              
              </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.AssemblyResolution.ResolveReference(System.Collections.Generic.IEnumerable{Microsoft.Build.Tasks.Resolver[]},Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+        <member name="M:Microsoft.Build.Tasks.AssemblyResolution.ResolveReference(System.Collections.Generic.IEnumerable{Microsoft.Build.Tasks.Resolver[]},Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
             <summary>
             Implementation guts for ResolveReference.
             </summary>
@@ -5238,6 +4297,7 @@
             <param name="sdkName"></param>
             <param name="rawFileNameCandidate">The file name to match if {RawFileName} is seen. (May be null).</param>
             <param name="isPrimaryProjectReference">True if this is a primary reference directly from the project file.</param>
+            <param name="isImmutableFrameworkReference">True if <paramref name="rawFileNameCandidate"/> is immutable and guaranteed to exist.</param>
             <param name="wantSpecificVersion"></param>
             <param name="executableExtensions">The filename extension of the assembly. Must be this or its no match.</param>
             <param name="hintPath">This reference's hintpath</param>
@@ -5331,6 +4391,11 @@
             Construct
             </summary>
         </member>
+        <member name="P:Microsoft.Build.Tasks.BadImageReferenceException.Message">
+            <summary>
+            Gets a message that describes the exception.
+            </summary>
+        </member>
         <member name="T:Microsoft.Build.Tasks.CandidateAssemblyFilesResolver">
             <summary>
             Resolve searchpath type {CandidateAssemblyFiles}
@@ -5352,22 +4417,8 @@
             <param name="getRuntimeVersion">Delegate that returns the clr runtime version for the file.</param>
             <param name="targetedRuntimeVesion">The targeted runtime version.</param>
         </member>
-        <member name="M:Microsoft.Build.Tasks.CandidateAssemblyFilesResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
-            <summary>
-            Resolve a reference to a specific file name.
-            </summary>
-            <param name="assemblyName">The assemblyname of the reference.</param>
-            <param name="sdkName"></param>
-            <param name="rawFileNameCandidate">The reference's 'include' treated as a raw file name.</param>
-            <param name="isPrimaryProjectReference">Whether or not this reference was directly from the project file (and therefore not a dependency)</param>
-            <param name="wantSpecificVersion">Whether an exact version match is requested.</param>
-            <param name="executableExtensions">Allowed executable extensions.</param>
-            <param name="hintPath">The item's hintpath value.</param>
-            <param name="assemblyFolderKey">Like "hklm\Vendor RegKey" as provided to a reference by the &lt;AssemblyFolderKey&gt; on the reference in the project.</param>
-            <param name="assembliesConsideredAndRejected">Receives the list of locations that this function tried to find the assembly. May be "null".</param>
-            <param name="foundPath">The path where the file was found.</param>
-            <param name="userRequestedSpecificFile">Whether or not the user wanted a specific file (for example, HintPath is a request for a specific file)</param>
-            <returns>True if the file was resolved.</returns>
+        <member name="M:Microsoft.Build.Tasks.CandidateAssemblyFilesResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+            <inheritdoc/>
         </member>
         <member name="T:Microsoft.Build.Tasks.ConflictLossReason">
             <summary>
@@ -5467,6 +4518,11 @@
             The property copyLocalDependenciesWhenParentReferenceInGac is set to false and all the parent source items were found in the GAC.
             </summary>
         </member>
+        <member name="F:Microsoft.Build.Tasks.CopyLocalState.NoBecauseBadImage">
+            <summary>
+            The "assembly" should not be copied because it is a bad image—possibly not managed, possibly not an assembly at all.
+            </summary>
+        </member>
         <member name="T:Microsoft.Build.Tasks.CopyLocalStateUtility">
             <remarks>
             Helper methods for dealing with CopyLocalState enumeration.
@@ -5502,22 +4558,8 @@
             Construct.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.DirectoryResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
-            <summary>
-            Resolve a reference to a specific file name.
-            </summary>
-            <param name="assemblyName">The assemblyname of the reference.</param>
-            <param name="sdkName"></param>
-            <param name="rawFileNameCandidate">The reference's 'include' treated as a raw file name.</param>
-            <param name="isPrimaryProjectReference">Whether or not this reference was directly from the project file (and therefore not a dependency)</param>
-            <param name="wantSpecificVersion">Whether an exact version match is requested.</param>
-            <param name="executableExtensions">Allowed executable extensions.</param>
-            <param name="hintPath">The item's hintpath value.</param>
-            <param name="assemblyFolderKey">Like "hklm\Vendor RegKey" as provided to a reference by the &lt;AssemblyFolderKey&gt; on the reference in the project.</param>
-            <param name="assembliesConsideredAndRejected">Receives the list of locations that this function tried to find the assembly. May be "null".</param>
-            <param name="foundPath">The path where the file was found.</param>
-            <param name="userRequestedSpecificFile">Whether or not the user wanted a specific file (for example, HintPath is a request for a specific file)</param>
-            <returns>True if the file was resolved.</returns>
+        <member name="M:Microsoft.Build.Tasks.DirectoryResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+            <inheritdoc/>
         </member>
         <member name="T:Microsoft.Build.Tasks.FrameworkPathResolver">
             <summary>
@@ -5529,22 +4571,8 @@
             Construct.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.FrameworkPathResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
-            <summary>
-            Resolve a reference to a specific file name.
-            </summary>
-            <param name="assemblyName">The assemblyname of the reference.</param>
-            <param name="sdkName"></param>
-            <param name="rawFileNameCandidate">The reference's 'include' treated as a raw file name.</param>
-            <param name="isPrimaryProjectReference">Whether or not this reference was directly from the project file (and therefore not a dependency)</param>
-            <param name="wantSpecificVersion">Whether an exact version match is requested.</param>
-            <param name="executableExtensions">Allowed executable extensions.</param>
-            <param name="hintPath">The item's hintpath value.</param>
-            <param name="assemblyFolderKey">Like "hklm\Vendor RegKey" as provided to a reference by the &lt;AssemblyFolderKey&gt; on the reference in the project.</param>
-            <param name="assembliesConsideredAndRejected">Receives the list of locations that this function tried to find the assembly. May be "null".</param>
-            <param name="foundPath">The path where the file was found.</param>
-            <param name="userRequestedSpecificFile">Whether or not the user wanted a specific file (for example, HintPath is a request for a specific file)</param>
-            <returns>True if the file was resolved.</returns>
+        <member name="M:Microsoft.Build.Tasks.FrameworkPathResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+            <inheritdoc/>
         </member>
         <member name="M:Microsoft.Build.Tasks.FrameworkPathResolver.GetHighestVersionInRedist(Microsoft.Build.Tasks.InstalledAssemblies,Microsoft.Build.Shared.AssemblyNameExtension)">
             <summary>
@@ -5621,22 +4649,8 @@
             Construct.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.HintPathResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
-            <summary>
-            Resolve a reference to a specific file name.
-            </summary>
-            <param name="assemblyName">The assemblyname of the reference.</param>
-            <param name="sdkName"></param>
-            <param name="rawFileNameCandidate">The reference's 'include' treated as a raw file name.</param>
-            <param name="isPrimaryProjectReference">Whether or not this reference was directly from the project file (and therefore not a dependency)</param>
-            <param name="wantSpecificVersion">Whether an exact version match is requested.</param>
-            <param name="executableExtensions">Allowed executable extensions.</param>
-            <param name="hintPath">The item's hintpath value.</param>
-            <param name="assemblyFolderKey">Like "hklm\Vendor RegKey" as provided to a reference by the &lt;AssemblyFolderKey&gt; on the reference in the project.</param>
-            <param name="assembliesConsideredAndRejected">Receives the list of locations that this function tried to find the assembly. May be "null".</param>
-            <param name="foundPath">The path where the file was found.</param>
-            <param name="userRequestedSpecificFile">Whether or not the user wanted a specific file (for example, HintPath is a request for a specific file)</param>
-            <returns>True if the file was resolved.</returns>
+        <member name="M:Microsoft.Build.Tasks.HintPathResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+            <inheritdoc/>
         </member>
         <member name="T:Microsoft.Build.Tasks.InstalledAssemblies">
             <summary>
@@ -5754,22 +4768,8 @@
             Construct.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.RawFilenameResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
-            <summary>
-            Resolve a reference to a specific file name.
-            </summary>
-            <param name="assemblyName">The assemblyname of the reference.</param>
-            <param name="sdkName"></param>
-            <param name="rawFileNameCandidate">The reference's 'include' treated as a raw file name.</param>
-            <param name="isPrimaryProjectReference">Whether or not this reference was directly from the project file (and therefore not a dependency)</param>
-            <param name="wantSpecificVersion">Whether an exact version match is requested.</param>
-            <param name="executableExtensions">Allowed executable extensions.</param>
-            <param name="hintPath">The item's hintpath value.</param>
-            <param name="assemblyFolderKey">Like "hklm\Vendor RegKey" as provided to a reference by the &lt;AssemblyFolderKey&gt; on the reference in the project.</param>
-            <param name="assembliesConsideredAndRejected">Receives the list of locations that this function tried to find the assembly. May be "null".</param>
-            <param name="foundPath">The path where the file was found.</param>
-            <param name="userRequestedSpecificFile">Whether or not the user wanted a specific file (for example, HintPath is a request for a specific file)</param>
-            <returns>True if the file was resolved.</returns>
+        <member name="M:Microsoft.Build.Tasks.RawFilenameResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+            <inheritdoc/>
         </member>
         <member name="T:Microsoft.Build.Tasks.Reference">
             <summary>
@@ -5927,12 +4927,12 @@
         </member>
         <member name="M:Microsoft.Build.Tasks.Reference.RemoveDependee(Microsoft.Build.Tasks.Reference)">
             <summary>
-            A dependee may be removed because it or its dependee's are in the black list
+            A dependee may be removed because it or its dependee's are in the deny list
             </summary>
         </member>
         <member name="M:Microsoft.Build.Tasks.Reference.RemoveDependency(Microsoft.Build.Tasks.Reference)">
             <summary>
-            A dependency may be removed because it may not be referenced any more due this reference being in the black list or being removed due to it depending on something in the black list
+            A dependency may be removed because it may not be referenced any more due this reference being in the deny list or being removed due to it depending on something in the deny list
             </summary>
         </member>
         <member name="M:Microsoft.Build.Tasks.Reference.GetDependees">
@@ -6315,7 +5315,7 @@
         <member name="T:Microsoft.Build.Tasks.Reference.ExclusionListProperties">
             <summary>
             There are a number of properties which are set when we generate exclusion lists and it is useful to have this information on the references so that
-            the correct reasons can be logged for these references being in the black list.
+            the correct reasons can be logged for these references being in the deny list.
             </summary>
         </member>
         <member name="P:Microsoft.Build.Tasks.Reference.ExclusionListProperties.IsInExclusionList">
@@ -6370,6 +5370,11 @@
         <member name="F:Microsoft.Build.Tasks.ReferenceTable._externallyResolvedPrimaryReferences">
             <summary>
             Reference simple names that were resolved by an external entity to RAR.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Tasks.ReferenceTable._externallyResolvedImmutableFiles">
+            <summary>
+            The keys are normalized full paths of primary references resolved by an external entity to RAR and considered immutable, the values are assembly names or null if not known.
             </summary>
         </member>
         <member name="F:Microsoft.Build.Tasks.ReferenceTable._remappedAssemblies">
@@ -6490,9 +5495,9 @@
         <member name="T:Microsoft.Build.Tasks.ReferenceTable.LogExclusionReason">
             <summary>
             When we exclude an assembly from resolution because it is part of out exclusion list we need to let the user know why this is.
-            There can be a number of reasons each for un-resolving a reference, these reasons are encapsulated by a different black list. We need to log a specific message
-            depending on which black list we have found the offending assembly in. This delegate allows one to tie a set of logging messages to a black list so that when we
-            discover an assembly in the black list we can log the correct message.
+            There can be a number of reasons each for un-resolving a reference, these reasons are encapsulated by a different deny list. We need to log a specific message
+            depending on which deny list we have found the offending assembly in. This delegate allows one to tie a set of logging messages to a deny list so that when we
+            discover an assembly in the deny list we can log the correct message.
             </summary>
         </member>
         <member name="M:Microsoft.Build.Tasks.ReferenceTable.#ctor(Microsoft.Build.Framework.IBuildEngine,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String[],System.String[],System.String[],Microsoft.Build.Framework.ITaskItem[],System.String[],Microsoft.Build.Tasks.InstalledAssemblies,System.Reflection.ProcessorArchitecture,Microsoft.Build.Shared.FileExists,Microsoft.Build.Shared.DirectoryExists,Microsoft.Build.Tasks.GetDirectories,Microsoft.Build.Tasks.GetAssemblyName,Microsoft.Build.Tasks.GetAssemblyMetadata,Microsoft.Build.Tasks.GetAssemblyRuntimeVersion,System.Version,System.Version,System.Runtime.Versioning.FrameworkName,Microsoft.Build.Utilities.TaskLoggingHelper,System.String[],System.Boolean,System.Boolean,Microsoft.Build.Tasks.GetAssemblyPathInGac,Microsoft.Build.Tasks.IsWinMDFile,System.Boolean,Microsoft.Build.Tasks.ReadMachineTypeFromPEHeader,Microsoft.Build.Tasks.WarnOrErrorOnTargetArchitectureMismatchBehavior,System.Boolean,System.Boolean,System.Collections.Concurrent.ConcurrentDictionary{System.String,Microsoft.Build.Tasks.AssemblyDependency.AssemblyMetadata})">
@@ -6629,6 +5634,11 @@
             Attempt to get one field out of an assembly name.
             </summary>
         </member>
+        <member name="M:Microsoft.Build.Tasks.ReferenceTable.GetAssemblyNameFromItemMetadata(Microsoft.Build.Framework.ITaskItem)">
+            <summary>
+            Tries to create an <see cref="T:Microsoft.Build.Shared.AssemblyNameExtension"/> out of a primary reference metadata.
+            </summary>
+        </member>
         <member name="M:Microsoft.Build.Tasks.ReferenceTable.SetPrimaryFileItem(Microsoft.Build.Framework.ITaskItem)">
             <summary>
             Given an item that refers to a file name, make it a primary reference.
@@ -6699,9 +5709,9 @@
         </member>
         <member name="M:Microsoft.Build.Tasks.ReferenceTable.RemoveReferencesMarkedForExclusion(System.Boolean,System.String)">
             <summary>
-            This method will remove references from the reference table which are contained in the blacklist.
-            References which are primary references but are in the black list will be placed in the invalidResolvedFiles list.
-            References which are dependency references but are in the black list will be placed in the invalidResolvedDependencyFiles list.
+            This method will remove references from the reference table which are contained in the denylist.
+            References which are primary references but are in the deny list will be placed in the invalidResolvedFiles list.
+            References which are dependency references but are in the deny list will be placed in the invalidResolvedDependencyFiles list.
             </summary>
         </member>
         <member name="M:Microsoft.Build.Tasks.ReferenceTable.AddToDependencyGraph(System.Collections.Generic.Dictionary{Microsoft.Build.Tasks.Reference,System.Collections.Generic.List{Microsoft.Build.Tasks.ReferenceTable.ReferenceAssemblyExtensionPair}},Microsoft.Build.Shared.AssemblyNameExtension,Microsoft.Build.Tasks.Reference)">
@@ -6713,12 +5723,12 @@
         </member>
         <member name="M:Microsoft.Build.Tasks.ReferenceTable.RemoveDependencyMarkedForExclusion(Microsoft.Build.Tasks.ReferenceTable.LogExclusionReason,System.Boolean,System.String,System.Collections.Generic.Dictionary{Microsoft.Build.Shared.AssemblyNameExtension,Microsoft.Build.Tasks.Reference},System.Collections.Generic.List{Microsoft.Build.Tasks.Reference},Microsoft.Build.Shared.AssemblyNameExtension,Microsoft.Build.Tasks.Reference)">
             <summary>
-            We have determined the given assembly reference is in the black list, we now need to find the primary references which caused it and make sure those are removed from the list of references.
+            We have determined the given assembly reference is in the deny list, we now need to find the primary references which caused it and make sure those are removed from the list of references.
             </summary>
         </member>
         <member name="M:Microsoft.Build.Tasks.ReferenceTable.RemovePrimaryReferenceMarkedForExclusion(Microsoft.Build.Tasks.ReferenceTable.LogExclusionReason,System.Boolean,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.Reference},Microsoft.Build.Shared.AssemblyNameExtension,Microsoft.Build.Tasks.Reference)">
             <summary>
-            A primary references has been determined to be in the black list, it needs to be removed from the list of references by not being added to the list of good references
+            A primary references has been determined to be in the deny list, it needs to be removed from the list of references by not being added to the list of good references
             and added to the list of removed references.
             </summary>
         </member>
@@ -6730,7 +5740,7 @@
         <member name="M:Microsoft.Build.Tasks.ReferenceTable.RemoveDependencies(Microsoft.Build.Tasks.Reference,System.Collections.Generic.Dictionary{Microsoft.Build.Shared.AssemblyNameExtension,Microsoft.Build.Tasks.Reference},System.Collections.Generic.Dictionary{Microsoft.Build.Tasks.Reference,System.Collections.Generic.List{Microsoft.Build.Tasks.ReferenceTable.ReferenceAssemblyExtensionPair}})">
             <summary>
             Go through the dependency graph and make sure that for a reference to remove that we get rid of all dependency assemblies which are not referenced by any other
-            assembly. The remove reference list should contain ALL primary references which should be removed because they, or one of their dependencies is in the black list.
+            assembly. The remove reference list should contain ALL primary references which should be removed because they, or one of their dependencies is in the deny list.
             </summary>
             <param name="removedReference">Reference to remove dependencies for</param>
             <param name="referenceList">Reference list which contains reference to be used in unification and returned as resolved items</param>
@@ -6941,6 +5951,21 @@
             whether or not it is excluded and why.  This method will do a number of checks in a specific order and mark the reference as being excluded or not.
             </summary>
         </member>
+        <member name="M:Microsoft.Build.Tasks.ReferenceTable.IsImmutableFile(System.String)">
+            <summary>
+            Returns true if the full path passed in <paramref name="path"/> represents a file that came from an external trusted
+            entity and is guaranteed to be immutable.
+            </summary>
+            <param name="path">The path to check.</param>
+            <returns>True if known to be immutable, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Build.Tasks.ReferenceTable.GetImmutableFileAssemblyName(System.String)">
+            <summary>
+            Returns the assembly name of a file if the file came from an external trusted entity and is considered immutable.
+            </summary>
+            <param name="path">The file path.</param>
+            <returns>Assembly name or null if not known.</returns>
+        </member>
         <member name="T:Microsoft.Build.Tasks.ResolutionSearchLocation">
             <summary>
             A place the resolver tried to look for an assembly along with some information
@@ -7012,7 +6037,7 @@
             Construct.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.Resolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+        <member name="M:Microsoft.Build.Tasks.Resolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
             <summary>
             Resolve a reference to a specific file name.
             </summary>
@@ -7020,6 +6045,7 @@
             <param name="sdkName">The name of the sdk to resolve.</param>
             <param name="rawFileNameCandidate">The reference's 'include' treated as a raw file name.</param>
             <param name="isPrimaryProjectReference">Whether or not this reference was directly from the project file (and therefore not a dependency)</param>
+            <param name="isImmutableFrameworkReference">True if <paramref name="rawFileNameCandidate"/> is guaranteed to exist on disk and never change.</param>
             <param name="wantSpecificVersion">Whether an exact version match is requested.</param>
             <param name="executableExtensions">Allowed executable extensions.</param>
             <param name="hintPath">The item's hintpath value.</param>
@@ -7078,6 +6104,11 @@
         <member name="F:Microsoft.Build.Tasks.ResolveAssemblyReference.NETStandardAssemblyName">
             <summary>
             additional key assembly used to trigger inclusion of facade references.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Tasks.ResolveAssemblyReference.DotNetAssemblyRuntimeVersion">
+            <summary>
+            The well-known CLR 4.0 metadata version used in all managed assemblies.
             </summary>
         </member>
         <member name="T:Microsoft.Build.Tasks.ResolveAssemblyReference.GetListPath">
@@ -10253,7 +9284,7 @@
              Comment and logic from https://github.com/dotnet/winforms/blob/16b192389b377c647ab3d280130781ab1a9d3385/src/System.Windows.Forms/src/System/Resources/ResXDataNode.cs#L411-L416
              </remarks>
         </member>
-        <member name="M:Microsoft.Build.Tasks.ResourceHandling.MSBuildResXReader.GetResourcesFromFile(System.String,System.Boolean)">
+        <member name="M:Microsoft.Build.Tasks.ResourceHandling.MSBuildResXReader.GetResourcesFromFile(System.String,System.Boolean,Microsoft.Build.Utilities.TaskLoggingHelper,System.Boolean)">
             <summary>
             Extract <see cref="T:Microsoft.Build.Tasks.ResourceHandling.IResource"/>s from a given file on disk.
             </summary>
@@ -10665,6 +9696,11 @@
             The name of the file.
             </summary>
         </member>
+        <member name="F:Microsoft.Build.Tasks.FileState.FileNameFullPath">
+            <summary>
+            Holds the full path equivalent of _filename
+            </summary>
+        </member>
         <member name="F:Microsoft.Build.Tasks.FileState._data">
             <summary>
             Actual file or directory information
@@ -10899,7 +9935,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.Build.Tasks.Copy.PathsAreIdentical(System.String,System.String)">
+        <member name="M:Microsoft.Build.Tasks.Copy.PathsAreIdentical(Microsoft.Build.Tasks.FileState,Microsoft.Build.Tasks.FileState)">
             <summary>
             Compares two paths to see if they refer to the same file. We can't solve the general
             canonicalization problem, so we just compare strings on the full paths.
@@ -11327,6 +10363,28 @@
             <summary>
             When true, errors will be logged as warnings.
             </summary>
+        </member>
+        <member name="P:Microsoft.Build.Tasks.Delete.RetryDelayMilliseconds">
+            <summary>
+            Gets or sets the delay, in milliseconds, between any necessary retries.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Build.Tasks.Delete.Retries">
+            <summary>
+            Gets or sets the number of times to attempt to copy, if all previous attempts failed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Build.Tasks.Delete.FailIfNotIncremental">
+            <summary>
+            Set question parameter to verify if this is incremental.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:Microsoft.Build.Tasks.Delete.ValidateInputs">
+            <summary>
+            Verify that the inputs are correct.
+            </summary>
+            <returns>False on an error, implying that the overall delete operation should be aborted.</returns>
         </member>
         <member name="M:Microsoft.Build.Tasks.Delete.Cancel">
             <summary>
@@ -11880,10 +10938,8 @@
             Construct.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.InstalledSDKResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
-            <summary>
-            Resolve references which are found in a specific SDK
-            </summary>
+        <member name="M:Microsoft.Build.Tasks.InstalledSDKResolver.Resolve(Microsoft.Build.Shared.AssemblyNameExtension,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[],System.String,System.String,System.Collections.Generic.List{Microsoft.Build.Tasks.ResolutionSearchLocation},System.String@,System.Boolean@)">
+            <inheritdoc/>
         </member>
         <member name="T:Microsoft.Build.Tasks.ErrorFromResources">
             <summary>
@@ -11990,6 +11046,12 @@
             what the task would have written. If identical, the file is not written to disk and the
             timestamp will be preserved.
             </summary>
+        </member>
+        <member name="P:Microsoft.Build.Tasks.WriteLinesToFile.FailIfNotIncremental">
+            <summary>
+            Question whether this task is incremental.
+            </summary>
+            <remarks>When question is true, then this task would not write to disk.  If CanBeIncremental is true, then error out.</remarks>
         </member>
         <member name="M:Microsoft.Build.Tasks.WriteLinesToFile.Execute">
             <summary>
@@ -12384,14 +11446,6 @@
             If any do not exist, returns DateTime.MaxValue so that resource generation produces a nice error.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.GenerateResource.DetermineWhetherSerializedObjectLoads(System.String)">
-            <summary>
-            Deserializes a base64 block from a resx in order to figure out if its type is in the GAC.
-            Because we're not providing any assembly resolution callback, deserialization
-            will attempt to load the object's type using fusion rules, which essentially means
-            the GAC. So, if the object is null, it's definitely not in the GAC.
-            </summary>
-        </member>
         <member name="F:Microsoft.Build.Tasks.GenerateResource.s_specialChars">
             <summary>
             Chars that should be ignored in the nicely justified block of base64
@@ -12543,7 +11597,7 @@
             directory to resolve relative file paths.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.ProcessResourceFiles.Run(Microsoft.Build.Utilities.TaskLoggingHelper,Microsoft.Build.Framework.ITaskItem[],System.Collections.Generic.List{Microsoft.Build.Framework.ITaskItem},System.Collections.Generic.List{Microsoft.Build.Framework.ITaskItem},System.Collections.Generic.List{Microsoft.Build.Framework.ITaskItem},System.Boolean,System.Boolean,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.String)">
+        <member name="M:Microsoft.Build.Tasks.ProcessResourceFiles.Run(Microsoft.Build.Utilities.TaskLoggingHelper,Microsoft.Build.Framework.ITaskItem[],System.Collections.Generic.List{Microsoft.Build.Framework.ITaskItem},System.Collections.Generic.List{Microsoft.Build.Framework.ITaskItem},System.Collections.Generic.List{Microsoft.Build.Framework.ITaskItem},System.Boolean,System.Boolean,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.String,System.Boolean)">
             <summary>
             Process all files.
             </summary>
@@ -13625,8 +12679,16 @@
         </member>
         <member name="P:Microsoft.Build.Tasks.Move.MovedFiles">
             <summary>
-            Subset that were successfully moved 
+            Subset that were successfully moved.
             </summary>
+        </member>
+        <member name="P:Microsoft.Build.Tasks.Move.FailIfNotIncremental">
+            <summary>
+            Set question parameter for Move task.
+            </summary>
+            <remarks>Move can be chained A->B->C with location C as the final location.
+            Incrementally, it is hard to question A->B if both files are gone.
+            In short, question will always return false and author should use target inputs/outputs.</remarks>
         </member>
         <member name="M:Microsoft.Build.Tasks.Move.Cancel">
             <summary>
@@ -13640,14 +12702,14 @@
         </member>
         <member name="M:Microsoft.Build.Tasks.Move.MakeWriteableIfReadOnly(System.String)">
             <summary>
-            Makes the provided file writeable if necessary
+            Makes the provided file writeable if necessary.
             </summary>
         </member>
         <member name="M:Microsoft.Build.Tasks.Move.MoveFileWithLogging(System.String,System.String)">
             <summary>
             Move one file from source to destination. Create the target directory if necessary.
             </summary>
-            <throws>IO related exceptions</throws>
+            <throws>IO related exceptions.</throws>
         </member>
         <member name="T:Microsoft.Build.Tasks.MSBuild">
             <remarks>
@@ -13656,22 +12718,27 @@
             RequestBuilder which spawned them.
             </remarks>
         </member>
-        <member name="T:Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjectsBehavior">
+        <member name="T:Microsoft.Build.Tasks.MSBuild.SkipNonExistentProjectsBehavior">
             <summary>
             Enum describing the behavior when a project doesn't exist on disk.
             </summary>
         </member>
-        <member name="F:Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjectsBehavior.Skip">
+        <member name="F:Microsoft.Build.Tasks.MSBuild.SkipNonExistentProjectsBehavior.Undefined">
+            <summary>
+            Default when unset by user.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Tasks.MSBuild.SkipNonExistentProjectsBehavior.Skip">
             <summary>
             Skip the project if there is no file on disk.
             </summary>
         </member>
-        <member name="F:Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjectsBehavior.Error">
+        <member name="F:Microsoft.Build.Tasks.MSBuild.SkipNonExistentProjectsBehavior.Error">
             <summary>
             Error if the project does not exist on disk.
             </summary>
         </member>
-        <member name="F:Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjectsBehavior.Build">
+        <member name="F:Microsoft.Build.Tasks.MSBuild.SkipNonExistentProjectsBehavior.Build">
             <summary>
             Build even if the project does not exist on disk.
             </summary>
@@ -14073,26 +13140,26 @@
             </summary>
             <returns>The list of assembly names.</returns>
         </member>
-        <member name="M:Microsoft.Build.Tasks.RedistList.GenerateBlackList(Microsoft.Build.Tasks.AssemblyTableInfo[],System.Collections.Generic.List{System.Exception},System.Collections.Generic.List{System.String})">
+        <member name="M:Microsoft.Build.Tasks.RedistList.GenerateDenyList(Microsoft.Build.Tasks.AssemblyTableInfo[],System.Collections.Generic.List{System.Exception},System.Collections.Generic.List{System.String})">
              <summary>
-             This method will take a list of AssemblyTableInfo and generate a black list by subtracting the
-             assemblies listed in the WhiteList from the RedistList.
+             This method will take a list of AssemblyTableInfo and generate a deny list by subtracting the
+             assemblies listed in the AllowList from the RedistList.
             
              1) If there are assemblies in the redist list and one or more client subset files are read in with matching names then
-                the subtraction will take place. If there were no matching redist lists read in the black list will be empty.
+                the subtraction will take place. If there were no matching redist lists read in the deny list will be empty.
             
-             2) If the subset has a matching name but there are no files inside of it then the black list will contain ALL files in the redist list.
+             2) If the subset has a matching name but there are no files inside of it then the deny list will contain ALL files in the redist list.
             
-             3) If the redist list assembly has a null or empty redist name or the subset list has a null or empty subset name they will not be used for black list generation.
+             3) If the redist list assembly has a null or empty redist name or the subset list has a null or empty subset name they will not be used for deny list generation.
             
-             When generating the blacklist, we will first see if the black list is in the appdomain wide cache
-             so that we do not regenerate one for multiple calls using the same whiteListAssemblyTableInfo.
+             When generating the denylist, we will first see if the deny list is in the appdomain wide cache
+             so that we do not regenerate one for multiple calls using the same allowListAssemblyTableInfo.
             
              </summary>
-             <param name="whiteListAssemblyTableInfo">List of paths to white list xml files</param>
-             <param name="whiteListErrors">List of white listed errors</param>
-             <param name="whiteListErrorFileNames">List of white listed error file names</param>
-             <returns>A dictionary containing the full assembly names of black listed assemblies as the key, and null as the value.
+             <param name="allowListAssemblyTableInfo">List of paths to allow list xml files</param>
+             <param name="allowListErrors">List of allow listed errors</param>
+             <param name="allowListErrorFileNames">List of allow listed error file names</param>
+             <returns>A dictionary containing the full assembly names of deny listed assemblies as the key, and null as the value.
                       If there is no assemblies in the redist list null is returned.
              </returns>
         </member>
@@ -14134,12 +13201,12 @@
         </member>
         <member name="T:Microsoft.Build.Tasks.AssemblyTableInfo">
             <summary>
-            Internal class representing a redist list or whitelist and its corresponding framework directory.
+            Internal class representing a redist list or allowlist and its corresponding framework directory.
             </summary>
         </member>
         <member name="T:Microsoft.Build.Tasks.SubsetListFinder">
             <summary>
-            Provide a mechanism to determine where the subset white lists are located by searching the target framework folders
+            Provide a mechanism to determine where the subset allow lists are located by searching the target framework folders
             for a list of provided subset list names.
             </summary>
         </member>
@@ -14184,10 +13251,7 @@
             <remarks>
             This class is a caching mechanism for the resgen task to keep track of linked
             files within processed .resx files.
-            
-            This is an on-disk serialization format, don't change field names or types or use readonly.
             </remarks>
-            Serializable should be included in all state files. It permits BinaryFormatter-based calls, including from GenerateResource, which we cannot move off BinaryFormatter.
         </member>
         <member name="F:Microsoft.Build.Tasks.ResGenDependencies.resXFiles">
             <summary>
@@ -14212,7 +13276,7 @@
              be the default!)
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.ResGenDependencies.SerializeCache(System.String,Microsoft.Build.Utilities.TaskLoggingHelper)">
+        <member name="M:Microsoft.Build.Tasks.ResGenDependencies.SerializeCache(System.String,Microsoft.Build.Utilities.TaskLoggingHelper,System.Boolean)">
             <summary>
             Writes the contents of this object out to the specified file.
             </summary>
@@ -14225,12 +13289,9 @@
         <member name="T:Microsoft.Build.Tasks.ResGenDependencies.ResXFile">
             <remarks>
             Represents a single .resx file in the dependency cache.
-            
-            This is an on-disk serialization format, don't change field names or types or use readonly.
             </remarks>
-            Serializable should be included in all state files. It permits BinaryFormatter-based calls, including from GenerateResource, which we cannot move off BinaryFormatter.
         </member>
-        <member name="M:Microsoft.Build.Tasks.ResGenDependencies.ResXFile.GetLinkedFiles(System.String,System.String,System.Boolean)">
+        <member name="M:Microsoft.Build.Tasks.ResGenDependencies.ResXFile.GetLinkedFiles(System.String,System.String,System.Boolean,Microsoft.Build.Utilities.TaskLoggingHelper,System.Boolean)">
             <summary>
             Given a .RESX file, returns all the linked files that are referenced within that .RESX.
             </summary>
@@ -14242,9 +13303,8 @@
             Represents a single assembly in the dependency cache, which may produce 
             0 to many ResW files.
             
-            This is an on-disk serialization format, don't change field names or types or use readonly.
+            Must be serializable because instances may be marshaled cross-AppDomain, see <see cref="P:Microsoft.Build.Tasks.ProcessResourceFiles.PortableLibraryCacheInfo"/>.
             </remarks>
-            Serializable should be included in all state files. It permits BinaryFormatter-based calls, including from GenerateResource, which we cannot move off BinaryFormatter.
         </member>
         <member name="P:Microsoft.Build.Tasks.ResGenDependencies.IsDirty">
             <summary>
@@ -14319,7 +13379,7 @@
             <comment>
             This task executes following steps:
               (1) Filter out Framework assemblies
-              (2) Filter out non-existant files
+              (2) Filter out non-existent files
               (3) Build list of Dependencies from built items with CopyLocal=True
               (4) Build list of Prerequisites from built items with CopyLocal=False
               (5) Build list of Satellites from built items based on TargetCulture
@@ -14438,6 +13498,11 @@
         <member name="T:Microsoft.Build.Tasks.ResolveSDKReference">
             <summary>
             Resolves an SDKReference to a full path on disk
+            </summary>
+        </member>
+        <member name="F:Microsoft.Build.Tasks.ResolveSDKReference.PlatformAliases">
+            <summary>
+            Platform aliases
             </summary>
         </member>
         <member name="F:Microsoft.Build.Tasks.ResolveSDKReference.s_sdkReferenceFormat">
@@ -14924,6 +13989,18 @@
             Keep track of messages which are status information about resolving this reference. We want to print it out in a nicer format at the end of resolution.
             </summary>
         </member>
+        <member name="T:Microsoft.Build.Tasks.RequiresFramework35SP1Assembly">
+            <summary>
+            This task determines if this project requires VS2008 SP1 assembly.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Build.Tasks.RequiresFramework35SP1Assembly.IsExcludedFileOrSP1File(Microsoft.Build.Framework.ITaskItem)">
+            <summary>
+            Is this file's IncludeHash set to false?
+            Is this file System.Data.Entity.dll?
+            Is this file Client Sentinel Assembly? 
+            </summary>
+        </member>
         <member name="F:Microsoft.Build.Tasks.RoslynCodeTaskFactory.DefaultNamespaces">
             <summary>
             A set of default namespaces to add so that user does not have to include them.  Make sure that these are covered
@@ -15338,6 +14415,18 @@
             Output of this task - which files were touched.
             </summary>
         </member>
+        <member name="P:Microsoft.Build.Tasks.Touch.Importance">
+            <summary>
+            Importance: high, normal, low (default normal)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Build.Tasks.Touch.FailIfNotIncremental">
+            <summary>
+            Question the incremental nature of this task.
+            </summary>
+            <remarks>When Question is true, skip touching the disk to avoid causing incremental issue.
+            Unless the file doesn't exists, in which case, error out.</remarks>
+        </member>
         <member name="M:Microsoft.Build.Tasks.Touch.ExecuteImpl(Microsoft.Build.Shared.FileExists,Microsoft.Build.Shared.FileCreate,Microsoft.Build.Tasks.GetAttributes,Microsoft.Build.Tasks.SetAttributes,Microsoft.Build.Tasks.SetLastAccessTime,Microsoft.Build.Tasks.SetLastWriteTime)">
             <summary>
             Implementation of the execute method.
@@ -15531,6 +14620,11 @@
             The XSLT input as string.
             </summary>
         </member>
+        <member name="P:Microsoft.Build.Tasks.XslTransformation.PreserveWhitespace">
+            <summary>
+            Flag to preserve whitespaces in the XSLT file.
+            </summary>
+        </member>
         <member name="P:Microsoft.Build.Tasks.XslTransformation.XslCompiledDllPath">
             <summary>
             The XSLT input as compiled dll.
@@ -15630,12 +14724,17 @@
             or the path to compiled XSLT dll.
             </summary>
         </member>
+        <member name="F:Microsoft.Build.Tasks.XslTransformation.XsltInput._preserveWhitespace">
+            <summary>
+            Flag to preserve whitespaces in the XSLT file.
+            </summary>
+        </member>
         <member name="F:Microsoft.Build.Tasks.XslTransformation.XsltInput._log">
             <summary>
             Tool for logging build messages, warnings, and errors
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.XslTransformation.XsltInput.#ctor(Microsoft.Build.Framework.ITaskItem,System.String,Microsoft.Build.Framework.ITaskItem,Microsoft.Build.Utilities.TaskLoggingHelper)">
+        <member name="M:Microsoft.Build.Tasks.XslTransformation.XsltInput.#ctor(Microsoft.Build.Framework.ITaskItem,System.String,Microsoft.Build.Framework.ITaskItem,Microsoft.Build.Utilities.TaskLoggingHelper,System.Boolean)">
             <summary>
             Constructer.
             Only one parameter should be non null or will throw ArgumentException.
@@ -15644,6 +14743,7 @@
             <param name="xslt">The raw to XSLT or null.</param>
             <param name="xsltCompiledDll">The path to compiled XSLT file or null.</param>
             <param name="logTool">Log helper.</param>
+            <param name="preserveWhitespace">Flag for xslt whitespace option.</param>
         </member>
         <member name="T:Microsoft.Build.Tasks.XslTransformation.XsltInput.XslModes">
             <summary>
@@ -15766,11 +14866,11 @@
             The culture will only be stripped if it is a valid culture identifier.
             So for example,
             
-                 MyCrazyFile.XX.txt
+                 MyDifferentFile.XX.txt
             
             will result in exactly the same file name:
             
-                 MyCrazyFile.XX.txt
+                 MyDifferentFile.XX.txt
             
             because 'XX' is not a valid culture identifier.
             </summary>
@@ -15854,7 +14954,7 @@
             The path to the file that was generated.
             If this is set, and a file name, the destination folder will be prepended.
             If this is set, and is rooted, the destination folder will be ignored.
-            If this is not set, the destination folder will be used, an arbitrary file name will be used, and 
+            If this is not set, the destination folder will be used, an arbitrary file name will be used, and
             the default extension for the language selected.
             </summary>
         </member>
@@ -16038,11 +15138,6 @@
             The XPath Query.
             </summary>
         </member>
-        <member name="F:Microsoft.Build.Tasks.XmlPoke._value">
-            <summary>
-            The property that this task will set.
-            </summary>
-        </member>
         <member name="P:Microsoft.Build.Tasks.XmlPoke.XmlInputPath">
             <summary>
             The XML input as file path.
@@ -16056,7 +15151,7 @@
         <member name="P:Microsoft.Build.Tasks.XmlPoke.Value">
             <summary>
             The value to be inserted into the specified location.
-            </summary>
+            </summary>        
         </member>
         <member name="P:Microsoft.Build.Tasks.XmlPoke.Namespaces">
             <summary>
@@ -16094,14 +15189,18 @@
             <remarks>
             Base class for task state files.
             </remarks>
-            Serializable should be included in all state files. It permits BinaryFormatter-based calls, including from GenerateResource, which we cannot move off BinaryFormatter.
         </member>
-        <member name="M:Microsoft.Build.Tasks.StateFileBase.SerializeCache(System.String,Microsoft.Build.Utilities.TaskLoggingHelper)">
+        <member name="P:Microsoft.Build.Tasks.StateFileBase.HasStateToSave">
+            <summary>
+            True if <see cref="M:Microsoft.Build.Tasks.StateFileBase.SerializeCache(System.String,Microsoft.Build.Utilities.TaskLoggingHelper,System.Boolean)"/> should create the state file and serialize ourselves, false otherwise.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Build.Tasks.StateFileBase.SerializeCache(System.String,Microsoft.Build.Utilities.TaskLoggingHelper,System.Boolean)">
             <summary>
             Writes the contents of this object out to the specified file.
             </summary>
         </member>
-        <member name="M:Microsoft.Build.Tasks.StateFileBase.DeserializeCache(System.String,Microsoft.Build.Utilities.TaskLoggingHelper,System.Type)">
+        <member name="M:Microsoft.Build.Tasks.StateFileBase.DeserializeCache``1(System.String,Microsoft.Build.Utilities.TaskLoggingHelper)">
             <summary>
             Reads the specified file from disk into a StateFileBase derived object.
             </summary>
@@ -16117,7 +15216,6 @@
             <summary>
             Class is used to cache system state.
             </summary>
-            Serializable should be included in all state files. It permits BinaryFormatter-based calls, including from GenerateResource, which we cannot move off BinaryFormatter.
         </member>
         <member name="F:Microsoft.Build.Tasks.SystemState.upToDateLocalFileStateCache">
             <summary>
@@ -16127,7 +15225,18 @@
         </member>
         <member name="F:Microsoft.Build.Tasks.SystemState.instanceLocalFileStateCache">
             <summary>
-            Cache at the SystemState instance level. It is serialized and reused between instances.
+            Cache at the SystemState instance level.
+            </summary>
+            <remarks>
+            Before starting execution, RAR attempts to populate this field by deserializing a per-project cache file. During execution,
+            <see cref="T:Microsoft.Build.Tasks.SystemState.FileState"/> objects that get actually used are inserted into <see cref="F:Microsoft.Build.Tasks.SystemState.instanceLocalOutgoingFileStateCache"/>.
+            After execution, <see cref="F:Microsoft.Build.Tasks.SystemState.instanceLocalOutgoingFileStateCache"/> is serialized and written to disk if it's different from
+            what we originally deserialized into this field.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.Build.Tasks.SystemState.instanceLocalOutgoingFileStateCache">
+            <summary>
+            Cache at the SystemState instance level. It is serialized to disk and reused between instances via <see cref="F:Microsoft.Build.Tasks.SystemState.instanceLocalFileStateCache"/>.
             </summary>
         </member>
         <member name="F:Microsoft.Build.Tasks.SystemState.instanceLocalLastModifiedCache">
@@ -16269,6 +15378,16 @@
             Get or set the framework name the file was built against
             </summary>
         </member>
+        <member name="P:Microsoft.Build.Tasks.SystemState.FileState.ImmutableFileLastModifiedMarker">
+            <summary>
+            The last-modified value to use for immutable framework files which we don't do I/O on.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Build.Tasks.SystemState.FileState.IsWorthPersisting">
+            <summary>
+            It is wasteful to persist entries for immutable framework files.
+            </summary>
+        </member>
         <member name="M:Microsoft.Build.Tasks.SystemState.#ctor">
             <summary>
             Construct.
@@ -16288,9 +15407,12 @@
             Used for serialization and deserialization of this class persistent cache.
             </summary>
         </member>
+        <member name="P:Microsoft.Build.Tasks.SystemState.HasStateToSave">
+            <inheritdoc />
+        </member>
         <member name="P:Microsoft.Build.Tasks.SystemState.IsDirty">
             <summary>
-            Flag that indicates
+            Flag that indicates that <see cref="F:Microsoft.Build.Tasks.SystemState.instanceLocalFileStateCache"/> has been modified.
             </summary>
             <value></value>
         </member>
@@ -16397,11 +15519,12 @@
             <returns>True if the directory exists.</returns>
         </member>
         <member name="T:Microsoft.Build.Tasks.DependencyFile">
-            <remarks>
-            Represents a single input to a compilation-style task.
-            Keeps track of timestamp for later comparison.
-            </remarks>
-            Serializable should be included in all state files. It permits BinaryFormatter-based calls, including from GenerateResource, which we cannot move off BinaryFormatter.
+             <remarks>
+             Represents a single input to a compilation-style task.
+             Keeps track of timestamp for later comparison.
+            
+             Must be serializable because instances may be marshaled cross-AppDomain, see <see cref="P:Microsoft.Build.Tasks.ProcessResourceFiles.PortableLibraryCacheInfo"/>.
+             </remarks>
         </member>
         <member name="P:Microsoft.Build.Tasks.DependencyFile.FileName">
             <summary>
@@ -16444,6 +15567,12 @@
             <summary>
             Gets or sets a <see cref="T:Microsoft.Build.Framework.ITaskItem"/> containing the full path to the source directory to create a zip archive from.
             </summary>
+        </member>
+        <member name="P:Microsoft.Build.Tasks.ZipDirectory.FailIfNotIncremental">
+            <summary>
+            Question the incremental nature of this task.
+            </summary>
+            <remarks>This task does not support incremental build and will error out instead.</remarks>
         </member>
         <member name="T:Microsoft.Build.Collections.CopyOnWriteDictionary`1">
             <summary>

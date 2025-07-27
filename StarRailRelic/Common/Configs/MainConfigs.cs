@@ -10,9 +10,5 @@
         [ReloadRequired]
         [DefaultValue(false)]
         public bool SimplifiedMode;
-
-        [Header("Subworld")]
-        [DefaultValue(false)]
-        public bool CompatibilityMode;
     }
 }

@@ -10,8 +10,8 @@
 
             Item.rare = RarityType<PurpleRarity>();
 
-            Item.width = 39;
-            Item.height = 41;
+            Item.width = 26;
+            Item.height = 28;
         }
     }
 }

@@ -1,148 +1,119 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <doc>
-    <assembly>
-        <name>System.Resources.Extensions</name>
-    </assembly>
-    <members>
-        <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddResource(System.String,System.String,System.String)">
-            <summary>
-            Adds a resource of specified type represented by a string value.
-            If the type is a primitive type, the value will be converted using TypeConverter by the writer
-            to that primitive type and stored in the resources in binary format.
-            If the type is not a primitive type, the string value will be stored in the resources as a
-            string and converted with a TypeConverter for the type when reading the resource.
-            This is done to avoid activating arbitrary types during resource writing.
-            </summary>
-            <param name="name">Resource name</param>
-            <param name="value">Value of the resource in string form understood by the type's TypeConverter</param>
-            <param name="typeName">Assembly qualified type name of the resource</param>
-        </member>
-        <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddTypeConverterResource(System.String,System.Byte[],System.String)">
-            <summary>
-            Adds a resource of specified type represented by a byte[] value which will be
-            passed to the type's TypeConverter when reading the resource.
-            </summary>
-            <param name="name">Resource name</param>
-            <param name="value">Value of the resource in byte[] form understood by the type's TypeConverter</param>
-            <param name="typeName">Assembly qualified type name of the resource</param>
-        </member>
-        <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddBinaryFormattedResource(System.String,System.Byte[],System.String)">
-            <summary>
-            Adds a resource of specified type represented by a byte[] value which will be
-            passed to BinaryFormatter when reading the resource.
-            </summary>
-            <param name="name">Resource name</param>
-            <param name="value">Value of the resource in byte[] form understood by BinaryFormatter</param>
-            <param name="typeName">Assembly qualified type name of the resource</param>
-        </member>
-        <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddActivatorResource(System.String,System.IO.Stream,System.String,System.Boolean)">
-            <summary>
-            Adds a resource of specified type represented by a Stream value which will be
-            passed to the type's constructor when reading the resource.
-            </summary>
-            <param name="name">Resource name</param>
-            <param name="value">Value of the resource in Stream form understood by the types constructor</param>
-            <param name="typeName">Assembly qualified type name of the resource</param>
-            <param name="closeAfterWrite">Indicates that the stream should be closed after resources have been written</param>
-        </member>
-        <member name="T:System.Resources.Extensions.TypeNameComparer">
-            <summary>
-            Compares type names as strings, ignoring version.
-            When type names are missing, mscorlib is assumed.
-            This comparer is not meant to capture all scenarios (eg: TypeForwards)
-            but is meant to serve as a best effort, avoiding false positives, in the
-            absense of real type metadata.
-            </summary>
-        </member>
-        <member name="P:System.SR.ArgumentOutOfRange_StreamLength">
-            <summary>Stream length must be non-negative and less than 2^31 - 1 - origin.</summary>
-        </member>
-        <member name="P:System.SR.Argument_StreamNotReadable">
-            <summary>Stream was not readable</summary>
-        </member>
-        <member name="P:System.SR.Argument_StreamNotWritable">
-            <summary>Stream was not writable.</summary>
-        </member>
-        <member name="P:System.SR.Arg_ResourceFileUnsupportedVersion">
-            <summary>The ResourceReader class does not know how to read this version of .resources files. Expected version: {0}  This file: {1}</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_InvalidType">
-            <summary>Corrupt .resources file.  The specified type doesn't exist.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_NegativeStringLength">
-            <summary>Corrupt .resources file. String length must be non-negative.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResourceDataLengthInvalid">
-            <summary>Corrupt .resources file.  The specified data length '{0}' is not a valid position in the stream.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResourceNameCorrupted">
-            <summary>Corrupt .resources file. A resource name extends past the end of the stream.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResourceNameCorrupted_NameIndex">
-            <summary>Corrupt .resources file. The resource name for name index {0} extends past the end of the stream.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResourcesDataInvalidOffset">
-            <summary>Corrupt .resources file. Invalid offset '{0}' into data section.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResourcesHeaderCorrupted">
-            <summary>Corrupt .resources file. Unable to read resources from this file because of invalid header information. Try regenerating the .resources file.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResourcesIndexTooLong">
-            <summary>Corrupt .resources file. String for name index '{0}' extends past the end of the file.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResourcesNameInvalidOffset">
-            <summary>Corrupt .resources file. Invalid offset '{0}' into name section.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResourcesNameTooLong">
-            <summary>Corrupt .resources file. Resource name extends past the end of the file.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_ResType_SerBlobMismatch">
-            <summary>The type serialized in the .resources file was not the same type that the .resources file said it contained. Expected '{0}' but read '{1}'.</summary>
-        </member>
-        <member name="P:System.SR.BadImageFormat_TypeMismatch">
-            <summary>Corrupt .resources file.  The specified type doesn't match the available data in the stream.</summary>
-        </member>
-        <member name="P:System.SR.Format_Bad7BitInt32">
-            <summary>Too many bytes in what should have been a 7 bit encoded Int32.</summary>
-        </member>
-        <member name="P:System.SR.InvalidOperation_EnumEnded">
-            <summary>Enumeration already finished.</summary>
-        </member>
-        <member name="P:System.SR.InvalidOperation_EnumNotStarted">
-            <summary>Enumeration has not started. Call MoveNext.</summary>
-        </member>
-        <member name="P:System.SR.InvalidOperation_ResourceNotString_Type">
-            <summary>Resource was of type '{0}' instead of String - call GetObject instead.</summary>
-        </member>
-        <member name="P:System.SR.InvalidOperation_ResourceWriterSaved">
-            <summary>The resource writer has already been closed and cannot be edited.</summary>
-        </member>
-        <member name="P:System.SR.NotSupported_BinarySerializedResources">
-            <summary>This platform does not support binary serialized resources.</summary>
-        </member>
-        <member name="P:System.SR.NotSupported_ResourceObjectSerialization">
-            <summary>Cannot read resources that depend on serialization.</summary>
-        </member>
-        <member name="P:System.SR.NotSupported_UnseekableStream">
-            <summary>Stream does not support seeking.</summary>
-        </member>
-        <member name="P:System.SR.NotSupported_WrongResourceReader_Type">
-            <summary>This .resources file should not be read with this reader. The resource reader type is "{0}".</summary>
-        </member>
-        <member name="P:System.SR.ObjectDisposed_ResourceSet">
-            <summary>Cannot access a closed resource set.</summary>
-        </member>
-        <member name="P:System.SR.ResourceManager_ReflectionNotAllowed">
-            <summary>Use of ResourceManager for custom types is disabled. Set the MSBuild Property CustomResourceTypesSupport to true in order to enable it.</summary>
-        </member>
-        <member name="P:System.SR.ResourceReaderIsClosed">
-            <summary>ResourceReader is closed.</summary>
-        </member>
-        <member name="P:System.SR.Resources_StreamNotValid">
-            <summary>Stream is not a valid resource file.</summary>
-        </member>
-        <member name="P:System.SR.TypeLoadException_CannotLoadConverter">
-            <summary>Could not load a converter for type {0}.</summary>
-        </member>
-    </members>
+  <assembly>
+    <name>System.Resources.Extensions</name>
+  </assembly>
+  <members>
+    <member name="T:System.Resources.Extensions.DeserializingResourceReader">
+      <summary>Provides APIs similar to <see cref="T:System.Resources.ResourceReader" /> that can read and deserialize resource data written by either <see cref="T:System.Resources.ResourceWriter" /> or <see cref="T:System.Resources.Extensions.PreserializedResourceWriter" />.</summary>
+    </member>
+    <member name="M:System.Resources.Extensions.DeserializingResourceReader.#ctor(System.IO.Stream)">
+      <summary>Initializes a new instance of the <see cref="T:System.Resources.Extensions.DeserializingResourceReader" /> class that reads the specified resources stream.</summary>
+      <param name="stream">The input stream.</param>
+    </member>
+    <member name="M:System.Resources.Extensions.DeserializingResourceReader.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Resources.Extensions.DeserializingResourceReader" /> class that reads the specified named resource file.</summary>
+      <param name="fileName">The path and name of the resource file to be read.</param>
+    </member>
+    <member name="M:System.Resources.Extensions.DeserializingResourceReader.Close">
+      <summary>Releases all operating system resources associated with this <see cref="T:System.Resources.Extensions.DeserializingResourceReader" /> object.</summary>
+    </member>
+    <member name="M:System.Resources.Extensions.DeserializingResourceReader.Dispose">
+      <summary>Releases the resources used by the <see cref="T:System.Resources.Extensions.DeserializingResourceReader" />.</summary>
+    </member>
+    <member name="M:System.Resources.Extensions.DeserializingResourceReader.GetEnumerator">
+      <summary>Returns an enumerator for this <see cref="T:System.Resources.Extensions.DeserializingResourceReader" /> object.</summary>
+      <returns>An enumerator for this <see cref="T:System.Resources.Extensions.DeserializingResourceReader" /> object.</returns>
+    </member>
+    <member name="M:System.Resources.Extensions.DeserializingResourceReader.System#Collections#IEnumerable#GetEnumerator">
+      <summary>Returns an enumerator for this <see cref="T:System.Resources.Extensions.DeserializingResourceReader" /> object.</summary>
+      <returns>An enumerator for this <see cref="T:System.Resources.Extensions.DeserializingResourceReader" /> object.</returns>
+    </member>
+    <member name="T:System.Resources.Extensions.PreserializedResourceWriter">
+      <summary>Provides APIs similar to <see cref="T:System.Resources.ResourceWriter" /> that can write pre-serialized resource data.</summary>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.#ctor(System.IO.Stream)">
+      <summary>Initializes a new instance of the <see cref="T:System.Resources.Extensions.PreserializedResourceWriter" /> class that writes the resources to the provided stream.</summary>
+      <param name="stream">The output stream.</param>
+      <exception cref="T:System.ArgumentException">
+        <paramref name="stream" /> is not writable.</exception>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="stream" /> is <see langword="null" />.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Resources.Extensions.PreserializedResourceWriter" /> class that writes the resources to the specified file.</summary>
+      <param name="fileName">The output file name.</param>
+      <exception cref="T:System.ArgumentNullException">The <paramref name="fileName" /> is <see langword="null" />.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddActivatorResource(System.String,System.IO.Stream,System.String,System.Boolean)">
+      <summary>Adds a resource of the specified type represented by a <see cref="T:System.IO.Stream" /> value that is passed to the type's constructor when reading the resource.</summary>
+      <param name="name">The resource name.</param>
+      <param name="value">The value of the resource in <see cref="T:System.IO.Stream" /> form understood by the type's constructor.</param>
+      <param name="typeName">The assembly qualified type name of the resource.</param>
+      <param name="closeAfterWrite">An optional value that indicates whether, after resources have been written, the stream should be closed (<see langword="true" />) or left open (<see langword="false" />, the default value).</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="name" />, <paramref name="typeName" />, or <paramref name="value" /> is <see langword="null" />.</exception>
+      <exception cref="T:System.ArgumentException">The object's type is <see cref="T:System.IO.Stream" />, but it is unseekable.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddBinaryFormattedResource(System.String,System.Byte[],System.String)">
+      <summary>Adds a resource of the specified type, represented by a byte array, that will be passed to <see cref="T:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter" /> when reading the resource.</summary>
+      <param name="name">The resource name.</param>
+      <param name="value">A byte array containing the value of the resource in <c>Byte[]</c> form understood by <see cref="T:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter" />.</param>
+      <param name="typeName">The optional assembly qualified type name of the resource. The default value is <see langword="null" />.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="name" /> or <paramref name="value" /> is <see langword="null" />.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddResource(System.String,System.Byte[])">
+      <summary>Adds a byte array as a named resource to the list of resources to be written to a file.</summary>
+      <param name="name">The resource name.</param>
+      <param name="value">The byte array to add as a resource.</param>
+      <exception cref="T:System.ArgumentNullException">The name is <see langword="null" />.</exception>
+      <exception cref="T:System.InvalidOperationException">The resource list is <see langword="null" />.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddResource(System.String,System.IO.Stream,System.Boolean)">
+      <summary>Adds a <see cref="T:System.IO.Stream" /> as a named resource to the list of resources to be written to a file.</summary>
+      <param name="name">The resource name.</param>
+      <param name="value">The stream to add as a resource.</param>
+      <param name="closeAfterWrite">An optional value that indicates whether, after resources have been written, the stream should be closed (<see langword="true" />) or left open (<see langword="false" />, the default value).</param>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddResource(System.String,System.Object)">
+      <summary>Adds an object as a named resource to the list of resources to be written to a file.</summary>
+      <param name="name">The resource name.</param>
+      <param name="value">The object to add as a resource.</param>
+      <exception cref="T:System.ArgumentNullException">The name is <see langword="null" />.</exception>
+      <exception cref="T:System.InvalidOperationException">The resource list is <see langword="null" />.</exception>
+      <exception cref="T:System.ArgumentException">The stream is unseekable.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddResource(System.String,System.String)">
+      <summary>Adds a string as a named resource to the list of resources to be written to a file.</summary>
+      <param name="name">The resource name.</param>
+      <param name="value">The string to add as a resource.</param>
+      <exception cref="T:System.ArgumentNullException">The name is <see langword="null" />.</exception>
+      <exception cref="T:System.InvalidOperationException">The resource list is <see langword="null" />.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddResource(System.String,System.String,System.String)">
+      <summary>Adds a resource of the specified type represented by a string value.</summary>
+      <param name="name">The resource name.</param>
+      <param name="value">The value of the resource in string form understood by the type's <see cref="T:System.ComponentModel.TypeConverter" />.</param>
+      <param name="typeName">The assembly qualified type name of the resource.</param>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.AddTypeConverterResource(System.String,System.Byte[],System.String)">
+      <summary>Adds a resource of the specified type represented by a byte array that is passed to the type's <see cref="T:System.ComponentModel.TypeConverter" /> when reading the resource.</summary>
+      <param name="name">The resource name.</param>
+      <param name="value">A byte array containing the resource in a form understood by the type's <see cref="T:System.ComponentModel.TypeConverter" />.</param>
+      <param name="typeName">The assembly qualified type name of the resource.</param>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.Close">
+      <summary>Calls <see cref="M:System.Resources.Extensions.PreserializedResourceWriter.Dispose" /> to dispose the resource writer.</summary>
+      <exception cref="T:System.InvalidOperationException">The resource list is <see langword="null" />.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.Dispose">
+      <summary>Calls <see cref="M:System.Resources.Extensions.PreserializedResourceWriter.Generate" /> to write out all resources to the output stream in the system default format.</summary>
+      <exception cref="T:System.InvalidOperationException">The resource list is <see langword="null" />.</exception>
+    </member>
+    <member name="M:System.Resources.Extensions.PreserializedResourceWriter.Generate">
+      <summary>Writes all resources to the output stream.</summary>
+      <exception cref="T:System.InvalidOperationException">The resource list is <see langword="null" />.</exception>
+    </member>
+  </members>
 </doc>

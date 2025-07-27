@@ -1,5 +1,10 @@
 Keybinds.RelicButton.DisplayName: 快捷装备遗器
-Tiles.RelicStrengtheningTable.MapEntry: 遗器强化台
+
+Tiles: {
+	RelicStrengtheningTable.MapEntry: 遗器强化台
+	SimulatedUniverseTile.MapEntry: 模拟宇宙
+}
+
 ItemTextrue: "[i:StarRailRelic/{0}]"
 SubworldExit4: 已击败所有敌人，即将退出挑战
 SubworldExit3: 还有3秒...
@@ -49,3 +54,25 @@ Environment: {
 }
 
 Emotes.StelleEmote.Command: "{$Mods.StarRailRelic.NPCs.Stelle.DisplayName}"
+
+Projectiles: {
+	Melee.DisplayName: 近战
+	CorrosiveBarrage.DisplayName: 腐殖喷溅
+	EntomonEulogy.DisplayName: 蛰亡语
+	BurstingDetonation.DisplayName: 引爆扩散
+	FireBall.DisplayName: 寰宇余烬
+	Ice.DisplayName: 永霜裂晶
+	MemeProjectile.DisplayName: 迷迷
+}
+
+Buffs: {
+	ShatterDebuffI: {
+		DisplayName: 破碎I
+		Description: 防御力降低{0}%
+	}
+
+	MemeBuff: {
+		DisplayName: 迷迷
+		Description: 迷？迷！
+	}
+}

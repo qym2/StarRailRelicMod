@@ -20,6 +20,11 @@
         }
     }
 
+    public class QuantumRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Quantum;
+    }
+
     public class QuantumHead : QuantumSet
     {
         public override RelicType RelicType => RelicType.Head;

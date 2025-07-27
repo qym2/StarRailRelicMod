@@ -15,6 +15,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.Two.Sacerdos
         }
     }
 
+    public class SacerdosRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Sacerdos;
+    }
+
     public class SacerdosHead : SacerdosSet
     {
         public override RelicType RelicType => RelicType.Head;

@@ -20,6 +20,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Lightning
         }
     }
 
+    public class LightningRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Lightning;
+    }
+
     public class LightningHead : LightningSet
     {
         public override RelicType RelicType => RelicType.Head;

@@ -893,3 +893,282 @@ RelicGuide: {
 	DisplayName: Relic Guide
 	Tooltip: Used to open Relic Information List
 }
+
+HoneycorruptGrub: {
+	DisplayName: Honeycorrupt Grub
+	Tooltip: Summons Swarm:True Sting
+}
+
+RelicRemians: {
+	DisplayName: Relic Remians
+	Tooltip: ""
+}
+
+RottenStingcarapace: {
+	DisplayName: Rotten Stingcarapace
+	Tooltip: ""
+}
+
+AbyssalNestHusk: {
+	DisplayName: Abyssal Nest Husk
+	Tooltip: ""
+}
+
+SwarmgnawedCarapace: {
+	DisplayName: Swarmgnawed Carapace
+	Tooltip: ""
+}
+
+SwarmTrueStingBossBag: {
+	DisplayName: Treasure Bag (Swarm:True Sting)
+	Tooltip: ""
+}
+
+FireRelic: {
+	DisplayName: Firesmith of Lava-Forging
+	Tooltip: ""
+}
+
+BanditryRelic: {
+	DisplayName: Talia: Kingdom of Banditry
+	Tooltip: ""
+}
+
+BelobogRelic: {
+	DisplayName: Belobog of the Architects
+	Tooltip: ""
+}
+
+DifferentiatorRelic: {
+	DisplayName: Celestial Differentiator
+	Tooltip: ""
+}
+
+EnterpriseRelic: {
+	DisplayName: Pan-Cosmic Commercial Enterprise
+	Tooltip: ""
+}
+
+GlamothRelic: {
+	DisplayName: Firmament Frontline: Glamoth
+	Tooltip: ""
+}
+
+KeelRelic: {
+	DisplayName: Broken Keel
+	Tooltip: ""
+}
+
+PenaconyRelic: {
+	DisplayName: Penacony, Land of the Dreams
+	Tooltip: ""
+}
+
+RutilantRelic: {
+	DisplayName: Rutilant Arena
+	Tooltip: ""
+}
+
+SalsottoRelic: {
+	DisplayName: Inert Salsotto
+	Tooltip: ""
+}
+
+SpaceRelic: {
+	DisplayName: Space Sealing Station
+	Tooltip: ""
+}
+
+VonwacqRelic: {
+	DisplayName: Sprightly Vonwacq
+	Tooltip: ""
+}
+
+XianzhouRelic: {
+	DisplayName: Fleet of the Ageless
+	Tooltip: ""
+}
+
+BananaRelic: {
+	DisplayName: The Wondrous BananAmusement Park
+	Tooltip: ""
+}
+
+IzumoRelic: {
+	DisplayName: Izumo Gensei and Takama Divine Realm
+	Tooltip: ""
+}
+
+KalpagniRelic: {
+	DisplayName: Forge of the Kalpagni Lantern
+	Tooltip: ""
+}
+
+SigoniaRelic: {
+	DisplayName: Sigonia, the Unclaimed Desolation
+	Tooltip: ""
+}
+
+SunkenRelic: {
+	DisplayName: Lushaka, the Sunken Seas
+	Tooltip: ""
+}
+
+WolvesRelic: {
+	DisplayName: Duran, Dynasty of Running Wolves
+	Tooltip: ""
+}
+
+GuardRelic: {
+	DisplayName: Guard of Wuthering Snow
+	Tooltip: ""
+}
+
+HealingRelic: {
+	DisplayName: Passerby of Wandering Cloud
+	Tooltip: ""
+}
+
+IceRelic: {
+	DisplayName: Hunter of Glacial Forest
+	Tooltip: ""
+}
+
+ImaginaryRelic: {
+	DisplayName: Wastelander of Banditry Desert
+	Tooltip: ""
+}
+
+KnightRelic: {
+	DisplayName: Knight of Purity Palace
+	Tooltip: ""
+}
+
+LifeRelic: {
+	DisplayName: Longevous Disciple
+	Tooltip: ""
+}
+
+LightningRelic: {
+	DisplayName: Band of Sizzling Thunder
+	Tooltip: ""
+}
+
+MessengerRelic: {
+	DisplayName: Messenger Traversing Hackerspace
+	Tooltip: ""
+}
+
+MusketeerRelic: {
+	DisplayName: Musketeer of Wild Wheat
+	Tooltip: ""
+}
+
+PhysicsRelic: {
+	DisplayName: Champion of Streetwise Boxing
+	Tooltip: ""
+}
+
+QuantumRelic: {
+	DisplayName: Genius of Brilliant Stars
+	Tooltip: ""
+}
+
+ThiefRelic: {
+	DisplayName: Thief of Shooting Meteor
+	Tooltip: ""
+}
+
+WindRelic: {
+	DisplayName: Eagle of Twilight Line
+	Tooltip: ""
+}
+
+DeadWatersRelic: {
+	DisplayName: Pioneer Diver of Dead Waters
+	Tooltip: ""
+}
+
+DotRelic: {
+	DisplayName: Prisoner in Deep Confinement
+	Tooltip: ""
+}
+
+DukeRelic: {
+	DisplayName: The Ashblazing Grand Duke
+	Tooltip: ""
+}
+
+FeixiaoRelic: {
+	DisplayName: The Wind-Soaring Valorous
+	Tooltip: ""
+}
+
+IronRelic: {
+	DisplayName: Iron Cavalry Against the Scourge
+	Tooltip: ""
+}
+
+SacerdosRelic: {
+	DisplayName: Sacerdos' Relived Ordeal
+	Tooltip: ""
+}
+
+ScholarRelic: {
+	DisplayName: Scholar Lost in Erudition
+	Tooltip: ""
+}
+
+WatchRelic: {
+	DisplayName: Watchmaker, Master of Dream Machinations
+	Tooltip: ""
+}
+
+KeyOfFragmentum: {
+	DisplayName: Key of Fragmentum
+	Tooltip: ""
+}
+
+QuillOfRemembrance: {
+	DisplayName: Quill of Remembrance
+	Tooltip:
+		'''
+		Summons Meme
+		"Me? Me!"
+		'''
+}
+
+LifelessBlade: {
+	DisplayName: Lifeless Blade
+	Tooltip: ""
+}
+
+ShatteredBlade: {
+	DisplayName: Shattered Blade
+	Tooltip: 10% chance to drop when taking DMG from an enemy equal to or greater than 5% of life
+}
+
+WorldbreakerBlade: {
+	DisplayName: Worldbreaker Blade
+	Tooltip: ""
+}
+
+AncestralHymn: {
+	DisplayName: Ancestral Hymn
+	Tooltip: ""
+}
+
+HarmonicTune: {
+	DisplayName: Harmonic Tune
+	Tooltip: ""
+}
+
+StellarisSymphony: {
+	DisplayName: Stellaris Symphony
+	Tooltip: ""
+}
+
+SimulatedUniverse: {
+	DisplayName: Simulated Universe
+	Tooltip: '''"I beg you,come test"'''
+}

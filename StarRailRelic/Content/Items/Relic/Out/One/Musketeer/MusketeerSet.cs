@@ -16,6 +16,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Musketeer
         }
     }
 
+    public class MusketeerRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Musketeer;
+    }
+
     public class MusketeerHead : MusketeerSet
     {
         public override RelicType RelicType => RelicType.Head;

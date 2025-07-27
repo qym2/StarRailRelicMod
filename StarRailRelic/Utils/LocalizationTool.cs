@@ -73,6 +73,50 @@
             /// 遗器展示UI标题
             /// </summary>
             public static string RelicDisplayUITital => GetTextValue("Mods.StarRailRelic.UI.RelicDisplayUITital");
+            /// <summary>
+            /// 模拟宇宙开始按钮文字
+            /// </summary>
+            public static string SUStartButtonText => GetTextValue("Mods.StarRailRelic.UI.SUStartButtonText");
+            /// <summary>
+            /// 模拟宇宙检测图格失败提示文字
+            /// </summary>
+            public static LocalizedText SUCheckTileFiledText => GetText("Mods.StarRailRelic.UI.SUCheckTileFiledText");
+
+            /// <summary>
+            /// 模拟宇宙世界文字
+            /// </summary>
+            public static List<string> SUWorldText =>
+            [
+                GetTextValue("Mods.StarRailRelic.UI.SU.World1"),
+                GetTextValue("Mods.StarRailRelic.UI.SU.World2"),
+                GetTextValue("Mods.StarRailRelic.UI.SU.World3"),
+                GetTextValue("Mods.StarRailRelic.UI.SU.World4"),
+                GetTextValue("Mods.StarRailRelic.UI.SU.World5"),
+                GetTextValue("Mods.StarRailRelic.UI.SU.World6"),
+                GetTextValue("Mods.StarRailRelic.UI.SU.World7"),
+                GetTextValue("Mods.StarRailRelic.UI.SU.World8"),
+                GetTextValue("Mods.StarRailRelic.UI.SU.World9")
+            ];
+            /// <summary>
+            /// 模拟宇宙怪物列表文字
+            /// </summary>
+            public static string SUEnemyListText => GetTextValue("Mods.StarRailRelic.UI.SUEnemyListText");
+            /// <summary>
+            /// 模拟宇宙怪物列表标题文字
+            /// </summary>
+            public static string SUEnemyTitalText => GetTextValue("Mods.StarRailRelic.UI.SUEnemyTitalText");
+            /// <summary>
+            /// 模拟宇宙奖励标题文字
+            /// </summary>
+            public static string SURewardTitalText => GetTextValue("Mods.StarRailRelic.UI.SURewardTitalText");
+            /// <summary>
+            /// 模拟宇宙难度文字
+            /// </summary>
+            public static string SUDifficultyText => GetTextValue("Mods.StarRailRelic.UI.SUDifficultyText");
+            /// <summary>
+            /// 模拟宇宙提示文字
+            /// </summary>
+            public static string SUTipsText => GetTextValue("Mods.StarRailRelic.UI.SUTipsText");
 
             /// <summary>
             /// 主词条本地化

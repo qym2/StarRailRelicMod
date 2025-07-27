@@ -16,6 +16,11 @@ namespace StarRailRelic.Content.Items.Relic.Out.One.Healing
         }
     }
 
+    public class HealingRelic : OutRelicBag
+    {
+        public override RelicSet RelicSet => RelicSet.Healing;
+    }
+
     public class HealingHead : HealingSet
     {
         public override RelicType RelicType => RelicType.Head;

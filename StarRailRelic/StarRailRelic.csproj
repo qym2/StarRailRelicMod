@@ -36,6 +36,7 @@
 	  </Reference>
 	</ItemGroup>
 	<ItemGroup>
+	  <Folder Include="Assets\Structures\" />
 	  <Folder Include="Common\Projectiles\" />
 	  <Folder Include="Localization\Configs\" />
 	</ItemGroup>

@@ -4,13 +4,13 @@
     {
         public HashSet<PlayerEnvironment> Environments = [];
 
-        public Dictionary<RelicSet, bool> EnvironmentConditionListOut = [];
+        /*public Dictionary<RelicSet, bool> EnvironmentConditionListOut = [];
         public Dictionary<RelicSet, bool> EnvironmentConditionListIn = [];
 
         public RelicSet? ObtainableRelicsKeyOut { get; private set; }
         public RelicSet? ObtainableRelicsKeyIn { get; private set; }
 
-        public bool isOutRelic;
+        public bool isOutRelic;*/
 
         public override void UpdateEquips()
         {
@@ -55,11 +55,24 @@
             UpdateEnvironment(PlayerEnvironment.WaterCandle, Player.ZoneWaterCandle);
             #endregion
 
-            UpdateOutRelicCondition();
-            UpdateInRelicCondition();
-            FindFirstTrueKey();
+            //UpdateOutRelicCondition();
+            //UpdateInRelicCondition();
+            //FindFirstTrueKey();
         }
 
+        private void UpdateEnvironment(PlayerEnvironment environment, bool condition)
+        {
+            if (condition)
+            {
+                Environments?.Add(environment);
+            }
+            else
+            {
+                Environments?.Remove(environment);
+            }
+        }
+
+        /*
         private void UpdateOutRelicCondition()
         {
             EnvironmentConditionListOut[RelicSet.Feixiao] = Environments.Contains(PlayerEnvironment.SkyHeight);
@@ -132,18 +145,6 @@
                     }
                 }
             }
-        }
-
-        private void UpdateEnvironment(PlayerEnvironment environment, bool condition)
-        {
-            if (condition)
-            {
-                Environments?.Add(environment);
-            }
-            else
-            {
-                Environments?.Remove(environment);
-            }
-        }
+        }*/
     }
 }
